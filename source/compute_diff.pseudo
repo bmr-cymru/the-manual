@@ -1,0 +1,148 @@
+FUNCTION compute_diff(tree_a, tree_b, options) → FsDiffResults:
+  diffs ← ∅ /* Empty list of diff records */
+  all_paths ← keys(tree_a) ∪ keys(tree_b) /* Union of all paths */
+
+  IF all_paths = ∅:
+    RETURN FsDiffResults(∅)
+
+  /*
+   * PHASE 1: Path-by-path comparison
+   */
+
+  FOR EACH path ∈ sorted(all_paths):
+    entry_a ← tree_a[path] OR NULL /* May not exist */
+    entry_b ← tree_b[path] OR NULL /* May not exist */
+
+    /* Case 1: Path exists only in tree_b (added) */
+    IF entry_a = NULL:
+      record ← FsDiffRecord(path, ADDED, new_entry=entry_b)
+      changes ← detect_added(entry_b, options)
+      ATTACH changes TO record
+      OPTIONALLY generate_content_diff(NULL, entry_b)
+      APPEND record TO diffs
+      CONTINUE
+
+    /* Case 2: Path exists only in tree_a (removed) */
+    IF entry_b = NULL:
+      record ← FsDiffRecord(path, REMOVED, old_entry=entry_a)
+      changes ← detect_removed(entry_a, options)
+      ATTACH changes TO record
+      OPTIONALLY generate_content_diff(entry_a, NULL)
+      APPEND record TO diffs
+      CONTINUE
+
+    /* Case 3: Path exists in both trees */
+    /* Sub-case 3a: Type changed (e.g., file → directory) */
+    IF type(entry_a) ≠ type(entry_b):
+      APPEND FsDiffRecord(path, TYPE_CHANGED, entry_a, entry_b) TO diffs
+      CONTINUE
+
+    /* Sub-case 3b: Same type — check for modifications */
+    changes ← detect_changes(entry_a, entry_b, options)
+    effective_changes ← filter_by_options(changes, options)
+
+    IF effective_changes = ∅:
+      CONTINUE /* No reportable changes */
+
+    record ← FsDiffRecord(path, MODIFIED, entry_a, entry_b)
+    ATTACH effective_changes TO record
+
+    IF ∃ content_change ∈ effective_changes:
+      OPTIONALLY generate_content_diff(entry_a, entry_b)
+
+    APPEND record TO diffs
+
+  /*
+   * PHASE 2: Move detection
+   */
+  diffs ← detect_moves(diffs, tree_a, tree_b, options)
+
+  RETURN FsDiffResults(diffs)
+
+FUNCTION detect_moves(diffs, tree_a, tree_b, options) → List[FsDiffRecord]:
+  /* Build index sets from existing diff records */
+  added_paths ← { d.path : d ∈ diffs, d.type = ADDED, is_file(d), H(d) ≠ NULL }
+  removed_paths ← { d.path : d ∈ diffs, d.type = REMOVED, is_file(d), H(d) ≠ NULL }
+  changed_paths ← { d.path : d ∈ diffs, d.type = MODIFIED, is_file(d), H(d) ≠ NULL }
+
+  /* Build path → diff record map for O(1) lookup */
+  diff_map ← defaultdict(list)
+
+  FOR EACH d ∈ diffs:
+    diff_map[d.path].APPEND(d)
+
+  /*
+   * KEY OPTIMISATION: Hash-indexed destination lookup
+   */
+
+  dest_hashes ← defaultdict(list) /* content_hash → [(path, entry), ...] */
+
+  FOR EACH (path, entry) ∈ tree_b:
+    IF is_file(entry) AND H(entry) ≠ NULL:
+      dest_hashes[H(entry)].APPEND((path, entry))
+
+  used_dests ← ∅ /* Ensure 1:1 move matching */
+  to_prune ← ∅ /* ADDED/REMOVED records to remove */
+
+  /*
+   * Scan source tree for potential move sources
+   */
+
+  FOR EACH (src_path, entry_a) ∈ tree_a:
+    /* Only files with content hashes are candidates */
+    IF NOT is_file(entry_a) OR H(entry_a) = NULL:
+      CONTINUE
+
+    /* If unchanged at same path, not a move */
+    IF src_path ∈ tree_b AND H(entry_a) = H(tree_b[src_path]):
+      CONTINUE
+
+    /* Look up destinations with matching content hash */
+    candidates ← dest_hashes[H(entry_a)]
+
+    IF candidates = ∅:
+      CONTINUE
+
+    /*
+     * Select first available candidate
+     * (could be enhanced with heuristics)
+     */
+    (dest_path, entry_b) ← candidates[0]
+
+    /*
+     * Validate: must have corresponding REMOVED/ADDED
+     * or MODIFIED records.
+     */
+    IF src_path ∉ (removed_paths ∪ changed_paths):
+      CONTINUE
+
+    IF dest_path ∉ (added_paths ∪ changed_paths):
+      CONTINUE
+
+    IF dest_path = src_path:
+      CONTINUE
+
+    IF dest_path ∈ used_dests:
+      CONTINUE
+
+    /*
+     * Confirmed move: create MOVED record
+     */
+    used_dests.ADD(dest_path)
+    record ← FsDiffRecord(src_path, MOVED, entry_a, entry_b)
+    record.moved_from ← src_path
+    record.moved_to ← dest_path
+    changes ← detect_changes(entry_a, entry_b, options)
+    ATTACH changes TO record
+
+    /* Mark original ADDED/REMOVED records for pruning */
+    FOR EACH d ∈ (diff_map[src_path] ∪ diff_map[dest_path]):
+      IF is_move_component(d, src_path, dest_path):
+        to_prune.ADD(d)
+
+    APPEND record TO diffs
+
+  /* Remove superseded ADDED/REMOVED records */
+  diffs ← [ d : d ∈ diffs, d ∉ to_prune ]
+
+  RETURN diffs
