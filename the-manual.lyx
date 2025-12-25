@@ -1,0 +1,8021 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\begin_preamble
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\usepackage{epigraph}
+\usepackage{algpseudocode}
+\usepackage[hidelinks]{hyperref}
+%\Urlmuskip=0mu plus 1mu
+\usepackage[acronym]{glossaries}
+\usepackage[automake]{glossaries-extra}
+\makeglossaries
+
+\usepackage{verbatim}
+\let\verbinput\verbatiminput
+\newenvironment{verbquote}{
+  \list{}{
+    \listparindent 0pt%
+    \leftmargin    \parindent%
+    \itemindent    \listparindent%
+    \rightmargin   \leftmargin
+  }%
+  \small
+  \item[]%
+}
+{\endlist}
+
+\renewcommand{\verbatiminput}[1]{%
+  \begin{verbquote}
+    \verbinput{#1}
+  \end{verbquote}
+}
+
+\DeclareUnicodeCharacter{2205}{\ensuremath{\emptyset}}
+\DeclareUnicodeCharacter{222A}{\ensuremath{\cup}}
+\DeclareUnicodeCharacter{2208}{\ensuremath{\in}}
+\DeclareUnicodeCharacter{2209}{\ensuremath{\notin}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\neq}}
+\DeclareUnicodeCharacter{2203}{\ensuremath{\exists}}
+\DeclareUnicodeCharacter{2588}{\textblock}
+\end_preamble
+\use_default_options true
+\begin_modules
+logicalmkup
+enumitem
+\end_modules
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 1
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+THE MANUAL
+\end_layout
+
+\begin_layout Subtitle
+(How To Manage Snapshots The Easy Way)
+\end_layout
+
+\begin_layout Author
+Bryn M.
+ Reeves - 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+bmr@errorists.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+24th December 2025
+\end_layout
+
+\begin_layout Dedication
+To Bill and Jimmy —
+ thanks for the music!
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AddToShipoutPicture*
+\end_layout
+
+\begin_layout Plain Layout
+
+{%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+put(0,0)%the specific point of the page with coordinates (x=0,
+ y=0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ {
+\backslash
+includegraphics[scale=0.25]{images/logo-462x462.png}}%
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Foreword
+\end_layout
+
+\begin_layout Standard
+This is not a book about snapshots.
+ This is a book about freedom.
+\end_layout
+
+\begin_layout Standard
+Every system administrator knows the fear.
+ The update that might break everything.
+ The configuration change that could bring down production.
+ The moment you type 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+dnf upgrade
+\end_layout
+
+\end_inset
+
+ and wonder if you'll still have a working system in ten minutes.
+ We've all been there,
+ finger hovering over Enter,
+ mentally rehearsing the recovery procedure.
+\end_layout
+
+\begin_layout Standard
+It doesn't have to be this way.
+\end_layout
+
+\begin_layout Standard
+Snapshot based rollback used to be the preserve of expensive enterprise operating systems,
+ storage arrays,
+ and teams of specialists.
+ The technology existed,
+ but it was locked away behind proprietary interfaces,
+ complex procedures,
+ and eye-watering license fees.
+ Ordinary administrators on ordinary Linux systems were expected to make do with hand-rolled solutions,
+ backups,
+ prayers,
+ and long nights.
+\end_layout
+
+\begin_layout Standard
+The Manual exists because we believe everyone deserves a safety net.
+ If you can type a command,
+ you can protect your system.
+ If something goes wrong,
+ you can go back.
+ It really is that simple.
+\end_layout
+
+\begin_layout Standard
+This book will show you how to manage snapshots the easy way.
+ Not just 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+the enterprise way
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Not the "
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+consult your storage administrator
+\end_layout
+
+\end_inset
+
+" way.
+ The way that lets you make changes with confidence,
+ experiment without fear,
+ and sleep soundly knowing that yesterday's working system is only a reboot away.
+\end_layout
+
+\begin_layout Standard
+You don't need expensive hardware.
+ You don't need a team of experts.
+ You need Linux,
+ some disk space,
+ and the willingness to try.
+\end_layout
+
+\begin_layout Standard
+The rest is just details.
+ That's what this book is for.
+\end_layout
+
+\begin_layout Standard
+Be ready to ride the big dipper of the mixed metaphor.
+ Be ready to dip your hands in the lucky bag of block devices,
+ gather the storm clouds of entropy,
+ and anoint your own rollback strategy.
+ Because it is only by following the clear and concise instructions contained in this book that you can realize your long held dream of running system updates without fear,
+ thus guaranteeing your place forever in the sacred annals of Uptime History.
+\end_layout
+
+\begin_layout Standard
+One caveat before we begin:
+ snapshots are not backups.
+ They live on the same storage as your data,
+ and if that storage fails,
+ your snapshots fail with it.
+ Nothing in this book replaces a tested backup strategy.
+ But for the everyday mishaps —
+ the botched update,
+ the configuration mistake,
+ the accidental deletion —
+ snapshots will save you more times than you can count.
+ Just remember:
+ backups will get you through times of no snapshots better than snapshots will get you through times of no backups.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Getting Started
+\end_layout
+
+\begin_layout Chapter
+Installation
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+I like to think (it has to be!),
+ of a cybernetic ecology where we are free of our labors and joined back to nature,
+ returned to our mammal brothers and sisters,
+ and all watched over by machines of loving grace.
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Richard Brautigan,
+ All Watched Over By Machines Of Loving Grace,
+ 1967.
+\end_layout
+
+\begin_layout Standard
+Snapshot Manager is a Python application.
+ It's simple to install whether you are working from distribution provided packages,
+ or installing the latest source from 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+git
+\end_layout
+
+\end_inset
+
+.
+ For most users we recommend using distribution packages where available - you'll be able to take advantage of automatic updates and simplified configuration,
+ but read on to discover how to install 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ using various methods,
+ and where to obtain the Python packages and source code.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Installing-distribution-packages"
+
+\end_inset
+
+Installing distribution packages with dnf (recommended for most users).
+\end_layout
+
+\begin_layout Standard
+What you'll need:
+\end_layout
+
+\begin_layout Itemize
+A Linux system installed with Fedora (F42+),
+ CentOS (c9s+),
+ or Red Hat Enterprise Linux (RHEL9.6 onward).
+\end_layout
+
+\begin_layout Itemize
+Administrative privileges (or membership of the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+wheel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ group).
+\end_layout
+
+\begin_layout Itemize
+A working internet connection.
+\end_layout
+
+\begin_layout Standard
+It's easy to install 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ from the command line:
+ you'll be using the shell to configure and interact with the tool so if you're not a regular terminal user,
+ now is a great time to get started!
+\end_layout
+
+\begin_layout Standard
+Using the native 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+dnf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ package management tool,
+ open a terminal and either switch to the 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+root
+\end_layout
+
+\end_inset
+
+ account by running 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+su -
+\end_layout
+
+\end_inset
+
+,
+ or prefix the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+dnf install
+\end_layout
+
+\end_inset
+
+ command with 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+sudo
+\end_layout
+
+\end_inset
+
+,
+ give the appropriate password when prompted,
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+dnf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ will do its thing and pull the packages down and get them installed:
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+$ su -
+\begin_inset Newline newline
+\end_inset
+
+Password:
+\begin_inset Newline newline
+\end_inset
+
+# dnf -y install snapm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+$ sudo dnf -y install snapm
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+[sudo] password for bmr:
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+For example,
+ on Fedora 42 with 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm-0.5.2-2.fc42
+\end_layout
+
+\end_inset
+
+ the installation will look something like this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Updating and loading repositories:
+\begin_inset Newline newline
+\end_inset
+
+Repositories loaded.
+\begin_inset Newline newline
+\end_inset
+
+Package
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ Arch 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Version 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Repository 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Size
+\begin_inset Newline newline
+\end_inset
+
+Installing:
+\begin_inset Newline newline
+\end_inset
+
+snapm 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+noarch 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+0.5.2-2.fc42
+\begin_inset space ~
+\end_inset
+
+ updates 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ 32.7 KiB
+\begin_inset Newline newline
+\end_inset
+
+Installing weak dependencies:boom-boot noarch 1.6.8-2.fc42 updates 30.3 KiB
+\begin_inset Newline newline
+\end_inset
+
+Transaction Summary:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Installing:
+ 2 packages
+\begin_inset Newline newline
+\end_inset
+
+Total size of inbound packages is 62 KiB.
+ Need to download 62 KiB.
+\begin_inset Newline newline
+\end_inset
+
+After this operation,
+ 63 KiB extra will be used (install 63 KiB,
+ remove 0 B).
+\begin_inset Newline newline
+\end_inset
+
+[1/2] snapm-0:0.5.2-2.fc42.noarch
+\begin_inset space ~
+\end_inset
+
+ 100% | 478.2 KiB/s
+\begin_inset space ~
+\end_inset
+
+| 33.0 KiB | 00m00s
+\begin_inset Newline newline
+\end_inset
+
+[2/2] boom-boot-0:1.6.8-2.fc42.noa 100% | 382.5 KiB/s
+\begin_inset space ~
+\end_inset
+
+| 29.5 KiB | 00m00s
+\begin_inset Newline newline
+\end_inset
+
+--------------------------------------------------------------------------------
+\begin_inset Newline newline
+\end_inset
+
+[2/2] Total 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+100% | 89.1 KiB/s 
+\begin_inset space ~
+\end_inset
+
+| 62.4 KiB | 00m01s
+\begin_inset Newline newline
+\end_inset
+
+Running transaction[1/4]
+\begin_inset Newline newline
+\end_inset
+
+Verify package files 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+100% | 1.0 KiB/s 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+| 2.0 B 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+| 00m00s
+\begin_inset Newline newline
+\end_inset
+
+[2/4] Prepare transaction 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+100% | 4.0 B/s 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+| 2.0 B 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+| 00m00s
+\begin_inset Newline newline
+\end_inset
+
+[3/4] Installing boom-boot-0:1.6.
+ 100% | 667.3 KiB/s
+\begin_inset space ~
+\end_inset
+
+| 31.4 KiB | 00m00s
+\begin_inset Newline newline
+\end_inset
+
+[4/4] Installing snapm-0:0.5.2-2.
+ 100% | 28.3 KiB/s 
+\begin_inset space ~
+\end_inset
+
+| 35.9 KiB | 00m01s
+\begin_inset Newline newline
+\end_inset
+
+Complete!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom-boot
+\end_layout
+
+\end_inset
+
+ package (containing the boom boot manager CLI) is a 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+weak dependency
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ - that is to say,
+ it is recommended but not required (the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+python3-snapm
+\end_layout
+
+\end_inset
+
+ package separately depends on the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+python3-boom
+\end_layout
+
+\end_inset
+
+ package that provides the procedural API that 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ uses).
+ If you're installing 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ for manual use (rather than automation using the API or Ansible roles) you probably want to have 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ installed too - it's the easiest way to get deeper insight into your snapshot boot entries.
+\end_layout
+
+\begin_layout Section
+Installing copr builds from GitHub (early access to new features & fixes)
+\end_layout
+
+\begin_layout Standard
+What you'll need:
+\end_layout
+
+\begin_layout Itemize
+The URL or PR# of the pull request that you want to install a build from.
+\end_layout
+
+\begin_layout Itemize
+A Linux system installed with Fedora (F42+),
+ CentOS (c9s+),
+ or Red Hat Enterprise Linux (RHEL9.6 onward).
+\end_layout
+
+\begin_layout Itemize
+The package 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+python3-dnf-plugins-core
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ installed for the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+copr
+\end_layout
+
+\end_inset
+
+ plugin.
+\end_layout
+
+\begin_layout Itemize
+Administrative privileges (or membership of the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+wheel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ group).
+\end_layout
+
+\begin_layout Itemize
+A working internet connection.
+\end_layout
+
+\begin_layout Standard
+In this scenario,
+ we'll be using the DNF support for 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+copr repositories
+\end_layout
+
+\end_inset
+
+ in the core plug-ins package to enable a pull request repository and install the packages.
+\end_layout
+
+\begin_layout Standard
+Either open the pull request web page,
+ locate the comment from the Packit build system,
+ and copy the provided 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+dnf
+\end_layout
+
+\end_inset
+
+ command for your distribution,
+ or construct the repository argument for the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+dnf copr enable
+\end_layout
+
+\end_inset
+
+ command as follows:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+packit/snapshotmanager-snapm-PR#
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+,
+ where 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+PR#
+\end_layout
+
+\end_inset
+
+ is the pull request number assigned by GitHub in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapshotmanager/snapm
+\end_layout
+
+\end_inset
+
+ repository.
+\end_layout
+
+\begin_layout Standard
+The command will end up looking like this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+# dnf copr enable packit/snapshotmanager-snapm-830
+\begin_inset Newline newline
+\end_inset
+
+https://copr.fedorainfracloud.org/api_ 100% | 696.0 B/s | 485.0 B | 00m01s
+\begin_inset Newline newline
+\end_inset
+
+Enabling a Copr repository.
+ Please note that this repository is not partof the main distribution,
+ and quality may vary.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The Fedora Project does not exercise any power over the contents ofthis repository beyond the rules outlined in the Copr FAQ at<https://docs.pagure.org/copr.copr/user_documentation.html#what-i
+\begin_inset Newline newline
+\end_inset
+
+-can-build-in-copr>,and packages are not held to any quality or security level.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Please do not file bug reports about these packages in Fedora
+\begin_inset Newline newline
+\end_inset
+
+Bugzilla.
+ In case of problems,
+ contact the owner of this repository.
+\begin_inset Newline newline
+\end_inset
+
+Is this ok [y/N]:
+ y
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+Enter 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+y
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ when prompted to confirm enabling the repository then follow the instructions from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Installing-distribution-packages"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ to install the packages.
+\end_layout
+
+\begin_layout Section
+Installing from PyPi (Bleeding Edge Releases:
+ Some Assembly Required)
+\end_layout
+
+\begin_layout Section
+Installing or Running From Source (For Experts & Contributors)
+\end_layout
+
+\begin_layout Chapter
+Your First Snapshot Set
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+My little baby sister can do it with ease.
+ It's easier than learning your ABCs
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Kylie Minogue,
+ 1988
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Kylie's optimism regarding ease of use was unfortunately not peer reviewed against the real world scenarios of enterprise storage array crashes and thin provisioning metadata exhaustion.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Choosing Sources:
+ First Things To know.
+\end_layout
+
+\begin_layout Section
+Overriding The Default Size Policy
+\end_layout
+
+\begin_layout Section
+Naming Your Snapshot Set
+\end_layout
+
+\begin_layout Section
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm snapset create
+\end_layout
+
+\end_inset
+
+ Output
+\end_layout
+
+\begin_layout Section
+Care and Feeding for Your Snapshot Set
+\end_layout
+
+\begin_layout Chapter
+Command Quick Reference
+\end_layout
+
+\begin_layout Quotation
+"Type some s█t in here please" —
+ Damian Noonan / Amiga Format design team,
+ 1992.
+\end_layout
+
+\begin_layout Standard
+The cheat sheet.
+ Every command on two pages.
+\end_layout
+
+\begin_layout Section
+Snapset commands:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+create
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+create-scheduled
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+delete
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+rename
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+revert
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+resize
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+split
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+prune
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+activate
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+deactivate
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+autoactivate
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+list
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+show
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Snapset mount commands:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+mount
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+umount
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+exec
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+shell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Snapset comparison commands:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diff
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diffreport
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Snapshot commands:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+activate
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+deactivate
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+autoactivate
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+list
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+show
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Schedule commands:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+create
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+delete
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+edit
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+enable
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+disable
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+list
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+show
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+gc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Plugin commands:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+list
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Global options:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--debug
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--verbose
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--help
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--version
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Project History
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+History is the shock-wave of the eschaton
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Terrence McKenna,
+ Re:Evolution,
+ 1992.
+\end_layout
+
+\begin_layout Section
+In The Beginning:
+ The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ Boot Manager (2017)
+\end_layout
+
+\begin_layout Section
+The Snapshot Manager Proposal (2020)
+\end_layout
+
+\begin_layout Section
+Hiatus:
+ Other Projects (2020-2023)
+\end_layout
+
+\begin_layout Section
+For To Us 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ Is Born:
+ the MVP (2023)
+\end_layout
+
+\begin_layout Section
+Milestone II:
+ Scheduling and Garbage Collection (2024-2025)
+\end_layout
+
+\begin_layout Section
+Milestone III:
+ Snapshot Inspection and Comparison (2025)
+\end_layout
+
+\begin_layout Section
+Future Work:
+ Milestone IV,
+ Application Coordination
+\end_layout
+
+\begin_layout Part
+Core Operations
+\end_layout
+
+\begin_layout Chapter
+Snapshot Sets
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+Flash,
+ bang,
+ wallop,
+ what a picture!
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Tommy Steele,
+ 1979.
+\end_layout
+
+\begin_layout Standard
+The fundamentals of snapshot management with 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+:
+ basic operations on snapshot sets.
+\end_layout
+
+\begin_layout Section
+Creating
+\end_layout
+
+\begin_layout Section
+Listing
+\end_layout
+
+\begin_layout Section
+Showing
+\end_layout
+
+\begin_layout Section
+Deleting
+\end_layout
+
+\begin_layout Section
+Renaming
+\end_layout
+
+\begin_layout Section
+Splitting
+\end_layout
+
+\begin_layout Section
+Pruning
+\end_layout
+
+\begin_layout Chapter
+Bootable Snapshot Sets and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+"It is conjectured that Mr.
+ Murphee will now be enabled to hand himself over the Cumberland river or a barn yard fence by the straps of his boots." —
+ Workingman's Advocate,
+ 1834.
+\end_layout
+
+\begin_layout Section
+How 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ Work Together
+\end_layout
+
+\begin_layout Section
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--boot
+\end_layout
+
+\end_inset
+
+ And 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--revert
+\end_layout
+
+\end_inset
+
+ Options
+\end_layout
+
+\begin_layout Section
+Automatic 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom OsProfile
+\end_layout
+
+\end_inset
+
+ Creation
+\end_layout
+
+\begin_layout Section
+Boot Entries
+\end_layout
+
+\begin_layout Section
+Revert Entries
+\end_layout
+
+\begin_layout Section
+The Snapshot Boot Life-cycle
+\end_layout
+
+\begin_layout Chapter
+The Scheduler
+\end_layout
+
+\begin_layout Quotation
+"Even a stopped clock gives the right time twice a day...
+ And for once I'm inclined to believe that Withnail is right...
+ We are indeed,
+ drifting into the arena of the unwell...
+ making an enemy of our own future...
+ What we need is harmony,
+ fresh air,
+ stuff like that." —
+ Marwood,
+ Withnail & I,
+ 1987.
+\end_layout
+
+\begin_layout Section
+Automated snapshot creation with systemd timers
+\end_layout
+
+\begin_layout Section
+
+\nospellcheck on
+CalendarSpecs
+\end_layout
+
+\begin_layout Section
+Enabling and Disabling Schedules
+\end_layout
+
+\begin_layout Chapter
+Garbage Collection
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+You see?
+ The population census has got him down as 
+\begin_inset Quotes eld
+\end_inset
+
+dormanted.
+\begin_inset Quotes erd
+\end_inset
+
+ Uh,
+ the Central Collective Storehouse computer has got him down as 
+\begin_inset Quotes eld
+\end_inset
+
+deleted.
+\begin_inset Quotes erd
+\end_inset
+
+ Information Retrieval has got him down as 
+\begin_inset Quotes eld
+\end_inset
+
+inoperative.
+\begin_inset Quotes erd
+\end_inset
+
+ And there's another one - security has got him down as 
+\begin_inset Quotes eld
+\end_inset
+
+excised.
+\begin_inset Quotes erd
+\end_inset
+
+ Administration has got him down as 
+\begin_inset Quotes eld
+\end_inset
+
+completed.
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Mr.
+ Kurtzmann,
+ Brazil,
+ 1985.
+\end_layout
+
+\begin_layout Standard
+Retention policies in depth.
+ Count,
+ Age,
+ Timeline,
+ All.
+ When to use each and why.
+\end_layout
+
+\begin_layout Section
+What garbage Collection Does
+\end_layout
+
+\begin_layout Standard
+Automatic deletion of snapshot sets that are no longer needed.
+\end_layout
+
+\begin_layout Section
+Why You Need to Clean Up After Yourself
+\end_layout
+
+\begin_layout Subsection
+Invalidation:
+ The Dangers of CoW Exception Store Overflow
+\end_layout
+
+\begin_layout Subsection
+Performance Impacts for Thin Pools With Many Snapshots
+\end_layout
+
+\begin_layout Section
+The Count policy:
+ Keep a Fixed Number of Most Recent Snapsets
+\end_layout
+
+\begin_layout Standard
+Simple,
+ predictable space usage.
+\end_layout
+
+\begin_layout Section
+The Age policy:
+ Keep Snapsets Younger Than a Threshold
+\end_layout
+
+\begin_layout Standard
+Time based retention with 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--keep-days
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--keep-weeks
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--keep-months
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--keep-years
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+The Timeline policy:
+ Grandfathered Retention
+\end_layout
+
+\begin_layout Standard
+Keep hourly,
+ daily,
+ weekly,
+ monthly,
+ quarterly,
+ yearly snapsets.
+ Best for long term history with diminishing granularity.
+\end_layout
+
+\begin_layout Section
+The All policy:
+ Never Delete Anything Automatically
+\end_layout
+
+\begin_layout Standard
+Manual cleanup only.
+\end_layout
+
+\begin_layout Section
+Running Garbage Collection
+\end_layout
+
+\begin_layout Enumerate
+Automatic via timer
+\end_layout
+
+\begin_layout Enumerate
+Manual with 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm schedule gc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+The Mount Manager
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+You cannot be a good mountaineer,
+ however great your ability unless you are cheerful and have the spirit of comradeship
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Tenzing Norgay,
+ Tiger of the Snows,
+ 1955.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Accessing snapshot contents without rebooting
+\end_layout
+
+\begin_layout Section
+Mounting Snapshot Sets
+\end_layout
+
+\begin_layout Section
+Unmounting Snapshot Sets
+\end_layout
+
+\begin_layout Section
+Executing Commands in a Snapshot Set
+\end_layout
+
+\begin_layout Section
+Getting An Interactive Shell in a Snapshot Set
+\end_layout
+
+\begin_layout Chapter
+The Difference Engine
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+The errors which arise from the absence of facts are far more numerous and more durable than those which result from unsound reasoning respecting true data.
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Charles Babbage,
+ On the Economy of Machinery and Manufactures,
+ 1832.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comparing snapshot sets
+\end_layout
+
+\begin_layout Section
+Output formats
+\end_layout
+
+\begin_layout Section
+Filtering results
+\end_layout
+
+\begin_layout Section
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diffcache
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Storage Back-ends
+\end_layout
+
+\begin_layout Quotation
+"What's it all for?
+ Does it do any ultimate good?
+ Or even ultimate bad?" —
+ Fungus The Bogeyman,
+ 1977.
+\end_layout
+
+\begin_layout Section
+LVM2 CoW
+\end_layout
+
+\begin_layout Section
+LVM2 Thin
+\end_layout
+
+\begin_layout Section
+Stratis
+\end_layout
+
+\begin_layout Section
+Choosing The Right Back-end For Your Workload
+\end_layout
+
+\begin_layout Chapter
+What Snapm Doesn't Cover (And What To Do About It)
+\end_layout
+
+\begin_layout Quotation
+"
+\nospellcheck on
+Nie
+\nospellcheck default
+ 
+\nospellcheck on
+mój
+\nospellcheck default
+ 
+\nospellcheck on
+cyrk
+\nospellcheck default
+,
+ 
+\nospellcheck on
+nie
+\nospellcheck default
+ 
+\nospellcheck on
+moje
+\nospellcheck default
+ 
+\nospellcheck on
+małpy
+\nospellcheck default
+" ("Not my circus,
+ not my monkeys") —
+ Polish proverb
+\end_layout
+
+\begin_layout Section
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/boot
+\end_layout
+
+\end_inset
+
+ file system
+\end_layout
+
+\begin_layout Standard
+The
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/boot
+\end_layout
+
+\end_inset
+
+ file system does not typically support snapshots (until we have 
+\nospellcheck on
+boot-on-btrfs
+\nospellcheck default
+ - currently in Fedora Rawhide - and the Btrfs plugin.
+ For everything else boom 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--backup
+\end_layout
+
+\end_inset
+
+ which 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ uses under the hood gives a measure of protection by transparently backing up critical boot images).
+\end_layout
+
+\begin_layout Section
+The uEFI ESP
+\end_layout
+
+\begin_layout Standard
+The uEFI ESP (EFI System Partition) must be VFAT,
+ and cannot be snapshotted,
+ but we have a proposal to add rescue image support to 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ to cover this.
+\end_layout
+
+\begin_layout Section
+Firmware Configuration and Settings
+\end_layout
+
+\begin_layout Standard
+These are out of scope for a storage based snapshot tool:
+ consult your hardware vendor for advice on backing up and restoring these critical parameters.
+\end_layout
+
+\begin_layout Chapter
+Storage Planning
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+Freedom lies in being bold.
+\begin_inset Quotes erd
+\end_inset
+
+ —
+Robert Frost,
+ 1952.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sizing Snapshots
+\end_layout
+
+\begin_layout Section
+Capacity Planning
+\end_layout
+
+\begin_layout Section
+Monitoring Usage
+\end_layout
+
+\begin_layout Section
+When Thin Provisioning Wins
+\end_layout
+
+\begin_layout Chapter
+Security,
+ Privacy,
+ and Confidentiality Considerations
+\end_layout
+
+\begin_layout Quotation
+"Excuse me,
+ sir.
+ Seeing as how the VP is such a VIP,
+ shouldn't we keep the PC on the QT?
+ 'Cause if it leaks to the 
+\nospellcheck on
+VC
+\nospellcheck default
+ he could end up MIA,
+ and then we'd all be put on KP!" —
+ Robin Williams,
+ Good Morning Vietnam,
+ 1987.
+\end_layout
+
+\begin_layout Section
+Old Snapshot Sets Have Old Bugs
+\end_layout
+
+\begin_layout Section
+Respecting Your User's Privacy and Confidentiality
+\end_layout
+
+\begin_layout Section
+Purging Unwanted Content From Snapshots
+\end_layout
+
+\begin_layout Chapter
+Configuration
+\end_layout
+
+\begin_layout Quotation
+“It is my firm belief that it is a mistake to hold firm beliefs.” —
+ Gregory Hill,
+ 1965.
+\end_layout
+
+\begin_layout Section
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.conf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+plugins.d
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+schedule.d
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tuning 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ For Your Environment.
+\end_layout
+
+\begin_layout Part
+Scenarios & Recipes
+\end_layout
+
+\begin_layout Chapter
+Safe System Updates
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+We fear change.
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Garth Elgar,
+ 1992.
+\end_layout
+
+\begin_layout Section
+Snapshot
+\end_layout
+
+\begin_layout Section
+Update
+\end_layout
+
+\begin_layout Section
+Verify
+\end_layout
+
+\begin_layout Section
+Commit or Revert
+\end_layout
+
+\begin_layout Chapter
+Scheduled Snapshots for Recovery
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+Wait,
+ wait,
+ wait.
+ I had something for this!
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Sterling Archer,
+ 1970,000.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Protecting Against "Oops"
+\end_layout
+
+\begin_layout Section
+Rolling Recovery Windows
+\end_layout
+
+\begin_layout Section
+Hourly,
+ Daily,
+ Weekly Retention Strategies
+\end_layout
+
+\begin_layout Chapter
+\begin_inset Quotes eld
+\end_inset
+
+I Didn't Mean To!
+\begin_inset Quotes erd
+\end_inset
+
+:
+ Recovering Files and Directories
+\end_layout
+
+\begin_layout Quotation
+"In the ohnosecond (one minuscule fraction of a nanosecond,
+ the time it takes to realize you just made a BIG mistake) that followed,
+ I realized my log of the conversation was lost." —
+ Elizabeth Powell Crowe,
+ The Electronic 
+\lang czech
+Traveller
+\lang american
+:
+ Exploring Alternative Online Systems,
+ 1994.
+\end_layout
+
+\begin_layout Section
+Partial Recovery:
+ Mounting a Snapset and Copying Specific Files Back to the System
+\end_layout
+
+\begin_layout Section
+Partial Merge:
+ Using 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+split
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+prune
+\end_layout
+
+\end_inset
+
+ to Control Revert Granularity
+\end_layout
+
+\begin_layout Chapter
+Understanding What Changed
+\end_layout
+
+\begin_layout Quotation
+"No matter how far you have gone on the wrong road,
+ turn back." —
+ Turkish proverb
+\end_layout
+
+\begin_layout Section
+Visualizing Changes
+\end_layout
+
+\begin_layout Section
+Using the Difference Engine to Audit Updates
+\end_layout
+
+\begin_layout Section
+Tracking Configuration Drift
+\end_layout
+
+\begin_layout Section
+Deployment Verification
+\end_layout
+
+\begin_layout Chapter
+When Things Go Wrong
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+It was New Year's day a year ago,
+ the sky was black then blue.
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ King Boy D.,
+ 1988.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Recovery scenarios.
+ System won't boot,
+ partial recovery,
+ interrupted reverts,
+ rescuing files from snapshots.
+\end_layout
+
+\begin_layout Section
+Booting Into a Snapshot Set For investigation:
+ Using the Snapshot Boot Entry Without Reverting
+\end_layout
+
+\begin_layout Section
+System Won't Boot After Update:
+ Using the 
+\lang british
+Fail-safe
+\lang american
+ Revert Entry to Roll Back
+\end_layout
+
+\begin_layout Section
+Recovering From an Interrupted Revert:
+ What Happens When Revert Fails Midway
+\end_layout
+
+\begin_layout Section
+Rescuing Files From an Invalid Snapset:
+ When Snapshots are Damaged But Partially Readable
+\end_layout
+
+\begin_layout Section
+When to Revert vs.
+ When to Recover Files:
+ Choosing the Right Approach for the Situation
+\end_layout
+
+\begin_layout Chapter
+Troubleshooting
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+Is life too f█king weird,
+ or what?
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Bill Hicks,
+ 1992.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Common Problems and Solutions.
+\end_layout
+
+\begin_layout Section
+Debugging Techniques
+\end_layout
+
+\begin_layout Section
+Log Analysis
+\end_layout
+
+\begin_layout Section
+
+\nospellcheck on
+Provider-specific
+\nospellcheck default
+ Issues.
+\end_layout
+
+\begin_layout Part
+Advanced Topics
+\end_layout
+
+\begin_layout Chapter
+The Python API
+\end_layout
+
+\begin_layout Quotation
+“It 
+\nospellcheck on
+doesn
+\nospellcheck default
+’t seem like a dangerous situation,
+ it actually looks like a peaceful scene.
+ The snake was just making a shadow for him with his hood spread out and he didn't move in as though he was going to bite.
+ Not only was the snake not going to harm Nanak,
+ he was actually protecting Nanak from the sun." —
+ Rai Bular,
+ Nanak and the Cobra,
+ C.
+ 1474
+\end_layout
+
+\begin_layout Standard
+Snapshot Manager provides a pair of Python APIs that allow automating and scripting the various facilities.
+ There is an easy-to-use procedural API provided in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.command
+\end_layout
+
+\end_inset
+
+ module (this is used by the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ CLI),
+ and it is also possible to import and use the various classes that make up the public 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.manager
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.fsdiff 
+\end_layout
+
+\end_inset
+
+interfaces directly in client code.
+\end_layout
+
+\begin_layout Section
+Programming 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.command
+\end_layout
+
+\end_inset
+
+ procedural API
+\end_layout
+
+\begin_layout Section
+Key Classes
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Manager
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SnapSet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Snapshot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Schedule
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Scheduler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Mounts
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Mount
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffer
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffResults
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffRecord
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DiffOptions
+\end_layout
+
+\end_inset
+
+,
+ and friends
+\end_layout
+
+\begin_layout Section
+Practical Examples
+\end_layout
+
+\begin_layout Chapter
+Shell Scripting with Snapm
+\end_layout
+
+\begin_layout Quotation
+"
+\nospellcheck on
+Οἶκος
+\nospellcheck default
+ 
+\nospellcheck on
+φίλος
+\nospellcheck default
+,
+ 
+\nospellcheck on
+οἶκος
+\nospellcheck default
+ 
+\nospellcheck on
+ἄριστος
+\nospellcheck default
+" (
+\begin_inset Quotes eld
+\end_inset
+
+the home you love is the best
+\begin_inset Quotes erd
+\end_inset
+
+),
+ Zeus and the Tortoise,
+ Aesop's Fables,
+ C.
+ 300 BCE.
+\end_layout
+
+\begin_layout Section
+Automation Recipes.
+\end_layout
+
+\begin_layout Section
+Parsing Output - JSON,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+–-no-headings
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--rows
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Using 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+paths
+\end_layout
+
+\end_inset
+
+ Format in Pipelines
+\end_layout
+
+\begin_layout Section
+Integration With Other Tools
+\end_layout
+
+\begin_layout Chapter
+Under the Hood
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+Pay no attention to that man behind the curtain!
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ The Great and Powerful Oz,
+ The Wizard of Oz,
+ 1939.
+\end_layout
+
+\begin_layout Section
+Overview
+\end_layout
+
+\begin_layout Standard
+This chapter explains the algorithms and internals of the Difference Engine:
+ 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ diff generation,
+ move detection,
+ and tree construction and rendering.
+\end_layout
+
+\begin_layout Standard
+The Difference Engine is implemented in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.fsdiff
+\end_layout
+
+\end_inset
+
+ package and consists of ten Python modules:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+cache
+\end_layout
+
+\end_inset
+
+ —
+ The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diffcache
+\end_layout
+
+\end_inset
+
+:
+ improves performance of consecutive runs with the same targets and options.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+changes
+\end_layout
+
+\end_inset
+
+ —
+ File changes and change detection
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+contentdiff
+\end_layout
+
+\end_inset
+
+ —
+ Content diffing for different file types (binary,
+ text,
+ JSON,
+ etc.).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+difftypes
+\end_layout
+
+\end_inset
+
+ —
+ The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DiffType
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Enum
+\end_layout
+
+\end_inset
+
+ class:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ADDED
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+REMOVED
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MODIFIED
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MOVED
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TYPE_CHANGED
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+engine
+\end_layout
+
+\end_inset
+
+—
+ Implements the core 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DiffEngine.compute_diff()
+\end_layout
+
+\end_inset
+
+ algorithm and hash-based move detection.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+filetypes
+\end_layout
+
+\end_inset
+
+ —
+ Static (path name base) and dynamic (with 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+libmagic
+\end_layout
+
+\end_inset
+
+) file type detection and 
+\lang british
+categorisation
+\lang american
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+fsdiffer
+\end_layout
+
+\end_inset
+
+ —
+ The main interface to the Difference Engine:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffer.compare_roots()
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+options
+\end_layout
+
+\end_inset
+
+ —
+ Options to control the comparison process:
+ ignore certain change types,
+ specify the start path,
+ etc.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree
+\end_layout
+
+\end_inset
+
+ —
+ Code for building tree structures from a flat 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffResults
+\end_layout
+
+\end_inset
+
+ list and rendering the results as an ASCII or Unicode tree 
+\lang british
+visualisation
+\lang american
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+treewalk
+\end_layout
+
+\end_inset
+
+ —
+ The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TreeWalker.walk_tree()
+\end_layout
+
+\end_inset
+
+ method that generates lists of paths for the Difference Engine to visit.
+\end_layout
+
+\begin_layout Standard
+This architecture allows 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ to compare two file system trees with reasonably good performance and to render the results in a variety of useful formats that present the raw difference records in useful ways.
+ The performance in any given instance depends on the capabilities of the system and the options given to the difference generating process:
+ for example,
+ using 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+libmagic
+\end_layout
+
+\end_inset
+
+ (via the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--file-types
+\end_layout
+
+\end_inset
+
+ command line option,
+ or the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+use_magic_file_type
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DiffOptions
+\end_layout
+
+\end_inset
+
+ attribute) imposes a performance penalty but has the benefit of more accurate file type detection than the builtin path based classification.
+ This allows the user to trade runtime for more comprehensive difference information.
+\end_layout
+
+\begin_layout Paragraph
+Key variables:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree_a
+\end_layout
+
+\end_inset
+
+—
+ The first file system tree to compare (the 
+\begin_inset Quotes eld
+\end_inset
+
+left hand
+\begin_inset Quotes erd
+\end_inset
+
+ of the comparison).
+ A dictionary mapping paths to file system entry objects.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree_b
+\end_layout
+
+\end_inset
+
+ —
+ The second file system tree to compare (the 
+\begin_inset Quotes eld
+\end_inset
+
+right hand
+\begin_inset Quotes erd
+\end_inset
+
+ of the comparison).
+ A dictionary mapping paths to file system entry objects.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+all_paths
+\end_layout
+
+\end_inset
+
+—
+ The total set of paths to consider:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keys(tree_a) ∪ keys(tree_b)
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Design Notes
+\end_layout
+
+\begin_layout Subsection
+The Fallacy of the Inode
+\end_layout
+
+\begin_layout Standard
+It is conventional in UNIX environments to use a file's device and inode numbers to determine whether or not two paths refer to the same file.
+ The Difference Engine does not use inode numbers for tracking files.
+ The reason for this is simple:
+ modern file systems lie about their inode numbers 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+literally all the time
+\end_layout
+
+\end_inset
+
+.
+ Despite what POSIX says (“The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+st_ino
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+st_dev
+\end_layout
+
+\end_inset
+
+ fields taken together 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+uniquely identify
+\end_layout
+
+\end_inset
+
+ the file within the system.”) this isn't true any more,
+ and hasn't been for a long time.
+\end_layout
+
+\begin_layout Standard
+This particular horse has long since bolted:
+ we don't need to shut the barn door,
+ we need to equip the barn with RFID tags and 
+\lang british
+bio-metric
+\lang american
+ identity checks.
+\end_layout
+
+\begin_layout Subsection
+Abstracting The Abstraction:
+ The Universal Language of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MountBase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DiffEngine.compute_diff()
+\end_layout
+
+\end_inset
+
+ method accepts two objects of type 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MountBase
+\end_layout
+
+\end_inset
+
+ (defined in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.manager._mounts
+\end_layout
+
+\end_inset
+
+) to select the file system trees for comparison.
+ This abstraction is key to features like comparing against the live system root file system (using the special snapshot set name 
+\begin_inset Quotes eld
+\end_inset
+
+.
+\begin_inset Quotes erd
+\end_inset
+
+),
+ and for future support for Btrfs and arbitrary directory path comparisons.
+\end_layout
+
+\begin_layout Standard
+In the common case of a real snapshot set the argument is simply the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Mount
+\end_layout
+
+\end_inset
+
+ instance for that snapshot set as returned by the mount manager (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Manager.mounts
+\end_layout
+
+\end_inset
+
+).
+ The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Mount
+\end_layout
+
+\end_inset
+
+ class is a child of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MountBase
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For the system comparison (
+\begin_inset Quotes eld
+\end_inset
+
+.
+\begin_inset Quotes erd
+\end_inset
+
+) case,
+ the argument is the sole instance of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SysMount
+\end_layout
+
+\end_inset
+
+:
+ a second child class of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MountBase
+\end_layout
+
+\end_inset
+
+ that implements the required interface while representing the system root file system mounted at 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A future 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FakeMount
+\end_layout
+
+\end_inset
+
+ class will allow the possibility of passing in arbitrary paths (that need not even be mount points - for example,
+ Btrfs subvolume paths).
+ See 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/snapshotmanager/snapm/issues/738
+\end_layout
+
+\end_inset
+
+ for further information.
+\end_layout
+
+\begin_layout Subsection
+Why Sort the Paths?
+\end_layout
+
+\begin_layout Standard
+The algorithm sorts 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+all_paths
+\end_layout
+
+\end_inset
+
+ before iteration.
+ This isn't strictly necessary for correctness,
+ but it provides:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Deterministic output
+\end_layout
+
+\end_inset
+
+ —
+ Given the same inputs,
+ the diff records appear in the same order,
+ making testing and debugging vastly easier.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Human readable output
+\end_layout
+
+\end_inset
+
+ —
+ When rendered as a tree or list,
+ paths appear in lexicographic order,
+ matching user expectations.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Locality of reference
+\end_layout
+
+\end_inset
+
+ —
+ Files in the same directory are processed consecutively,
+ which can improve cache 
+\lang british
+behaviour
+\lang american
+ when generating content diffs that read from disk.
+\end_layout
+
+\begin_layout Subsection
+Why Prune 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ADDED
+\end_layout
+
+\end_inset
+
+/
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+REMOVED
+\end_layout
+
+\end_inset
+
+ Records?
+\end_layout
+
+\begin_layout Standard
+When a move is detected,
+ the algorithm creates a new 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MOVED
+\end_layout
+
+\end_inset
+
+ record and marks the original 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ADDED
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+REMOVED
+\end_layout
+
+\end_inset
+
+ records for removal.
+ This prevents the output from containing redundant information.
+\end_layout
+
+\begin_layout Standard
+Without pruning:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+REMOVED:
+ /old/path/config.yaml
+\begin_inset Newline newline
+\end_inset
+
+ADDED:
+ /new/path/config.yaml
+\begin_inset Newline newline
+\end_inset
+
+MOVED:
+ /old/path/config.yaml → /new/path/config.yaml
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With pruning:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MOVED:
+ /old/path/config.yaml → /new/path/config.yaml
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The pruned representation is more concise and more accurately reflects user intent.
+\end_layout
+
+\begin_layout Subsection
+Arbitrary Candidate Selection
+\end_layout
+
+\begin_layout Standard
+When multiple files share the same content hash (e.g.,
+ identical configuration files),
+ the algorithm arbitrarily selects the first candidate as the move destination:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "source/candidate_selection.py"
+lstparams "breaklines=true,language=Python,numbers=left"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For now,
+ deterministic (if arbitrary) selection ensures reproducible results.
+\end_layout
+
+\begin_layout Subsubsection
+Future Work:
+ The Sibling Proximity Heuristic
+\end_layout
+
+\begin_layout Standard
+A proposal has been made to address this in a future release using a 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+sibling proximity heuristic
+\end_layout
+
+\end_inset
+
+:
+ If more than two files have the same hash,
+ then the move detector should 
+\lang british
+favour
+\lang american
+ the one that stayed in the same sub-directory,
+ resides on the same file system or mount point,
+ or that has a lexically similar name (one is a subset of the other for e.g.:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+config.yaml
+\end_layout
+
+\end_inset
+
+ → 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+conf.yaml.orig
+\end_layout
+
+\end_inset
+
+).
+ If two or more files exist that satisfy these conditions a tiebreaker decision should be made between them (for instance,
+ choosing the destination with the shorter file name).
+ See 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/snapshotmanager/snapm/issues/831
+\end_layout
+
+\end_inset
+
+ for further details and progress.
+\end_layout
+
+\begin_layout Section
+The difference engine:
+ computing diffs
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DiffEngine.compute_diff()
+\end_layout
+
+\end_inset
+
+:
+ Detailed Explanation
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DiffEngine.compute_diff()
+\end_layout
+
+\end_inset
+
+ method is the heart of the Difference Engine.
+ Given two file system tree snapshots,
+ it produces a complete manifest of what changed between them:
+ files added,
+ removed,
+ modified,
+ moved,
+ or transformed into a different type entirely.
+\end_layout
+
+\begin_layout Paragraph
+Formally:
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $compute\textunderscore\mathit{{diff}}:(Tree_{a}\times Tree_{b}\times0)→R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Where:
+\end_layout
+
+\begin_layout Paragraph
+Trees are partial functions from paths to entries:
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $Tree_{a},Tree_{b}∈P⇀E$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $P=\left\{ p:isFsPath(p)\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $E=\left\{ e:isFsEntry(e)\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $O=DiffOptions$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $R=\left\{ r_{1},r_{2},...,r_{n}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $r_{i}∈FsDiffRecord$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Each 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffRecord
+\end_layout
+
+\end_inset
+
+ is a tuple:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r=(p,\delta,e_{old},e_{new},C)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Where:
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $p∈P$
+\end_inset
+
+ The path.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $\delta=\left\{ ADDED,REMOVED,MODIFIED,MOVED,TYPE\textunderscore CHANGED\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $e_{old}∈E∪\left\{ ∅\right\} $
+\end_inset
+
+ Entry from 
+\begin_inset Formula $Tree_{a}$
+\end_inset
+
+(or null)
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $e_{old}∈E∪\left\{ ∅\right\} $
+\end_inset
+
+ Entry from 
+\begin_inset Formula $Tree_{b}$
+\end_inset
+
+(or null)
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $C⊆FileChange$
+\end_inset
+
+ Set of detected changes
+\end_layout
+
+\begin_layout Subsection
+Inputs
+\end_layout
+
+\begin_layout Standard
+The algorithm accepts two file system trees,
+ each represented as a dictionary mapping path names to 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsEntry
+\end_layout
+
+\end_inset
+
+ objects,
+ and a 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DiffOptions
+\end_layout
+
+\end_inset
+
+ instance to control the process:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree_a
+\end_layout
+
+\end_inset
+
+ —
+ The "before" state (e.g.,
+ snapshot at time T₀)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree_b
+\end_layout
+
+\end_inset
+
+ —
+ The "after" state (e.g.,
+ snapshot at time T₁)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+options
+\end_layout
+
+\end_inset
+
+ —
+ Configuration controlling what constitutes a "change" (ignore timestamps?
+ ignore ownership?
+ content-only mode?) and other parameters (for e.g.
+ the start path for the comparison within the file system roots,
+ and the lists of include/exclude glob patterns).
+\end_layout
+
+\begin_layout Standard
+Each 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsEntry
+\end_layout
+
+\end_inset
+
+ encapsulates the metadata and (optionally) content hash of a file system object:
+ its type (file,
+ directory,
+ symbolic link,
+ block device,
+ etc.),
+ size,
+ mode,
+ ownership,
+ timestamps,
+ and a cryptographic hash of its contents.
+ Since the hash values are not used for security purposes it is acceptable to use a weaker cryptographic hash (for e.g.
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+md5
+\end_layout
+
+\end_inset
+
+):
+ the default is 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+sha256
+\end_layout
+
+\end_inset
+
+ which matches many contemporary packaging and verification systems (for e.g.
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+RPM
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Outputs
+\end_layout
+
+\begin_layout Standard
+An 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffResults
+\end_layout
+
+\end_inset
+
+ container holding a list of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffRecord
+\end_layout
+
+\end_inset
+
+ objects.
+ Each record describes a single path and its change type:
+\end_layout
+
+\begin_layout Quotation
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DiffType
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Meaning
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ADDED
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Path exists only in tree_b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+REMOVED
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Path exists only in tree_a
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MODIFIED
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Path exists in both,
+ with detected changes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TYPE_CHANGED
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The file system object type changed (e.g.,
+ file → directory)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Goals and Trade-offs
+\end_layout
+
+\begin_layout Standard
+The algorithm balances several competing concerns:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Correctness over speed
+\end_layout
+
+\end_inset
+
+ —
+ Every genuine change must be detected.
+ A missed change could mean silent data loss during a rollback.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Move detection as a first-class citizen 
+\end_layout
+
+\end_inset
+
+—
+ Many "delete + create" pairs are actually renames or relocations.
+ Detecting these provides clearer,
+ more actionable output.
+ However,
+ move detection requires additional work beyond simple set-difference.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Memory vs.
+ time
+\end_layout
+
+\end_inset
+
+ —
+ The naive approach to move detection (compare every removed file against every added file) is O(n²).
+ We trade memory for time by building hash-indexed lookup structures.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Configurability
+\end_layout
+
+\end_inset
+
+ —
+ Not every change is interesting in every context.
+ System administrators may want to ignore ownership changes;
+ package verifiers may care only about content.
+ Options allow filtering at detection time rather than in post-processing.
+\end_layout
+
+\begin_layout Subsection
+Algorithm in pseudocode
+\end_layout
+
+\begin_layout Standard
+The following uses mathematical notation where helpful.
+ Conventions:
+\end_layout
+
+\begin_layout Itemize
+∅ —
+ the empty set
+\end_layout
+
+\begin_layout Itemize
+∈ —
+ set membership ("is element of")
+\end_layout
+
+\begin_layout Itemize
+∉ —
+ not a member
+\end_layout
+
+\begin_layout Itemize
+∪ —
+ set union
+\end_layout
+
+\begin_layout Itemize
+∃ —
+ there exists
+\end_layout
+
+\begin_layout Itemize
+→ —
+ maps to / produces
+\end_layout
+
+\begin_layout Itemize
+← —
+ let / assignment
+\end_layout
+
+\begin_layout Itemize
+H(x) —
+ content hash function applied to entry x
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+verbatiminput{source/compute_diff.pseudo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Complexity Analysis
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Phase 1
+\end_layout
+
+\end_inset
+
+:
+ Path Comparison
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $n=|tree_{a}|+|tree_{b}|$
+\end_inset
+
+(total entries across both trees).
+\end_layout
+
+\begin_layout Quotation
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Operation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Complexity
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Computing 
+\begin_inset Formula $all\textunderscore paths=keys(tree_{a})∪keys(tree_{b})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sorting 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+all_paths
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Iterating sorted paths
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dictionary look-ups (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree_a.get(path)
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree_b.get(path)
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Change detection per path (fixed number of field comparisons)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Phase 1
+\end_layout
+
+\end_inset
+
+ total:
+ 
+\begin_inset Formula $O(n\log n)$
+\end_inset
+
+ —
+ dominated by the sort.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Phase 2
+\end_layout
+
+\end_inset
+
+:
+ Move Detection
+\end_layout
+
+\begin_layout Standard
+Without 
+\lang coptic
+optimisation
+\lang american
+,
+ detecting moves would require comparing every removed file against every added file.
+ If 
+\begin_inset Formula $r$
+\end_inset
+
+ files were removed and 
+\begin_inset Formula $a$
+\end_inset
+
+ files were added,
+ this naive approach is 
+\begin_inset Formula $O(r\times a)$
+\end_inset
+
+,
+ which degenerates to 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ in the worst case (e.g.,
+ renaming an entire directory tree).
+\end_layout
+
+\begin_layout Subsubsection
+The Hash Index 
+\lang british
+Optimisation
+\end_layout
+
+\begin_layout Standard
+The algorithm builds a look-aside cache indexed by content hash:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "source/hash_optimisation.py"
+lstparams "breaklines=true,language=Python,numbers=left"
+literal "false"
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Operation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Complexity
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Building 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+dest_hashes
+\end_layout
+
+\end_inset
+
+(single pass over 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree_b
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Building 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+added_paths
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+removed_paths
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+changed_paths
+\end_layout
+
+\end_inset
+
+(single pass over 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diffs
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Building d
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+iff_map
+\end_layout
+
+\end_inset
+
+ (single pass over 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diffs
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Looking up candidates by hash
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(1)$
+\end_inset
+
+ average
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Iterating 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree_a
+\end_layout
+
+\end_inset
+
+ entries
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Phase 2
+\end_layout
+
+\end_inset
+
+ total:
+ 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ —
+ linear in the number of file system entries.
+\end_layout
+
+\begin_layout Subsection
+Overall Complexity
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $O(n\log n)$
+\end_inset
+
+ —
+ dominated by the path sort in 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Phase 1
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Memory Trade-offs
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ time complexity for the move detection comes at a cost.
+ Let 
+\begin_inset Formula $m=|moves|$
+\end_inset
+
+(total number of moves):
+\end_layout
+
+\begin_layout Quotation
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Structure
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Space
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Purpose
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+dest_hashes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hash → destination path lookup
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+added_paths
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Quick membership test for valid move destinations
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+removed_paths
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Quick membership test for valid move sources
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+changed_paths
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Handle modified files that may also be move sources
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diff_map
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Path → diff record lookup for pruning
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+used_dests
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(m)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prevent double matching
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+to_prune
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(m)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Track records to remove post-detection
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+Total auxiliary space:
+ 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+This is the classic time vs.
+ memory trade-off:
+ we accept linear memory overhead to avoid quadratic time complexity.
+ For a file system tree with millions of entries,
+ the difference between 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ and 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ is the difference between "completes in seconds" and "heat death of the universe."
+\end_layout
+
+\begin_layout Subsection
+When The Trade-off Matters
+\end_layout
+
+\begin_layout Standard
+Consider a package upgrade that renames a configuration directory:
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/etc/myapp/config.d/ → /etc/myapp/conf.d/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+If this directory contains 10,000 configuration files,
+ the naive approach would perform 
+\begin_inset Formula $10,000\times10,000=100,000,000$
+\end_inset
+
+ comparisons.
+ The hash-indexed approach performs approximately 30,000 operations (three passes of 10,000 each,
+ plus the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree_a
+\end_layout
+
+\end_inset
+
+ iteration).
+\end_layout
+
+\begin_layout Standard
+The practical speedup factor approaches 
+\begin_inset Formula $n/3$
+\end_inset
+
+ —
+ for large trees,
+ this is the difference between interactive performance and overnight batch jobs.
+\end_layout
+
+\begin_layout Section
+Tree Building and Rendering
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{chapter}{22}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Extending 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Official Discordian Document Numbering System
+\end_layout
+
+\end_inset
+
+ assigns this chapter the designation III(c)/5,iv;12:23:25.
+ The correlation to "Chapter 23" is left as an exercise for the reader,
+ or possibly the result of apophenia,
+ or both,
+ or neither,
+ depending on which day of the week it is in your reality tunnel.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+"The movement grew and grew and grew.
+ And all who could see the designs knew that they had to have been put there by a Great Force.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Nothing but a Great Force,
+\begin_inset Quotes erd
+\end_inset
+
+ said the philosophers,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+could create this immense beauty!
+\begin_inset Quotes erd
+\end_inset
+
+" —
+ The Myth of Starbuck (The Myth of Ichabod),
+ Malaclypse The Younger,
+ K.C.,
+ Principia Discordia,
+ 4th ed.,
+ 1970.
+\end_layout
+
+\begin_layout Section
+Hacking 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ code base aims to be well structured,
+ commented,
+ and generally pleasant to work on.
+ There are relatively few 
+\begin_inset Quotes eld
+\end_inset
+
+Here Be Dragons!
+\begin_inset Quotes erd
+\end_inset
+
+ areas of code - and those are hopefully clearly demarcated,
+ and certainly no 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/* You are not expected to understand this */
+\end_layout
+
+\end_inset
+
+ comments.
+ Our 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Scheduler
+\end_layout
+
+\end_inset
+
+ is mercifully free from the need to perform task swapping on a PDP11.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:-Package-Logging"
+
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ Package Logging
+\end_layout
+
+\begin_layout Standard
+The entire 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ package (and its test suites) use the standard Python 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+logging
+\end_layout
+
+\end_inset
+
+ package.
+ By convention each module imports 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+logging
+\end_layout
+
+\end_inset
+
+ independently and 
+\lang british
+initialises
+\lang american
+ a module-level logger by the standard 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+logging.getLogger(__name__)
+\end_layout
+
+\end_inset
+
+ incantation.
+ Modules typically define local 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+_log_LEVEL()
+\end_layout
+
+\end_inset
+
+→ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+_log.LEVEL()
+\end_layout
+
+\end_inset
+
+ aliases to alleviate some of the repetitive typing when adding log messages.
+ Use the levels wisely:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+debug
+\end_layout
+
+\end_inset
+
+ —
+ low level debug output.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+info
+\end_layout
+
+\end_inset
+
+ —
+ informational messages the user might be interested in when using 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--verbose
+\end_layout
+
+\end_inset
+
+ output.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+warn
+\end_layout
+
+\end_inset
+
+ —
+ warning messages:
+ something is amiss,
+ and the user should know about it,
+ but it is not fatal to the current operation.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+error
+\end_layout
+
+\end_inset
+
+ —
+ Bad Things Happened:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ may not be able to complete the requested operation.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Subsystem-Specific-Logging"
+
+\end_inset
+
+Subsystem Specific Logging
+\end_layout
+
+\begin_layout Standard
+There are a lot of moving parts in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ and the logs would get rather chatty if everyone just had at it all the time.
+ For this reason,
+ the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ packages implement an additional layer of log filtering using 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+subsystem names
+\end_layout
+
+\end_inset
+
+ (formerly,
+ hexadecimal subsystem masks:
+ see below - 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:A-Brief-Note"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ - for more on this).
+ This allows the user to specify what subsystems they are interested in on the command line using the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--debug
+\end_layout
+
+\end_inset
+
+ argument:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-d | --debug debug_flags
+\begin_inset Newline newline
+\end_inset
+
+A comma-separated list of subsystem names to enable debugging output for,
+ or 'all' to enable all debugging.
+ The available debug classes are:
+ manager,
+ command,
+ report,
+ schedule,
+ mounts,
+ fsdiff.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This reduces log clutter and allows more focused debugging when a problem is isolated to a particular subsystem or subsystems.
+\end_layout
+
+\begin_layout Standard
+The subsystem specific logging function is typically named like 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+_log_debug_SUBSYSTEM()
+\end_layout
+
+\end_inset
+
+,
+ for example,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+_log_debug_command()
+\end_layout
+
+\end_inset
+
+.
+ They typically look like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "source/subsystem_logging.py"
+lstparams "breaklines=true,language=Python,numbers=left"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:A-Brief-Note"
+
+\end_inset
+
+A Brief Note About Subsystem Masks
+\end_layout
+
+\begin_layout Standard
+In the beginning was 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+,
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ used hexadecimal masks with symbolic constants in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ package to filter log messages.
+ A custom 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Logger
+\end_layout
+
+\end_inset
+
+ subclass was defined that implemented the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+_log_debug_masked()
+\end_layout
+
+\end_inset
+
+ method that provided the filtering.
+\end_layout
+
+\begin_layout Standard
+And all was well in the world.
+\end_layout
+
+\begin_layout Standard
+Then along came 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ with the same great idea.
+ It turns out that when you have 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+two
+\end_layout
+
+\end_inset
+
+ custom 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Logger
+\end_layout
+
+\end_inset
+
+ sub-classes that both packages attempt to install,
+ they fight over the (process global) 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+logging.setLoggerClass()
+\end_layout
+
+\end_inset
+
+ call,
+ and everything goes to heck in a handcart.
+ If you're lucky,
+ you just lose some messages you wanted to see.
+ If you're unlucky,
+ the entire logging module halts and catches fire when someone tries to use a subsystem log mask that the winning 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Logger
+\end_layout
+
+\end_inset
+
+ class doesn't know about.
+ It was a mess.
+ Read all the gory and awful details at 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/snapshotmanager/snapm/issues/83
+\end_layout
+
+\end_inset
+
+ (if you must).
+\end_layout
+
+\begin_layout Standard
+Anyhow:
+ this is all now thankfully fixed and both 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ use a sane architecture based on individual 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+logging.Filter
+\end_layout
+
+\end_inset
+
+ sub-classes that prune messages that are not selected by the current package-specific subsystem filtering list.
+ See 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/snapshotmanager/snapm/issues/521
+\end_layout
+
+\end_inset
+
+ for more details on the implementation.
+\end_layout
+
+\begin_layout Standard
+The masks are retained for backwards compatibility and the new logging code translates between the old and new representation as needed.
+ Some day we will tire of maintaining all that and a major release will include a breaking change to drop all the cruft once and for all.
+ Some day.
+\end_layout
+
+\begin_layout Subsubsection
+Defining new subsystems
+\end_layout
+
+\begin_layout Standard
+First of all:
+ think really hard before doing this.
+ Question the life choices that brought you to this point.
+ Adding a new subsystem is a multi-step process that is moderately tedious,
+ and once it's done,
+ we are pretty much stuck with it until the heat death of the universe.
+ Choose wisely and pick good names!
+\end_layout
+
+\begin_layout Standard
+The procedure is roughly as follows:
+\end_layout
+
+\begin_layout Enumerate
+Pick a name for your subsystem,
+ say 
+\begin_inset Quotes eld
+\end_inset
+
+Quux
+\begin_inset Quotes erd
+\end_inset
+
+ for this example.
+ (
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+DO NOT UNDER ANY CIRCUMSTANCES CALL YOUR NEW SUBSYSTEM 
+\begin_inset Quotes eld
+\end_inset
+
+QUUX
+\begin_inset Quotes erd
+\end_inset
+
+!
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+Add a new subsystem debug mask constant named like 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SNAPM_DEBUG_QUUX
+\end_layout
+
+\end_inset
+
+ to the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm._snapm
+\end_layout
+
+\end_inset
+
+ module with a value that is double that of the previous last mask value.
+ Add the new mask to the OR statement in the definition of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SNAPM_DEBUG_ALL
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Add a new subsystem name constant named like 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SNAPM_SUBSYSTEM_QUUX
+\end_layout
+
+\end_inset
+
+ with the value 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.quux
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ to the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm._snapm
+\end_layout
+
+\end_inset
+
+ module.
+\end_layout
+
+\begin_layout Enumerate
+Add both those constants to the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm._snapm
+\end_layout
+
+\end_inset
+
+ module's 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+__all__
+\end_layout
+
+\end_inset
+
+ list.
+\end_layout
+
+\begin_layout Enumerate
+Import your new debug mask in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.command
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Extend the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+mask_map
+\end_layout
+
+\end_inset
+
+ dictionary in the function 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.command.set_debug()
+\end_layout
+
+\end_inset
+
+ to 
+\lang british
+recognise
+\lang american
+ your new subsystem.
+ Make the user visible string be the same as the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SUBSYSTEM
+\end_layout
+
+\end_inset
+
+ constant minus the 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ prefix;
+ otherwise nobody will like you,
+ and they will curse your new subsystem until the end of time.
+\end_layout
+
+\begin_layout Enumerate
+Define your own 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+_log_debug_quux()
+\end_layout
+
+\end_inset
+
+ wrapper in your subsystem's module(s),
+ using the example in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Subsystem-Specific-Logging"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ as a template.
+\end_layout
+
+\begin_layout Enumerate
+Sprinkle thine subsystem with calls to 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+_log_debug_quux()
+\end_layout
+
+\end_inset
+
+ according to taste.
+\end_layout
+
+\begin_layout Enumerate
+Make sure all the unit tests still pass,
+ especially those in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tests.test_command
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+See 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/snapshotmanager/snapm/commit/078fdd8
+\end_layout
+
+\end_inset
+
+ for a relatively clean example of doing this (for the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+fsdiff
+\end_layout
+
+\end_inset
+
+ subsystem).
+\end_layout
+
+\begin_layout Section
+Plugin architecture
+\end_layout
+
+\begin_layout Standard
+The plugin interface is extensive and in some places a little subtle,
+ but that reflects the complexity of the domain - it needs to abstract different types of block device and file system snapshot capabilities,
+ and to provide a uniform interface to the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Manager
+\end_layout
+
+\end_inset
+
+ orchestrate so that it is not cluttered with plugin type specific hacks.
+\end_layout
+
+\begin_layout Section
+Writing providers
+\end_layout
+
+\begin_layout Standard
+We're not going to sugar coat it:
+ writing a new provider plugin is no small undertaking.
+ Expect to set aside at least a week or two to cruft together something roughly workable,
+ and then a few more weeks to establish effective unit and integration tests to validate its 
+\lang british
+behaviour
+\lang american
+.
+\end_layout
+
+\begin_layout Standard
+The best guide to writing a new 
+\lang british
+plugin
+\lang american
+ is always the existing plugins in the
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.manager.plugins
+\end_layout
+
+\end_inset
+
+ package:
+ find an existing plugin that is most similar to your goals,
+ and use that as a template.
+ The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Manager
+\end_layout
+
+\end_inset
+
+ will automatically attempt to load any modules (
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+*.py
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ files) in the plugins package directory that declare valid sub-classes of the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Plugin
+\end_layout
+
+\end_inset
+
+ type,
+ so you can just
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+cp snapm/manager/plugins/foo.py snapm/manager/plugins/bar.py
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+,
+ toss in a few 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+sed -i 's/Baz/Quux/'
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+vim
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+:%s/.../.../
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ commands and get started right away.
+ Or you can use a real IDE to do the refactoring:
+ whatever floats your boat.
+\end_layout
+
+\begin_layout Standard
+Spray your new plugin liberally with debug statements - you can always drop them before submitting your work for consideration upstream,
+ or retain them behind the debug logging guards discussed in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:-Package-Logging"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+The snapm Test Suites
+\end_layout
+
+\begin_layout Standard
+We have three (or four - it depends how you count them) test suites for the project.
+ Each is focused on a different aspect:
+ unit testing,
+ integration testing,
+ isolated tests for things that talk to 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+systemd
+\end_layout
+
+\end_inset
+
+ over DBus,
+ and end-to-end tests.
+\end_layout
+
+\begin_layout Subsection
+The Basic Unit and Integration Tests (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tests/
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+container_tests
+\end_layout
+
+\end_inset
+
+ DBus Integration Tests
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+virt_tests
+\end_layout
+
+\end_inset
+
+ End-to-End Testing Framework
+\end_layout
+
+\begin_layout Section
+Contributing to 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{chapter}{23}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+\start_of_appendix
+Appendices
+\end_layout
+
+\begin_layout Chapter
+Directories and file formats
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+All statements are in some sense true,
+ in some sense false,
+ and in some sense meaningless.
+\begin_inset Quotes erd
+\end_inset
+
+ —
+ Sri Syadasti,
+ Principia Discordia,
+ 1963.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+/etc/snapm/snapm.conf:
+ global configuration options and syntax
+\end_layout
+
+\begin_layout Section
+/etc/snapm/plugins.d/:
+ per-plugin configuration files,
+ naming convention,
+ available options
+\end_layout
+
+\begin_layout Section
+/etc/snapm/schedule.d/:
+ schedule definition files,
+ schema reference,
+ required and optional fields
+\end_layout
+
+\begin_layout Section
+/run/snapm/lock:
+ the lock file preventing concurrent operations
+\end_layout
+
+\begin_layout Section
+/run/snapm/mounts/:
+ mount point hierarchy for mounted snapsets
+\end_layout
+
+\begin_layout Section
+/var/cache/snapm/diffcache:
+ difference engine cache location and format
+\end_layout
+
+\begin_layout Chapter
+Output and reporting formats
+\end_layout
+
+\begin_layout Quotation
+"ΤΗΙ ΚΑΛΛΙΣΤΗΙ!" (
+\begin_inset Quotes eld
+\end_inset
+
+To the prettiest one!
+\begin_inset Quotes erd
+\end_inset
+
+) —
+ Eris,
+ goddess of discord,
+ date unknown.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Reports
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapset list
+\end_layout
+
+\end_inset
+
+ report
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapshot list
+\end_layout
+
+\end_inset
+
+ report
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+schedule list 
+\end_layout
+
+\end_inset
+
+report
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diffreport
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Output For Robots:
+ The JSON formats
+\end_layout
+
+\begin_layout Section
+On report commands and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+–-json
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapset list –-json
+\end_layout
+
+\end_inset
+
+ format
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapshot list –-json
+\end_layout
+
+\end_inset
+
+ format
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+schedule list –-json
+\end_layout
+
+\end_inset
+
+ format
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diffreport –-json
+\end_layout
+
+\end_inset
+
+ format
+\end_layout
+
+\begin_layout Section
+On show commands and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+–-json
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapset show --json
+\end_layout
+
+\end_inset
+
+ format
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapshot show –-json
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+schedule show –-json
+\end_layout
+
+\end_inset
+
+ format
+\end_layout
+
+\begin_layout Section
+Diff Modes.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+paths
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+full
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+short
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+json
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diff
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+summary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
