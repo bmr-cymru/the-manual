@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="206.5034mm"
+   height="202.75308mm"
+   viewBox="0 0 206.5034 202.75308"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="difference_engine.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.6685676"
+     inkscape:cx="435.70305"
+     inkscape:cy="323.93053"
+     inkscape:window-width="3840"
+     inkscape:window-height="2083"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-2.3857963,-57.999205)">
+    <g
+       id="g1"
+       transform="matrix(0.28546518,0,0,0.28546518,60.996558,117.13867)">
+      <g
+         id="node35"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-3366.5762,306.16695)">
+        <title
+           id="title238">snapm.fsdiff.changes.ChangeDetector</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="10028.75,-297.75 9334,-297.75 9334,-382.75 10028.75,-382.75 "
+           id="polygon238" />
+        <text
+           text-anchor="start"
+           x="9545.6201"
+           y="-365.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text239">snapm.fsdiff.changes.ChangeDetector</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="9334,-357.5 10028.75,-357.5"
+           id="polyline239" />
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="9334,-357.5 10028.75,-357.5"
+           id="polyline240" />
+        <text
+           text-anchor="start"
+           x="9342"
+           y="-340.20001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text240">detect_added(new_entry: FsEntry, options: DiffOptions): List[FileChange]</text>
+        <text
+           text-anchor="start"
+           x="9342"
+           y="-322.95001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text241">detect_changes(old_entry: FsEntry, new_entry: FsEntry, options: DiffOptions): List[FileChange]</text>
+        <text
+           text-anchor="start"
+           x="9342"
+           y="-305.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text242">detect_removed(old_entry: FsEntry, options: DiffOptions): List[FileChange]</text>
+      </g>
+      <g
+         id="node45"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-3770.9377,403.86183)">
+        <title
+           id="title242">snapm.fsdiff.engine.DiffEngine</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="11127.12,-975.75 10107.62,-975.75 10107.62,-1068.75 11127.12,-1068.75 "
+           id="polygon242" />
+        <text
+           text-anchor="start"
+           x="10507.12"
+           y="-1051.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text243">snapm.fsdiff.engine.DiffEngine</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="10107.62,-1043.5 11127.12,-1043.5"
+           id="polyline243" />
+        <text
+           text-anchor="start"
+           x="10558.5"
+           y="-1026.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text244">change_detector</text>
+        <text
+           text-anchor="start"
+           x="10558.5"
+           y="-1008.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text245">content_differ</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="10107.62,-1001 11127.12,-1001"
+           id="polyline245" />
+        <text
+           text-anchor="start"
+           x="10115.62"
+           y="-983.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text246">compute_diff(tree_a: Dict[str, FsEntry], tree_b: Dict[str, FsEntry], options: 'DiffOptions', term_control: Optional[TermControl]): FsDiffResults</text>
+      </g>
+      <g
+         id="node41"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-3748.2313,404.22773)">
+        <title
+           id="title310">snapm.fsdiff.contentdiff.ContentDifferManager</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="10046.5,-285.12 10046.5,-395.38 11188.25,-395.38 11188.25,-285.12 "
+           id="polygon310" />
+        <text
+           text-anchor="start"
+           x="10449.75"
+           y="-378.07001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text311">snapm.fsdiff.contentdiff.ContentDifferManager</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="10046.5,-370.12 11188.25,-370.12"
+           id="polyline311" />
+        <text
+           text-anchor="start"
+           x="10576.5"
+           y="-352.82001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text312">differs : list</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="10046.5,-344.88 11188.25,-344.88"
+           id="polyline312" />
+        <text
+           text-anchor="start"
+           x="10054.5"
+           y="-327.57001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text313">generate_content_diff(old_path: Optional[Path], new_path: Optional[Path], old_entry: Optional[FsEntry], new_entry: Optional[FsEntry]): Optional[ContentDiff]</text>
+        <text
+           text-anchor="start"
+           x="10054.5"
+           y="-310.32001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text314">get_differ_for_file(file_type_info: FileTypeInfo): ContentDifferBase</text>
+        <text
+           text-anchor="start"
+           x="10054.5"
+           y="-293.07001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text315">register_differ(differ: ContentDifferBase)</text>
+      </g>
+      <g
+         id="edge53"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-3849.5702,404.3384)">
+        <title
+           id="title315">snapm.fsdiff.contentdiff.ContentDifferManager-&gt;snapm.fsdiff.engine.DiffEngine</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 10617.38,-395.75 c 0,-126.14 0,-437.32 0,-567.15"
+           id="path315" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="10617.38,-974.71 10613.38,-968.71 10617.38,-962.71 10621.38,-968.71 "
+           id="polygon315" />
+        <text
+           text-anchor="middle"
+           x="10666.88"
+           y="-702.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text316">content_differ</text>
+      </g>
+      <g
+         id="node51"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-3892.4606,404.3384)">
+        <title
+           id="title329">snapm.fsdiff.fsdiffer.FsDiffer</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="11371.5,-1732.88 11865.25,-1732.88 11865.25,-1570.88 11371.5,-1570.88 "
+           id="polygon329" />
+        <text
+           text-anchor="start"
+           x="11516.38"
+           y="-1715.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text330">snapm.fsdiff.fsdiffer.FsDiffer</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="11371.5,-1707.62 11865.25,-1707.62"
+           id="polyline330" />
+        <text
+           text-anchor="start"
+           x="11552"
+           y="-1690.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text331">cache : bool</text>
+        <text
+           text-anchor="start"
+           x="11552"
+           y="-1673.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text332">cache_expires : int</text>
+        <text
+           text-anchor="start"
+           x="11552"
+           y="-1655.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text333">diff_engine</text>
+        <text
+           text-anchor="start"
+           x="11552"
+           y="-1638.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text334">manager : str</text>
+        <text
+           text-anchor="start"
+           x="11552"
+           y="-1621.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text335">options</text>
+        <text
+           text-anchor="start"
+           x="11552"
+           y="-1604.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text336">tree_walker</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="11371.5,-1596.12 11865.25,-1596.12"
+           id="polyline336" />
+        <text
+           text-anchor="start"
+           x="11379.5"
+           y="-1578.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text337">compare_roots(mount_a: 'Mount', mount_b: 'Mount'): FsDiffResults</text>
+      </g>
+      <g
+         id="edge54"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-3892.4606,404.3384)">
+        <title
+           id="title337">snapm.fsdiff.engine.DiffEngine-&gt;snapm.fsdiff.fsdiffer.FsDiffer</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 10690.58,-1069.15 c 165.98,-104.07 573.22,-359.41 788.76,-494.55"
+           id="path337" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="11486.37,-1563.39 11489.33,-1569.96 11482.12,-1570.16 11479.16,-1563.59 "
+           id="polygon337" />
+        <text
+           text-anchor="middle"
+           x="11156.88"
+           y="-1332.7"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text338">diff_engine</text>
+      </g>
+      <g
+         id="node47"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-4136.9361,798.45391)">
+        <title
+           id="title338">snapm.fsdiff.engine.FsDiffResults</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="13075,-1206.75 13075,-837.75 12519.75,-837.75 12519.75,-1206.75 "
+           id="polygon338" />
+        <text
+           text-anchor="start"
+           x="12677"
+           y="-1189.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text339">snapm.fsdiff.engine.FsDiffResults</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="12519.75,-1181.5 13075,-1181.5"
+           id="polyline339" />
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1164.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text340">DIFF_FORMATS : ClassVar[List[str]]</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1146.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text341">added</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1129.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text342">content_changes</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1112.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text343">count : int</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1095.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text344">modified</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1077.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text345">moved</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1060.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text346">options</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1043.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text347">records : List[FsDiffRecord]</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1026.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text348">removed</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-1008.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text349">timestamp : int</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-991.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text350">total_changes</text>
+        <text
+           text-anchor="start"
+           x="12667.25"
+           y="-974.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text351">type_changed</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="12519.75,-966.5 13075,-966.5"
+           id="polyline351" />
+        <text
+           text-anchor="start"
+           x="12527.75"
+           y="-949.20001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text352">diff(diffstat: bool, color: str, term_control: Optional[TermControl]): str</text>
+        <text
+           text-anchor="start"
+           x="12527.75"
+           y="-931.95001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text353">full(): str</text>
+        <text
+           text-anchor="start"
+           x="12527.75"
+           y="-914.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text354">json(pretty: bool): str</text>
+        <text
+           text-anchor="start"
+           x="12527.75"
+           y="-897.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text355">paths(): List[str]</text>
+        <text
+           text-anchor="start"
+           x="12527.75"
+           y="-880.20001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text356">short(): str</text>
+        <text
+           text-anchor="start"
+           x="12527.75"
+           y="-862.95001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text357">summary(diffstat: bool, color: str, term_control: Optional[TermControl]): str</text>
+        <text
+           text-anchor="start"
+           x="12527.75"
+           y="-845.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text358">tree(color: str, desc: str, term_control: Optional[TermControl]): str</text>
+      </g>
+      <g
+         id="node49"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-3845.5194,468.91235)">
+        <title
+           id="title370">snapm.fsdiff.filetypes.FileTypeDetector</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="11746.5,-302.38 11206.25,-302.38 11206.25,-378.12 11746.5,-378.12 "
+           id="polygon370" />
+        <text
+           text-anchor="start"
+           x="11335.75"
+           y="-360.82001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text371">snapm.fsdiff.filetypes.FileTypeDetector</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="11206.25,-352.88 11746.5,-352.88"
+           id="polyline371" />
+        <text
+           text-anchor="start"
+           x="11283.62"
+           y="-335.57001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text372">category_rules : ClassVar[Dict[str, FileTypeCategory]]</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="11206.25,-327.62 11746.5,-327.62"
+           id="polyline372" />
+        <text
+           text-anchor="start"
+           x="11214.25"
+           y="-310.32001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text373">detect_file_type(file_path: Path, strip_prefix: str, use_magic): FileTypeInfo</text>
+      </g>
+      <g
+         id="node57"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-3892.4606,404.3384)">
+        <title
+           id="title373">snapm.fsdiff.treewalk.TreeWalker</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="11689.12,-1103.25 12501.62,-1103.25 12501.62,-941.25 11689.12,-941.25 "
+           id="polygon373" />
+        <text
+           text-anchor="start"
+           x="11975"
+           y="-1085.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text374">snapm.fsdiff.treewalk.TreeWalker</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="11689.12,-1078 12501.62,-1078"
+           id="polyline374" />
+        <text
+           text-anchor="start"
+           x="11962.62"
+           y="-1060.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text375">exclude_patterns : Tuple[str, ...]</text>
+        <text
+           text-anchor="start"
+           x="11962.62"
+           y="-1043.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text376">file_patterns : Optional[Tuple[str, ...]]</text>
+        <text
+           text-anchor="start"
+           x="11962.62"
+           y="-1026.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text377">file_type_detector</text>
+        <text
+           text-anchor="start"
+           x="11962.62"
+           y="-1008.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text378">hash_algorithm : str</text>
+        <text
+           text-anchor="start"
+           x="11962.62"
+           y="-991.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text379">hasher : sha256</text>
+        <text
+           text-anchor="start"
+           x="11962.62"
+           y="-974.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text380">options</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="11689.12,-966.5 12501.62,-966.5"
+           id="polyline380" />
+        <text
+           text-anchor="start"
+           x="11697.12"
+           y="-949.20001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text381">walk_tree(mount: 'Mount', strip_prefix: str, quiet: bool, term_control: Optional[TermControl]): Dict[str, FsEntry]</text>
+      </g>
+      <g
+         id="edge55"
+         class="edge"
+         transform="matrix(0.32011653,0,0,0.46760344,-3499.7648,512.34824)">
+        <title
+           id="title381">snapm.fsdiff.filetypes.FileTypeDetector-&gt;snapm.fsdiff.treewalk.TreeWalker</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 11510.09,-378.29 c 94.96,-104.31 366.58,-402.7 503.82,-553.47"
+           id="path381" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="12014.75,-938.62 12013.67,-931.49 12020.66,-933.23 12021.75,-940.36 "
+           id="polygon381" />
+        <text
+           text-anchor="middle"
+           x="11867.81"
+           y="-702.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text382">file_type_detector</text>
+      </g>
+      <g
+         id="node53"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-3892.4606,404.3384)">
+        <title
+           id="title385">snapm.fsdiff.options.DiffOptions</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="11899.12,-498.88 12291.62,-498.88 12291.62,-181.62 11899.12,-181.62 "
+           id="polygon385" />
+        <text
+           text-anchor="start"
+           x="11980.25"
+           y="-481.57001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text386">snapm.fsdiff.options.DiffOptions</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="11899.12,-473.62 12291.62,-473.62"
+           id="polyline386" />
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-456.32001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text387">content_only : bool</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-439.07001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text388">exclude_patterns : Tuple[str, ...]</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-421.82001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text389">file_patterns : Tuple[str, ...]</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-404.57001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text390">follow_symlinks : bool</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-387.32001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text391">from_path : Optional[Union[str, Tuple[str]]]</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-370.07001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text392">ignore_ownership : bool</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-352.82001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text393">ignore_permissions : bool</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-335.57001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text394">ignore_timestamps : bool</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-318.32001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text395">include_content_diffs : bool</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-301.07001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text396">include_system_dirs : bool</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-283.82001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text397">max_content_diff_size : int</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-266.57001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text398">max_content_hash_size : int</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-249.32001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text399">max_file_size : int</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-232.07001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text400">quiet : bool</text>
+        <text
+           text-anchor="start"
+           x="11940.88"
+           y="-214.82001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text401">use_magic_file_type : bool</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="11899.12,-206.88 12291.62,-206.88"
+           id="polyline401" />
+        <text
+           text-anchor="start"
+           x="11907.12"
+           y="-189.57001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text402">from_cmd_args(cmd_args: Namespace): 'DiffOptions'</text>
+      </g>
+      <g
+         id="g1020"
+         transform="matrix(0.35278309,0,0,0.35278309,-2212.203,-314.18395)">
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="12613.52,-829.86 12614.94,-836.93 12607.87,-835.53 12606.45,-828.46 "
+           id="polygon402"
+           transform="rotate(133.8524,9377.8784,-571.93032)" />
+        <g
+           id="g1018">
+          <path
+             fill="none"
+             stroke="#000000"
+             d="m 7325.7635,1855.4458 c -1.1193,17.0997 -1.9011,37.5274 -1.1674,55.9306 0.2905,7.1868 0.9416,14.809 1.7687,22.2352"
+             id="path402"
+             style="stroke-width:0.407685" />
+          <text
+             text-anchor="middle"
+             x="7362.6592"
+             y="1898.9349"
+             font-family="Times, serif"
+             font-size="14px"
+             fill="#008000"
+             id="text403">options</text>
+        </g>
+      </g>
+      <g
+         id="edge83"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-3892.4606,404.3384)">
+        <title
+           id="title403">snapm.fsdiff.options.DiffOptions-&gt;snapm.fsdiff.fsdiffer.FsDiffer</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 11961.7,-499.21 c -58.62,-62.35 -131.14,-130.96 -206.32,-181.29 -51.03,-34.16 -93.2,-2.32 -127.5,-53.25 -171.79,-255.04 -89.81,-647.19 -39.16,-824.46"
+           id="path403" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="11594.23,-1562.86 11592.05,-1569.73 11586.54,-1565.08 11588.71,-1558.21 "
+           id="polygon403" />
+        <text
+           text-anchor="middle"
+           x="11654.12"
+           y="-1017.58"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text404">options</text>
+      </g>
+      <g
+         id="edge84"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-3892.4606,404.3384)">
+        <title
+           id="title404">snapm.fsdiff.options.DiffOptions-&gt;snapm.fsdiff.treewalk.TreeWalker</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 12095.38,-498.96 c 0,-133.04 0,-318.93 0,-429.33"
+           id="path404" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="12099.38,-934.13 12095.38,-940.13 12091.38,-934.13 12095.38,-928.13 "
+           id="polygon404" />
+        <text
+           text-anchor="middle"
+           x="12121.62"
+           y="-702.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text405">options</text>
+      </g>
+      <g
+         id="edge56"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-3892.4606,404.3384)">
+        <title
+           id="title447">snapm.fsdiff.treewalk.TreeWalker-&gt;snapm.fsdiff.fsdiffer.FsDiffer</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 12034.24,-1103.7 c -89.13,-117.27 -254.22,-334.49 -347.34,-457.02"
+           id="path447" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="11686.58,-1567.75 11679.76,-1570.1 11680.21,-1562.91 11687.02,-1560.55 "
+           id="polygon447" />
+        <text
+           text-anchor="middle"
+           x="11898.88"
+           y="-1332.7"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text448">tree_walker</text>
+      </g>
+    </g>
+  </g>
+</svg>

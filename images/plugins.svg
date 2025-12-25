@@ -1,0 +1,1805 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="plugins.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.6685676"
+     inkscape:cx="451.88459"
+     inkscape:cy="514.51316"
+     inkscape:window-width="3840"
+     inkscape:window-height="2083"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1"
+       transform="matrix(0.28121605,0,0,0.28121605,77.315296,96.164624)">
+      <g
+         id="node31"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title119">snapm._snapm.Snapshot</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8704.88,-1939.25 8897.88,-1939.25 8897.88,-1364.5 8704.88,-1364.5 "
+           id="polygon119" />
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1921.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text119">snapm._snapm.Snapshot</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8704.88,-1914 8897.88,-1914"
+           id="polyline119" />
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1896.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text120">as_dict</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1879.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text121">autoactivate</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1862.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text122">devpath</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1844.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text123">free</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1827.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text124">index</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1810.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text125">mount_point</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1793.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text126">mounted</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1775.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text127">name</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1758.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text128">origin</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1741.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text129">origin_mounted</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1724.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text130">origin_options</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1706.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text131">provider</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1689.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text132">size</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1672.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text133">snapset_basename</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1655.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text134">snapset_name</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1637.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text135">snapshot_mounted</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1620.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text136">snapshot_set</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1603.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text137">source</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1586.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text138">status</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1568.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text139">time</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1551.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text140">timestamp</text>
+        <text
+           text-anchor="start"
+           x="8734.25"
+           y="-1534.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text141">uuid</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8704.88,-1526.5 8897.88,-1526.5"
+           id="polyline141" />
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1510.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text142">activate()</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1496.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text143">check_resize(size_policy)</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1482.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text144">check_revert()</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1468.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text145">deactivate()</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1454.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text146">delete()</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1440.2"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text147">invalidate_cache</text>
+        <text
+           text-anchor="start"
+           x="8830.6201"
+           y="-1440.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text148">()</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1426.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text149">json(pretty)</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1412.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text150">rename(new_name)</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1398.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text151">resize(size_policy)</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1384.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text152">revert()</text>
+        <text
+           text-anchor="start"
+           x="8712.8799"
+           y="-1370.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text153">to_dict()</text>
+      </g>
+      <g
+         id="node85"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title153">snapm.manager.plugins._plugin.Plugin</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="7720.62,-2403.88 8332.12,-2403.88 8332.12,-2003.88 7720.62,-2003.88 "
+           id="polygon153" />
+        <text
+           text-anchor="start"
+           x="7888"
+           y="-2386.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text154">snapm.manager.plugins._plugin.Plugin</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7720.62,-2378.62 8332.12,-2378.62"
+           id="polyline154" />
+        <text
+           text-anchor="start"
+           x="7933"
+           y="-2361.3201"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text155">limits</text>
+        <text
+           text-anchor="start"
+           x="7933"
+           y="-2344.0701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text156">logger</text>
+        <text
+           text-anchor="start"
+           x="7933"
+           y="-2326.8201"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text157">name : str</text>
+        <text
+           text-anchor="start"
+           x="7933"
+           y="-2309.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text158">priority : int</text>
+        <text
+           text-anchor="start"
+           x="7933"
+           y="-2292.3201"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text159">size_map : NoneType, dict</text>
+        <text
+           text-anchor="start"
+           x="7933"
+           y="-2275.0701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text160">snapshot_class</text>
+        <text
+           text-anchor="start"
+           x="7933"
+           y="-2257.8201"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text161">version : str</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7720.62,-2249.88 8332.12,-2249.88"
+           id="polyline161" />
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2233.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text162">activate_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7856.8799"
+           y="-2233.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text163">(name)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2219.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text164">can_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7824.6201"
+           y="-2219.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text165">(source)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2205.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text166">check_create_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7892.1201"
+           y="-2205.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text167">(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2191.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text168">check_resize_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7889.8799"
+           y="-2191.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text169">(name, origin, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2177.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text170">check_revert_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7891.3799"
+           y="-2177.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text171">(name, origin)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2163.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text172">create_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7844.8799"
+           y="-2163.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text173">(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2149.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text174">deactivate_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7874.1201"
+           y="-2149.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text175">(name)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2135.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text176">delete_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7844.1201"
+           y="-2135.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text177">(name)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2121.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text178">discover_snapshots</text>
+        <text
+           text-anchor="start"
+           x="7867.3799"
+           y="-2121.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text179">()</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2107.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text180">end_transaction()</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2093.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text181">info()</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2079.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text182">origin_from_mount_point</text>
+        <text
+           text-anchor="start"
+           x="7907.1201"
+           y="-2079.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text183">(mount_point)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2065.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text184">rename_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7853.8799"
+           y="-2065.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text185">(old_name, origin, snapset_name, timestamp, mount_point)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2051.5701"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text186">resize_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7842.6201"
+           y="-2051.5701"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text187">(name, origin, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2037.5699"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text188">revert_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7844.1201"
+           y="-2037.5699"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text189">(name)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2023.5699"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text190">set_autoactivate</text>
+        <text
+           text-anchor="start"
+           x="7845.6201"
+           y="-2023.5699"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text191">(name, auto)</text>
+        <text
+           text-anchor="start"
+           x="7728.6201"
+           y="-2009.5699"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text192">start_transaction()</text>
+      </g>
+      <g
+         id="edge51"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title192">snapm._snapm.Snapshot-&gt;snapm.manager.plugins._plugin.Plugin</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 8704.5,-1930.98 c -2.64,-3 -5.35,-5.92 -8.12,-8.77 -94.34,-96.57 -228.37,-158.49 -351.79,-197.81"
+           id="path192" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="8340.08,-2143.17 8333.16,-2141.14 8337.69,-2135.53 8344.61,-2137.55 "
+           id="polygon192" />
+        <text
+           text-anchor="middle"
+           x="8721.7695"
+           y="-1961.7"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text193">snapshot_class</text>
+      </g>
+      <g
+         id="node86"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title666">snapm.manager.plugins._plugin.PluginLimits</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="7719.5,-1698.38 8057.25,-1698.38 8057.25,-1605.38 7719.5,-1605.38 "
+           id="polygon666" />
+        <text
+           text-anchor="start"
+           x="7727.5"
+           y="-1681.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text667">snapm.manager.plugins._plugin.PluginLimits</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7719.5,-1673.12 8057.25,-1673.12"
+           id="polyline667" />
+        <text
+           text-anchor="start"
+           x="7796.1201"
+           y="-1655.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text668">snapshots_per_origin : int</text>
+        <text
+           text-anchor="start"
+           x="7796.1201"
+           y="-1638.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text669">snapshots_per_pool : int</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7719.5,-1630.62 8057.25,-1630.62"
+           id="polyline669" />
+        <text
+           text-anchor="start"
+           x="7886.1201"
+           y="-1613.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text670" />
+      </g>
+      <g
+         id="edge71"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title670">snapm.manager.plugins._plugin.PluginLimits-&gt;snapm.manager.plugins._plugin.Plugin</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 7899.9,-1698.82 c 16.13,-64.26 46.46,-185.17 73.38,-292.46"
+           id="path670" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="7978.58,-1995.95 7976.16,-2002.75 7970.82,-1997.9 7973.24,-1991.11 "
+           id="polygon670" />
+        <text
+           text-anchor="middle"
+           x="7985.8901"
+           y="-1961.7"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text671">limits</text>
+      </g>
+      <g
+         id="node87"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title671">snapm.manager.plugins.lvm2.Lvm2Cow</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="6998.62,-1146.38 7610.12,-1146.38 7610.12,-898.12 6998.62,-898.12 "
+           id="polygon671" />
+        <text
+           text-anchor="start"
+           x="7161.8799"
+           y="-1129.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text672">snapm.manager.plugins.lvm2.Lvm2Cow</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="6998.62,-1121.12 7610.12,-1121.12"
+           id="polyline672" />
+        <text
+           text-anchor="start"
+           x="7235.75"
+           y="-1103.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text673">max_name_len : int</text>
+        <text
+           text-anchor="start"
+           x="7235.75"
+           y="-1086.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text674">name : str</text>
+        <text
+           text-anchor="start"
+           x="7235.75"
+           y="-1069.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text675">origins : dict</text>
+        <text
+           text-anchor="start"
+           x="7235.75"
+           y="-1052.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text676">priority : int</text>
+        <text
+           text-anchor="start"
+           x="7235.75"
+           y="-1034.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text677">snapshot_class</text>
+        <text
+           text-anchor="start"
+           x="7235.75"
+           y="-1017.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text678">version : str</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="6998.62,-1009.62 7610.12,-1009.62"
+           id="polyline678" />
+        <text
+           text-anchor="start"
+           x="7006.6201"
+           y="-992.33002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text679">can_snapshot(source)</text>
+        <text
+           text-anchor="start"
+           x="7006.6201"
+           y="-975.08002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text680">check_create_snapshot(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7006.6201"
+           y="-957.83002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text681">check_resize_snapshot(name, origin, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7006.6201"
+           y="-940.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text682">create_snapshot(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7006.6201"
+           y="-923.33002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text683">discover_snapshots()</text>
+        <text
+           text-anchor="start"
+           x="7006.6201"
+           y="-906.08002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text684">resize_snapshot(name, origin, mount_point, size_policy)</text>
+      </g>
+      <g
+         id="node92"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title684">snapm.manager.plugins.lvm2._Lvm2</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="7089.62,-1814.12 7701.12,-1814.12 7701.12,-1489.62 7089.62,-1489.62 "
+           id="polygon684" />
+        <text
+           text-anchor="start"
+           x="7264.8799"
+           y="-1796.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text685">snapm.manager.plugins.lvm2._Lvm2</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7089.62,-1788.88 7701.12,-1788.88"
+           id="polyline685" />
+        <text
+           text-anchor="start"
+           x="7326.75"
+           y="-1771.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text686">max_name_len : int</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7089.62,-1763.62 7701.12,-1763.62"
+           id="polyline686" />
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1747.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text687">activate_snapshot(name)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1733.33"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text688">can_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7193.6201"
+           y="-1733.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text689">(source)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1719.33"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text690">check_create_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7261.1201"
+           y="-1719.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text691">(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1705.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text692">check_revert_snapshot(name, origin)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1691.33"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text693">create_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7213.8799"
+           y="-1691.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text694">(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1677.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text695">deactivate_snapshot(name)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1663.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text696">delete_snapshot(name)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1649.33"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text697">discover_snapshots</text>
+        <text
+           text-anchor="start"
+           x="7236.3799"
+           y="-1649.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text698">()</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1635.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text699">get_lvs_json_report(vg_lv, lvs_all)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1621.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text700">get_vgs_json_report(vg_name)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1607.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text701">lv_dev_size(vg_name, lv_name)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1593.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text702">origin_from_mount_point(mount_point)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1579.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text703">pool_free_space(vg_name, pool_name)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1565.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text704">pool_name_from_vg_lv(vg_lv)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1551.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text705">rename_snapshot(old_name, origin, snapset_name, timestamp, mount_point)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1537.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text706">revert_snapshot(name)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1523.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text707">set_autoactivate(name, auto)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1509.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text708">vg_free_space(vg_name)</text>
+        <text
+           text-anchor="start"
+           x="7097.6201"
+           y="-1495.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text709">vg_lv_from_device_path(devpath)</text>
+      </g>
+      <g
+         id="node88"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title710">snapm.manager.plugins.lvm2.Lvm2CowSnapshot</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="7658.5,-378.12 8026.25,-378.12 8026.25,-302.38 7658.5,-302.38 "
+           id="polygon710" />
+        <text
+           text-anchor="start"
+           x="7666.5"
+           y="-360.82001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text710">snapm.manager.plugins.lvm2.Lvm2CowSnapshot</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7658.5,-352.88 8026.25,-352.88"
+           id="polyline710" />
+        <text
+           text-anchor="start"
+           x="7828.1201"
+           y="-335.57001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text711">free</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7658.5,-327.62 8026.25,-327.62"
+           id="polyline711" />
+        <text
+           text-anchor="start"
+           x="7840.1201"
+           y="-310.32001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text712" />
+      </g>
+      <g
+         id="edge72"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title712">snapm.manager.plugins.lvm2.Lvm2CowSnapshot-&gt;snapm.manager.plugins.lvm2.Lvm2Cow</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 7825.41,-378.43 c -30.39,-64.69 -98.29,-200.73 -176.03,-302.07 -57.03,-74.33 -129.66,-148.42 -193.56,-208.44"
+           id="path712" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="7454.23,-895.9 7447.11,-897.07 7448.76,-890.05 7455.88,-888.88 "
+           id="polygon712" />
+        <text
+           text-anchor="middle"
+           x="7686.5098"
+           y="-702.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text713">snapshot_class</text>
+      </g>
+      <g
+         id="node89"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title713">snapm.manager.plugins.lvm2.Lvm2Snapshot</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8632.88,-1129.12 8969.88,-1129.12 8969.88,-915.38 8632.88,-915.38 "
+           id="polygon713" />
+        <text
+           text-anchor="start"
+           x="8640.8799"
+           y="-1111.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text714">snapm.manager.plugins.lvm2.Lvm2Snapshot</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8632.88,-1103.88 8969.88,-1103.88"
+           id="polyline714" />
+        <text
+           text-anchor="start"
+           x="8750.75"
+           y="-1086.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text715">devpath</text>
+        <text
+           text-anchor="start"
+           x="8750.75"
+           y="-1069.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text716">free</text>
+        <text
+           text-anchor="start"
+           x="8750.75"
+           y="-1052.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text717">lv_name</text>
+        <text
+           text-anchor="start"
+           x="8750.75"
+           y="-1034.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text718">origin</text>
+        <text
+           text-anchor="start"
+           x="8750.75"
+           y="-1017.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text719">origin_options</text>
+        <text
+           text-anchor="start"
+           x="8750.75"
+           y="-1000.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text720">size</text>
+        <text
+           text-anchor="start"
+           x="8750.75"
+           y="-983.08002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text721">status</text>
+        <text
+           text-anchor="start"
+           x="8750.75"
+           y="-965.83002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text722">vg_name</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8632.88,-957.88 8969.88,-957.88"
+           id="polyline722" />
+        <text
+           text-anchor="start"
+           x="8737.25"
+           y="-940.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text723">autoactivate()</text>
+        <text
+           text-anchor="start"
+           x="8737.25"
+           y="-923.33002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text724">invalidate_cache()</text>
+      </g>
+      <g
+         id="edge30"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title724">snapm.manager.plugins.lvm2.Lvm2CowSnapshot-&gt;snapm.manager.plugins.lvm2.Lvm2Snapshot</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 7854.6,-378.34 c 28.22,-78.87 106.19,-262.16 242.78,-337.41 51.31,-28.27 476.34,11.44 527,-18 64.56,-37.53 108.7,-108.91 136.75,-171.16"
+           id="path724" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8757.83,-906.09 8765.06,-913.83 8764.23,-903.27 "
+           id="polygon724" />
+      </g>
+      <g
+         id="edge31"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title725">snapm.manager.plugins.lvm2.Lvm2Snapshot-&gt;snapm._snapm.Snapshot</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 8801.38,-1129.36 c 0,-61.93 0,-143.44 0,-223.58"
+           id="path725" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8797.88,-1352.72 8801.38,-1362.72 8804.88,-1352.72 "
+           id="polygon725" />
+      </g>
+      <g
+         id="node90"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title726">snapm.manager.plugins.lvm2.Lvm2Thin</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="7628.62,-1136.62 8240.12,-1136.62 8240.12,-907.88 7628.62,-907.88 "
+           id="polygon726" />
+        <text
+           text-anchor="start"
+           x="7791.5"
+           y="-1119.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text726">snapm.manager.plugins.lvm2.Lvm2Thin</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7628.62,-1111.38 8240.12,-1111.38"
+           id="polyline726" />
+        <text
+           text-anchor="start"
+           x="7865.75"
+           y="-1094.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text727">max_name_len : int</text>
+        <text
+           text-anchor="start"
+           x="7865.75"
+           y="-1076.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text728">name : str</text>
+        <text
+           text-anchor="start"
+           x="7865.75"
+           y="-1059.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text729">pools : dict</text>
+        <text
+           text-anchor="start"
+           x="7865.75"
+           y="-1042.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text730">priority : int</text>
+        <text
+           text-anchor="start"
+           x="7865.75"
+           y="-1025.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text731">snapshot_class</text>
+        <text
+           text-anchor="start"
+           x="7865.75"
+           y="-1007.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text732">version : str</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="7628.62,-999.88 8240.12,-999.88"
+           id="polyline732" />
+        <text
+           text-anchor="start"
+           x="7636.6201"
+           y="-983.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text733">can_snapshot(source)</text>
+        <text
+           text-anchor="start"
+           x="7636.6201"
+           y="-969.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text734">check_create_snapshot(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7636.6201"
+           y="-955.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text735">check_resize_snapshot(name, origin, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7636.6201"
+           y="-941.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text736">create_snapshot(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="7636.6201"
+           y="-927.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text737">discover_snapshots()</text>
+        <text
+           text-anchor="start"
+           x="7636.6201"
+           y="-913.58002"
+           font-family="Times, serif"
+           font-style="italic"
+           font-size="14px"
+           id="text738">resize_snapshot</text>
+        <text
+           text-anchor="start"
+           x="7750.6201"
+           y="-913.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text739">(name, origin, mount_point, size_policy)</text>
+      </g>
+      <g
+         id="edge32"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title739">snapm.manager.plugins.lvm2.Lvm2Thin-&gt;snapm.manager.plugins.lvm2._Lvm2</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 7836.77,-1136.91 c -82.42,-95.97 -201.65,-234.8 -295.42,-343.98"
+           id="path739" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="7538.92,-1478.35 7535.06,-1488.22 7544.23,-1482.91 "
+           id="polygon739" />
+      </g>
+      <g
+         id="node91"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title740">snapm.manager.plugins.lvm2.Lvm2ThinSnapshot</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8105.12,-386.75 8473.62,-386.75 8473.62,-293.75 8105.12,-293.75 "
+           id="polygon740" />
+        <text
+           text-anchor="start"
+           x="8113.1201"
+           y="-369.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text740">snapm.manager.plugins.lvm2.Lvm2ThinSnapshot</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8105.12,-361.5 8473.62,-361.5"
+           id="polyline740" />
+        <text
+           text-anchor="start"
+           x="8274.3799"
+           y="-344.20001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text741">free</text>
+        <text
+           text-anchor="start"
+           x="8274.3799"
+           y="-326.95001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text742">pool</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8105.12,-319 8473.62,-319"
+           id="polyline742" />
+        <text
+           text-anchor="start"
+           x="8287.1201"
+           y="-301.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text743" />
+      </g>
+      <g
+         id="edge33"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title743">snapm.manager.plugins.lvm2.Lvm2ThinSnapshot-&gt;snapm.manager.plugins.lvm2.Lvm2Snapshot</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 8303.97,-387.17 c 25.18,-72.18 83.41,-212.31 178.41,-293.33 51.28,-43.74 89.96,-10.41 142,-53.25 55.28,-45.52 98.11,-113.08 127.78,-171.27"
+           id="path743" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8748.89,-906.3 8756.5,-913.67 8755.15,-903.16 "
+           id="polygon743" />
+      </g>
+      <g
+         id="edge73"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title744">snapm.manager.plugins.lvm2.Lvm2ThinSnapshot-&gt;snapm.manager.plugins.lvm2.Lvm2Thin</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="M 8265.39,-387.19 C 8211.6,-490.23 8079.77,-742.75 7999.65,-896.21"
+           id="path744" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="8000.48,-903.28 7994.15,-906.75 7993.38,-899.58 7999.71,-896.11 "
+           id="polygon744" />
+        <text
+           text-anchor="middle"
+           x="8154.48"
+           y="-702.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text744">snapshot_class</text>
+      </g>
+      <g
+         id="edge34"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title745">snapm.manager.plugins.lvm2._Lvm2-&gt;snapm.manager.plugins._plugin.Plugin</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 7569.91,-1814.35 c 45.38,-41.28 94.45,-85.32 140.47,-125.4 21.24,-18.5 43.44,-37.55 65.8,-56.54"
+           id="path745" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="7773.71,-1998.78 7783.6,-2002.58 7778.24,-1993.45 "
+           id="polygon745" />
+      </g>
+      <g
+         id="node93"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title746">snapm.manager.plugins.stratis.Stratis</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8075.62,-1836.38 8687.12,-1836.38 8687.12,-1467.38 8075.62,-1467.38 "
+           id="polygon746" />
+        <text
+           text-anchor="start"
+           x="8244.1201"
+           y="-1819.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text746">snapm.manager.plugins.stratis.Stratis</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8075.62,-1811.12 8687.12,-1811.12"
+           id="polyline746" />
+        <text
+           text-anchor="start"
+           x="8328.1201"
+           y="-1793.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text747">name : str</text>
+        <text
+           text-anchor="start"
+           x="8328.1201"
+           y="-1776.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text748">pools : dict</text>
+        <text
+           text-anchor="start"
+           x="8328.1201"
+           y="-1759.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text749">priority : int</text>
+        <text
+           text-anchor="start"
+           x="8328.1201"
+           y="-1742.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text750">snapshot_class</text>
+        <text
+           text-anchor="start"
+           x="8328.1201"
+           y="-1724.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text751">version : str</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8075.62,-1716.88 8687.12,-1716.88"
+           id="polyline751" />
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1699.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text752">activate_snapshot(name)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1682.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text753">can_snapshot(source)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1665.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text754">check_create_snapshot(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1647.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text755">check_resize_snapshot(name, origin, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1630.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text756">check_revert_snapshot(name, origin)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1613.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text757">create_snapshot(origin, snapset_name, timestamp, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1596.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text758">deactivate_snapshot(name)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1578.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text759">delete_snapshot(name)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1561.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text760">discover_snapshots()</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1544.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text761">origin_from_mount_point(mount_point)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1527.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text762">rename_snapshot(old_name, origin, snapset_name, timestamp, mount_point)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1509.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text763">resize_snapshot(name, origin, mount_point, size_policy)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1492.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text764">revert_snapshot(name)</text>
+        <text
+           text-anchor="start"
+           x="8083.6201"
+           y="-1475.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text765">set_autoactivate(name, auto)</text>
+      </g>
+      <g
+         id="edge35"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title765">snapm.manager.plugins.stratis.Stratis-&gt;snapm.manager.plugins._plugin.Plugin</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 8262.67,-1836.78 c -32.54,-50.42 -68.06,-105.44 -101.43,-157.16"
+           id="path765" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8158.33,-1991.98 8155.85,-2002.28 8164.21,-1995.78 "
+           id="polygon765" />
+      </g>
+      <g
+         id="node94"
+         class="node"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title766">snapm.manager.plugins.stratis.StratisSnapshot</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8257.75,-1129.12 8615,-1129.12 8615,-915.38 8257.75,-915.38 "
+           id="polygon766" />
+        <text
+           text-anchor="start"
+           x="8265.75"
+           y="-1111.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text766">snapm.manager.plugins.stratis.StratisSnapshot</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8257.75,-1103.88 8615,-1103.88"
+           id="polyline766" />
+        <text
+           text-anchor="start"
+           x="8385.75"
+           y="-1086.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text767">devpath</text>
+        <text
+           text-anchor="start"
+           x="8385.75"
+           y="-1069.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text768">free</text>
+        <text
+           text-anchor="start"
+           x="8385.75"
+           y="-1052.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text769">fs_name</text>
+        <text
+           text-anchor="start"
+           x="8385.75"
+           y="-1034.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text770">origin</text>
+        <text
+           text-anchor="start"
+           x="8385.75"
+           y="-1017.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text771">origin_options</text>
+        <text
+           text-anchor="start"
+           x="8385.75"
+           y="-1000.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text772">pool_name</text>
+        <text
+           text-anchor="start"
+           x="8385.75"
+           y="-983.08002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text773">size</text>
+        <text
+           text-anchor="start"
+           x="8385.75"
+           y="-965.83002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text774">status</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="8257.75,-957.88 8615,-957.88"
+           id="polyline774" />
+        <text
+           text-anchor="start"
+           x="8372.25"
+           y="-940.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text775">autoactivate()</text>
+        <text
+           text-anchor="start"
+           x="8372.25"
+           y="-923.33002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text776">invalidate_cache()</text>
+      </g>
+      <g
+         id="edge36"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title776">snapm.manager.plugins.stratis.StratisSnapshot-&gt;snapm._snapm.Snapshot</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 8492.94,-1129.62 c 33.45,-57.3 79.23,-127.11 130.44,-181.13 27.62,-29.15 48.83,-21.18 73,-53.25 0.52,-0.69 1.04,-1.39 1.56,-2.09"
+           id="path776" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="8695.01,-1368.02 8703.67,-1374.12 8700.71,-1363.95 "
+           id="polygon776" />
+      </g>
+      <g
+         id="edge74"
+         class="edge"
+         transform="matrix(0.35278309,0,0,0.35278309,-2716.2038,666.98502)">
+        <title
+           id="title777">snapm.manager.plugins.stratis.StratisSnapshot-&gt;snapm.manager.plugins.stratis.Stratis</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 8427.08,-1129.36 c -7.77,-88.59 -19.04,-217.27 -28.45,-324.63"
+           id="path777" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="8402.08,-1460.45 8397.57,-1466.08 8394.11,-1459.75 8398.62,-1454.13 "
+           id="polygon777" />
+        <text
+           text-anchor="middle"
+           x="8462.1201"
+           y="-1332.7"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text777">snapshot_class</text>
+      </g>
+    </g>
+  </g>
+</svg>

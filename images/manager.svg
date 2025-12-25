@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="178.02275mm"
+   height="270.41147mm"
+   viewBox="0 0 178.02275 270.41147"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="manager.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.1798555"
+     inkscape:cx="249.18306"
+     inkscape:cy="387.75935"
+     inkscape:window-width="3840"
+     inkscape:window-height="2083"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-14.696931,-13.770418)">
+    <text
+       text-anchor="middle"
+       x="25.123077"
+       y="98.613518"
+       font-family="Times, serif"
+       font-size="2.16678px"
+       fill="#008000"
+       id="text518"
+       transform="scale(0.91310873,1.0951598)"
+       style="stroke-width:0.15477">scheduler</text>
+    <g
+       id="g1">
+      <g
+         id="node58"
+         class="node"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title448">snapm.manager._boot.BootCache</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="20442.88,-1068.75 20442.88,-975.75 20189.88,-975.75 20189.88,-1068.75 "
+           id="polygon448" />
+        <text
+           text-anchor="start"
+           x="20197.881"
+           y="-1051.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text449">snapm.manager._boot.BootCache</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="20189.88,-1043.5 20442.88,-1043.5"
+           id="polyline449" />
+        <text
+           text-anchor="start"
+           x="20270.619"
+           y="-1026.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text450">entry_cache</text>
+        <text
+           text-anchor="start"
+           x="20270.619"
+           y="-1008.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text451">revert_cache</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="20189.88,-1001 20442.88,-1001"
+           id="polyline451" />
+        <text
+           text-anchor="start"
+           x="20261.619"
+           y="-983.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text452">refresh_cache()</text>
+      </g>
+      <g
+         id="node61"
+         class="node"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title452">snapm.manager._manager.Manager</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="19925.62,-1888.12 19925.62,-1415.62 19299.12,-1415.62 19299.12,-1888.12 "
+           id="polygon452" />
+        <text
+           text-anchor="start"
+           x="19485.25"
+           y="-1870.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text453">snapm.manager._manager.Manager</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19299.12,-1862.88 19925.62,-1862.88"
+           id="polyline453" />
+        <text
+           text-anchor="start"
+           x="19521.25"
+           y="-1845.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text454">by_name : dict</text>
+        <text
+           text-anchor="start"
+           x="19521.25"
+           y="-1828.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text455">by_uuid : dict</text>
+        <text
+           text-anchor="start"
+           x="19521.25"
+           y="-1811.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text456">disable_plugins : List, list</text>
+        <text
+           text-anchor="start"
+           x="19521.25"
+           y="-1793.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text457">mounts</text>
+        <text
+           text-anchor="start"
+           x="19521.25"
+           y="-1776.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text458">plugins : list</text>
+        <text
+           text-anchor="start"
+           x="19521.25"
+           y="-1759.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text459">scheduler</text>
+        <text
+           text-anchor="start"
+           x="19521.25"
+           y="-1742.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text460">snapshot_sets : list</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19299.12,-1734.12 19925.62,-1734.12"
+           id="polyline460" />
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1716.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text461">activate_snapshot_set(name, uuid)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1699.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text462">activate_snapshot_sets(selection)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1682.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text463">create_snapshot_set(name, source_specs, default_size_policy, boot, revert, autoindex)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1665.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text464">create_snapshot_set_boot_entry(name, uuid)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1647.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text465">create_snapshot_set_revert_entry(name, uuid)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1630.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text466">deactivate_snapshot_set(name, uuid)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1613.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text467">deactivate_snapshot_sets(selection)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1596.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text468">delete_snapshot_set(name, uuid, recategorize)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1578.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text469">delete_snapshot_sets(selection)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1561.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text470">discover_snapshot_sets()</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1544.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text471">find_snapshot_sets(selection)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1527.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text472">find_snapshots(selection)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1509.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text473">rename_snapshot_set(old_name, new_name)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1492.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text474">resize_snapshot_set(source_specs, name, uuid, default_size_policy)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1475.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text475">revert_snapshot_set(name, uuid)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1458.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text476">revert_snapshot_sets(selection)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1440.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text477">set_autoactivate(selection, auto)</text>
+        <text
+           text-anchor="start"
+           x="19307.119"
+           y="-1423.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text478">split_snapshot_set(name, new_name, source_specs)</text>
+      </g>
+      <g
+         id="edge57"
+         class="edge"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title478">snapm.manager._boot.BootCache-&gt;snapm.manager._manager.Manager</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 20304.06,-1069.11 c -18.29,-61.08 -57.66,-169.78 -122.68,-241.64 -68.23,-75.39 -157.13,-139.25 -244.31,-190.57"
+           id="path478" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="19926.68,-1507.38 19929.84,-1500.9 19937.04,-1501.34 19933.87,-1507.81 "
+           id="polygon478" />
+        <text
+           text-anchor="middle"
+           x="20199.6"
+           y="-1332.7"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text479">_boot_cache</text>
+      </g>
+      <g
+         id="node59"
+         class="node"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title479">snapm.manager._boot.BootEntryCache</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="20451.12,-378.12 20451.12,-302.38 20157.62,-302.38 20157.62,-378.12 "
+           id="polygon479" />
+        <text
+           text-anchor="start"
+           x="20165.619"
+           y="-360.82001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text480">snapm.manager._boot.BootEntryCache</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="20157.62,-352.88 20451.12,-352.88"
+           id="polyline480" />
+        <text
+           text-anchor="start"
+           x="20269.881"
+           y="-335.57001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text481">entry_arg</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="20157.62,-327.62 20451.12,-327.62"
+           id="polyline481" />
+        <text
+           text-anchor="start"
+           x="20249.619"
+           y="-310.32001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text482">refresh_cache()</text>
+      </g>
+      <g
+         id="edge58"
+         class="edge"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title482">snapm.manager._boot.BootEntryCache-&gt;snapm.manager._boot.BootCache</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 20312.37,-378.6 c 13.52,-67.24 38.88,-213.18 33.01,-337.15 -4.08,-86.02 -14.57,-185.21 -21.75,-246.64"
+           id="path482" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="20322.21,-974.39 20318.94,-967.96 20323.62,-962.47 20326.89,-968.9 "
+           id="polygon482" />
+        <text
+           text-anchor="middle"
+           x="20388.529"
+           y="-702.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text483">entry_cache</text>
+      </g>
+      <g
+         id="edge59"
+         class="edge"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title483">snapm.manager._boot.BootEntryCache-&gt;snapm.manager._boot.BootCache</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 20292.64,-378.61 c -19.72,-67.24 -56.1,-213.19 -42.76,-337.14 9.39,-87.29 33.46,-186.23 49.91,-247.26"
+           id="path483" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="20302.94,-974.56 20297.5,-969.83 20299.78,-962.99 20305.22,-967.72 "
+           id="polygon483" />
+        <text
+           text-anchor="middle"
+           x="20295.619"
+           y="-702.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text484">revert_cache</text>
+      </g>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 14.712895,110.08478 c 4.195792,-3.89973 10.326208,-9.59703 15.890033,-14.76751"
+         id="path517"
+         style="stroke-width:0.0468972" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="19304.11,-1407.2 19311.3,-1407.79 19313.52,-1414.65 19306.34,-1414.06 "
+         id="polygon517"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)" />
+      <g
+         id="node64"
+         class="node"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title521">snapm.manager._mounts.Mount</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="20128.88,-386.75 20128.88,-293.75 19881.88,-293.75 19881.88,-386.75 "
+           id="polygon521" />
+        <text
+           text-anchor="start"
+           x="19891"
+           y="-369.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text522">snapm.manager._mounts.Mount</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19881.88,-361.5 20128.88,-361.5"
+           id="polyline522" />
+        <text
+           text-anchor="start"
+           x="19889.881"
+           y="-344.20001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text523">TYPE : str</text>
+        <text
+           text-anchor="start"
+           x="19889.881"
+           y="-326.95001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text524">snapset : Optional[SnapshotSet]</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19881.88,-319 20128.88,-319"
+           id="polyline524" />
+        <text
+           text-anchor="start"
+           x="20003.119"
+           y="-301.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text525" />
+      </g>
+      <g
+         id="node65"
+         class="node"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title525">snapm.manager._mounts.MountBase</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="20172,-1111.88 20172,-932.62 19838.75,-932.62 19838.75,-1111.88 "
+           id="polygon525" />
+        <text
+           text-anchor="start"
+           x="19873.75"
+           y="-1094.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text526">snapm.manager._mounts.MountBase</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19838.75,-1086.62 20172,-1086.62"
+           id="polyline526" />
+        <text
+           text-anchor="start"
+           x="19889.881"
+           y="-1069.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text527">TYPE : str</text>
+        <text
+           text-anchor="start"
+           x="19889.881"
+           y="-1052.08"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text528">mounted</text>
+        <text
+           text-anchor="start"
+           x="19889.881"
+           y="-1034.83"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text529">name : str</text>
+        <text
+           text-anchor="start"
+           x="19889.881"
+           y="-1017.58"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text530">root : str</text>
+        <text
+           text-anchor="start"
+           x="19889.881"
+           y="-1000.33"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text531">snapset : Optional[SnapshotSet]</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19838.75,-992.38 20172,-992.38"
+           id="polyline531" />
+        <text
+           text-anchor="start"
+           x="19846.75"
+           y="-975.08002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text532">exec(command: Union[str, Iterable[str]]): int</text>
+        <text
+           text-anchor="start"
+           x="19846.75"
+           y="-957.83002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text533">mount()</text>
+        <text
+           text-anchor="start"
+           x="19846.75"
+           y="-940.58002"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text534">umount()</text>
+      </g>
+      <g
+         id="edge23"
+         class="edge"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title534">snapm.manager._mounts.Mount-&gt;snapm.manager._mounts.MountBase</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 20005.38,-387.19 c 0,-108.75 0,-384.02 0,-533.59"
+           id="path534" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="20008.88,-920.7 20001.88,-920.7 20005.38,-930.7 "
+           id="polygon534" />
+      </g>
+      <g
+         id="node66"
+         class="node"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title535">snapm.manager._mounts.Mounts</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="19820.62,-1082 19820.62,-962.5 19404.12,-962.5 19404.12,-1082 "
+           id="polygon535" />
+        <text
+           text-anchor="start"
+           x="19494.25"
+           y="-1064.7"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text535">snapm.manager._mounts.Mounts</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19404.12,-1056.75 19820.62,-1056.75"
+           id="polyline535" />
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19404.12,-1056.75 19820.62,-1056.75"
+           id="polyline536" />
+        <text
+           text-anchor="start"
+           x="19412.119"
+           y="-1039.45"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text536">discover_mounts()</text>
+        <text
+           text-anchor="start"
+           x="19412.119"
+           y="-1022.2"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text537">find_mounts(selection: Optional[Selection]): List[Mount]</text>
+        <text
+           text-anchor="start"
+           x="19412.119"
+           y="-1004.95"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text538">get_sys_mount(): SysMount</text>
+        <text
+           text-anchor="start"
+           x="19412.119"
+           y="-987.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text539">mount(snapset: SnapshotSet): Mount</text>
+        <text
+           text-anchor="start"
+           x="19412.119"
+           y="-970.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text540">umount(snapset: SnapshotSet)</text>
+      </g>
+      <g
+         id="edge62"
+         class="edge"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title540">snapm.manager._mounts.Mounts-&gt;snapm.manager._manager.Manager</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 19612.38,-1082.3 c 0,-73.38 0,-203.27 0,-320.39"
+           id="path540" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="19612.38,-1414.54 19608.38,-1408.54 19612.38,-1402.54 19616.38,-1408.54 "
+           id="polygon540" />
+        <text
+           text-anchor="middle"
+           x="19639"
+           y="-1332.7"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text541">mounts</text>
+      </g>
+      <g
+         id="node69"
+         class="node"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title554">snapm.manager._mounts.SysMount</title>
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="19834.5,-386.75 19834.5,-293.75 19564.25,-293.75 19564.25,-386.75 "
+           id="polygon554" />
+        <text
+           text-anchor="start"
+           x="19572.25"
+           y="-369.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text555">snapm.manager._mounts.SysMount</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19564.25,-361.5 19834.5,-361.5"
+           id="polyline555" />
+        <text
+           text-anchor="start"
+           x="19583.881"
+           y="-344.20001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text556">TYPE : str</text>
+        <text
+           text-anchor="start"
+           x="19583.881"
+           y="-326.95001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text557">snapset : Optional[SnapshotSet]</text>
+        <polyline
+           fill="none"
+           stroke="#000000"
+           points="19564.25,-319 19834.5,-319"
+           id="polyline557" />
+        <text
+           text-anchor="start"
+           x="19697.119"
+           y="-301.70001"
+           font-family="Times, serif"
+           font-size="14px"
+           id="text558" />
+      </g>
+      <g
+         id="edge24"
+         class="edge"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title558">snapm.manager._mounts.SysMount-&gt;snapm.manager._mounts.MountBase</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 19720.05,-387.19 c 49.08,-109.08 173.55,-385.68 240.72,-534.94"
+           id="path558" />
+        <polygon
+           fill="none"
+           stroke="#000000"
+           points="19963.77,-920.28 19957.39,-923.15 19964.69,-930.83 "
+           id="polygon558" />
+      </g>
+      <g
+         id="edge64"
+         class="edge"
+         transform="matrix(0.14132164,0,0,0.16949765,-2697.5368,333.88707)">
+        <title
+           id="title559">snapm.manager._mounts.SysMount-&gt;snapm.manager._mounts.Mounts</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 19693.5,-387.19 c -14.86,-116.16 -54.03,-422.31 -71.95,-562.33"
+           id="path559" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="19620.05,-961.24 19616.85,-954.78 19621.58,-949.34 19624.78,-955.8 "
+           id="polygon559" />
+        <text
+           text-anchor="middle"
+           x="19694.52"
+           y="-702.45001"
+           font-family="Times, serif"
+           font-size="14px"
+           fill="#008000"
+           id="text559">_sys_mount</text>
+      </g>
+    </g>
+  </g>
+</svg>
