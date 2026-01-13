@@ -13723,6 +13723,10 @@ The operations that are tracked via progress indicators take a variable amount o
  If you find yourself waiting for such an operation,
  so long as the throbber is throbbing or the progress bar is progressing simply 
 \nospellcheck on
+
+\begin_inset Quotes bld
+\end_inset
+
 RELAXEN
 \nospellcheck default
  
@@ -13741,6 +13745,30 @@ DER
 \nospellcheck on
 BLINKENLICHTEN
 \nospellcheck default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Blinkenlights
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
 .
 \end_layout
 
@@ -21777,7 +21805,9 @@ status open
 
 ) can greatly reduce the amount of work required and hence the time taken.
  It also allows for more focused results that are easier to digest.
- These controls allow the user to trade runtime for more comprehensive difference information and tune the operation of the Difference Engine to particular situations.
+ These controls allow the user to target the operation to areas of interest,
+ trade runtime for more comprehensive difference information,
+ and adapt the operation of the Difference Engine to particular situations.
 \end_layout
 
 \begin_layout Paragraph
@@ -21853,6 +21883,41 @@ keys(tree_a) ∪ keys(tree_b)
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Note that the Difference Engine does not impose any notion of 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+before
+\end_layout
+
+\end_inset
+
+ or 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+after
+\end_layout
+
+\end_inset
+
+ on the trees it processes.
+ The user is free to compare in either direction as fits their purpose (this is similar to the operation of the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diff(1)
+\end_layout
+
+\end_inset
+
+ command and related utilities).
 \end_layout
 
 \begin_layout Section
@@ -21991,7 +22056,7 @@ snapm.manager._mounts
 \end_inset
 
 ),
- and for future support for Btrfs and arbitrary directory path comparisons.
+ and for future support for Btrfs subvolume and arbitrary directory path comparisons.
 \end_layout
 
 \begin_layout Standard
@@ -22542,17 +22607,9 @@ snapm
 \end_layout
 
 \begin_layout Standard
-These limits were arrived at through empirical testing of 
-\begin_inset Quotes bld
-\end_inset
-
-torture test
-\begin_inset Quotes brd
-\end_inset
-
-
+These limits were determined through empirical torture testing
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Whole root file system diffs in situations where large volumes of changes are present,
@@ -22561,9 +22618,7 @@ Whole root file system diffs in situations where large volumes of changes are pr
 
 \end_inset
 
- cases on systems with little memory (2-4GiB) and no,
- or slow,
- swap devices.
+ on low-memory systems (2-4GiB) with slow or absent swap devices.
 \end_layout
 
 \begin_layout Standard
@@ -22608,7 +22663,7 @@ DiffOptions.no_mem_check
 \end_inset
 
 ) exists to allow the administrator to bypass these checks.
- Use this with caution!
+ Use with caution!
  In most cases it is better to diff smaller subtrees of the file system in successive diff operations than it is to disable the memory pressure checks and hope for the best.
 \end_layout
 
@@ -22642,7 +22697,7 @@ DiffEngine.compute_diff()
 
 \end_inset
 
- method is the heart of the Difference Engine.
+ method is the core of the Difference Engine.
  Given two file system tree snapshots,
  it produces a complete manifest of what changed between them:
  files added,
@@ -22836,16 +22891,7 @@ tree_a
 \end_inset
 
  —
- The 
-\begin_inset Quotes bld
-\end_inset
-
-before
-\begin_inset Quotes brd
-\end_inset
-
- state (e.g.,
- snapshot at time T₀)
+ The first file system state
 \end_layout
 
 \begin_layout Itemize
@@ -22859,16 +22905,7 @@ tree_b
 \end_inset
 
  —
- The 
-\begin_inset Quotes bld
-\end_inset
-
-after
-\begin_inset Quotes brd
-\end_inset
-
- state (e.g.,
- snapshot at time T₁)
+ The second file system state
 \end_layout
 
 \begin_layout Itemize
@@ -22893,7 +22930,7 @@ change
  (ignore timestamps?
  ignore ownership?
  content-only mode?) and other parameters (for example the list of start paths for the comparison within the file system roots,
- and the lists of include/exclude glob patterns).
+ and the lists of include/exclude glob patterns)
 \end_layout
 
 \begin_layout Standard
@@ -22918,7 +22955,7 @@ FsEntry
  ownership,
  timestamps,
  and a cryptographic hash of its contents.
- Since the hash values are not used for security purposes it is acceptable to use a weaker cryptographic hash (for example 
+ Since the hash values are not used for security it is acceptable to use a weaker cryptographic hash (for example 
 \begin_inset Flex Code
 status open
 
@@ -24604,7 +24641,7 @@ status open
 \end_inset
 
  Green —
- File added
+ path added
 \end_layout
 
 \begin_layout Standard
@@ -24627,7 +24664,7 @@ status open
 \end_inset
 
  Red —
- File removed
+ path removed
 \end_layout
 
 \begin_layout Standard
@@ -24650,7 +24687,7 @@ status open
 \end_inset
 
  Yellow —
- File modified
+ path modified
 \end_layout
 
 \begin_layout Standard
@@ -24673,7 +24710,7 @@ status open
 \end_inset
 
  Cyan —
- File moved from
+ path moved from
 \end_layout
 
 \begin_layout Standard
@@ -24696,7 +24733,7 @@ status open
 \end_inset
 
  Cyan —
- File moved to
+ path moved to
 \end_layout
 
 \begin_layout Standard
@@ -24719,7 +24756,7 @@ status open
 \end_inset
 
  Blue —
- File type changed
+ path type changed
 \end_layout
 
 \begin_layout Subsection
@@ -24836,6 +24873,75 @@ FsDiffRecord
 \end_layout
 
 \begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TreeNode.children
+\end_layout
+
+\end_inset
+
+ member is a dictionary mapping strings (path name fragments) to 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+lists
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TreeNode
+\end_layout
+
+\end_inset
+
+.
+ This is done so that multiple 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffRecord
+\end_layout
+
+\end_inset
+
+ objects can be represented at the same logical path node in the tree structure,
+ addressing a limitation discovered in issue #904
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/snapshotmanager/snapm/issues/904
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+:
+ when a file has been both moved (for example,
+ backed up under a new name) and modified in place,
+ the tree must represent both operations.
+\end_layout
+
+\begin_layout Standard
 Move changes are handled specially in that they trigger bifurcation of the tree structure:
  unlike the other change types,
  a move is represented by 
@@ -24853,7 +24959,7 @@ two
 \end_layout
 
 \begin_layout Standard
-Since the destination of a detected move may be in another directory entirely this also requires special treatment:
+Because the destination of a detected move may be in another directory entirely this also requires special treatment:
  if the move is within the same containing directory we can immediately attach the 
 \begin_inset Flex Code
 status open
@@ -25235,7 +25341,7 @@ The string list generated by the rendering process is joined into a single strin
 status open
 
 \begin_layout Plain Layout
-print(tree.render())
+print(results.tree())
 \end_layout
 
 \end_inset
@@ -27736,7 +27842,17 @@ A:
 
 \end_inset
 
- A Snapshot is an individual instance of a block device or file system snapshot (managed by 
+ A 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Snapshot
+\end_layout
+
+\end_inset
+
+ is an individual instance of a block device or file system snapshot (managed by 
 \begin_inset Flex Code
 status open
 
@@ -27748,7 +27864,17 @@ snapm
 
  or not,
  as the case may be).
- A Snapshot Set is a named collection of snapshots taken at the same moment in time and managed by 
+ A 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Snapshot Set
+\end_layout
+
+\end_inset
+
+ is a named collection of snapshots taken at the same moment in time and managed by 
 \begin_inset Flex Code
 status open
 
@@ -27865,6 +27991,37 @@ boom-boot
 
  CLI,
  but it can be useful for inspecting your boot entries).
+ Unless you have specific requirements the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ tool can take care of all the details for you when you use the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--boot
+\end_layout
+
+\end_inset
+
+ or 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--revert
+\end_layout
+
+\end_inset
+
+ options.
 \end_layout
 
 \begin_layout Section
@@ -27907,7 +28064,7 @@ how long is a piece of string?
  the precise answer depends on the amount of change that occurs to the origin volume or the snapshot during its lifespan.
  Snapshot Manager defaults to allocating twice the space currently used on a mounted file system,
  or half the size of block devices when creating snapshot sets,
- but if you have a better estimate then these values should be tuned for your particular circumstances.
+ but if you have a better estimate then these values should be adjusted for your particular circumstances.
 \begin_inset Newline newline
 \end_inset
 
@@ -28104,7 +28261,7 @@ merge
 \end_inset
 
  operation involves physically moving data:
- this takes time proportional to the amount of data in the snapshot at the time of the merge.
+ this takes time proportional to the amount of data in the snapshot at the time of the merge and the speed of the storage devices involved.
  Thin snapshot reverts (LVM2 thin and Stratis) are instantaneous at the time the pool is activated.
 \begin_inset Newline newline
 \end_inset
@@ -28796,7 +28953,7 @@ A:
 \end_inset
 
  
-\begin_inset Quotes brd
+\begin_inset Quotes bld
 \end_inset
 
 It depends
@@ -29087,7 +29244,7 @@ Invalid
 
 .
  If this is the case then the volume will be inaccessible (and difficult to repair —
- CoW exception store recovery is beyond the scope of this manual).
+ recovery of an invalid CoW exception store is beyond the scope of this manual).
  If the snapshot is valid check the output of 
 \begin_inset Flex Code
 status open
@@ -29111,7 +29268,10 @@ fsck(8)
  program for your file system (preferably,
  to start,
  in check/read only/dry-run mode if supported).
- Note that if you are trying to mount a snapshot of an 
+\end_layout
+
+\begin_layout Standard
+Note that if you are trying to mount a snapshot of an 
 \begin_inset Flex Code
 status open
 
@@ -29182,7 +29342,7 @@ A:
 
 \end_inset
 
- The time taken for difference computation is proportional to the size of the file system (number of files and directories) and the amount of change between the volumes being compared.
+ The time taken for difference computation is proportional to the size of the file system (number of files and directories) and the degree of change between the volumes being compared.
  It is normal for difference calculations for large volumes with many changes to take some time (minutes to tens of minutes for very large file systems).
  You may be able to gain more insight into what is happening by enabling verbose logs and debugging.
  Refer to section 
