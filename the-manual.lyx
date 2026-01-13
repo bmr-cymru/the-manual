@@ -5181,7 +5181,9 @@ The Locomotion
 status open
 
 \begin_layout Plain Layout
-Kylie's optimism regarding ease of use was unfortunately not peer reviewed against the real world scenarios of enterprise storage array crashes and thin provisioning metadata exhaustion.
+Kylie's optimism regarding ease of use was unfortunately not reviewed against the real world scenarios of enterprise storage array crashes,
+ metadata exhaustion,
+ and drive failure.
 \end_layout
 
 \end_inset
@@ -5248,9 +5250,13 @@ Choosing Sources:
  First Things to know.
 \end_layout
 
+\begin_layout Standard
+Before you can create your first snapshot set you'll need to ensure that you have everything necessary in place:
+\end_layout
+
 \begin_layout Itemize
-You need snapshottable storage:
- LVM2 vanilla or thin provisioned volumes,
+You need snapshot capable storage:
+ LVM2 regular or thin provisioned volumes,
  or Stratis file systems.
 \end_layout
 
@@ -5295,6 +5301,110 @@ snapm
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+For your first experiment,
+ it doesn't matter what you snapshot as long as it meets these criteria.
+ Later,
+ when you are using the tool in anger,
+ you can craft specific commands for different use cases or automate the process via schedules (see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:The-Scheduler"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ To get the most from this exercise,
+ it is helpful to be able to make some changes to whatever you snapshot so you'll have genuine differences to examine.
+\end_layout
+
+\begin_layout Standard
+Sources for Snapshot Manager can be either 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+mount points
+\end_layout
+
+\end_inset
+
+,
+ or 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+block devices
+\end_layout
+
+\end_inset
+
+.
+ A mount point source corresponds to a mounted file system.
+ You can specify it either by mount point path (for example,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/home
+\end_layout
+
+\end_inset
+
+) or by the underlying block device path (for example,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/dev/vg0/home
+\end_layout
+
+\end_inset
+
+).
+ A block device source is a block device that is not mounted and that need not contain a mountable file system image (for example,
+ databases,
+ virtual machine images,
+ and other non-file system content).
+\end_layout
+
+\begin_layout Standard
+Snapshot Manager uses the mechanism of 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+provider plugins
+\end_layout
+
+\end_inset
+
+ to support different types of storage.
+ A provider plugin corresponds to a particular storage technology (LVM2 CoW,
+ LVM2 Thin,
+ Stratis,
+ and so on).
+ The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ command will determine the correct plugins to use for any given source (assuming that one exists and is able to snapshot the requested volume) —
+ you do not need to specify which plugins to use on the command line.
 \end_layout
 
 \begin_layout Standard
@@ -5869,6 +5979,162 @@ xyzzy
 Overriding The Default Size Policy
 \end_layout
 
+\begin_layout Standard
+Snapshot Manager provides 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+size policies
+\end_layout
+
+\end_inset
+
+ that allow the user to request that a certain amount of space be available when creating snapshots.
+ For some providers (LVM2 thin,
+ Stratis) this is simply a check that this space is available at the time the snapshot set is created.
+ For LVM2 CoW it determines the actual size of the snapshot exception store that the tool will allocate.
+\end_layout
+
+\begin_layout Standard
+The default size policy is different depending on whether you are creating a snapshot from a mount point source or a block device source.
+ For mount points the default size policy specifies twice the space currently used on the mount point (
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+200%USED
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ in size policy notation).
+ For block devices it is one quarter the physical size of the device (
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+25%SIZE
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+To override these defaults,
+ either append a colon and size policy to individual sources (
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+:POLICY
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+) or use 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--size-policy=POLICY
+\end_layout
+
+\end_inset
+
+ for all sources without explicit policies.
+\end_layout
+
+\begin_layout Standard
+For example:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/:2GiB
+\end_layout
+
+\end_inset
+
+ —
+ specify a source of 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ (the root file system) with a fixed 2GiB size policy
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/100%SIZE /home:50%SIZE
+\end_layout
+
+\end_inset
+
+ —
+ specify sources for root and home with a policy requesting 100% and 50% of their respective device sizes
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--size-policy=100%SIZE
+\end_layout
+
+\end_inset
+
+ —
+ set the policy for all sources not otherwise specified on the command line to be 100% of the corresponding device size
+\end_layout
+
 \begin_layout Section
 \begin_inset Flex Code
 status open
@@ -5879,7 +6145,566 @@ snapm snapset create
 
 \end_inset
 
- Output
+
+\end_layout
+
+\begin_layout Standard
+With the basics explained it's time to actually create a snapshot set with the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm snapset create
+\end_layout
+
+\end_inset
+
+ command.
+ Take your chosen name and list of sources and append them to the command line,
+ then hit Enter to run the program and create the snapshot set:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+# snapm snapset create my-first-set / /var /home
+\begin_inset Newline newline
+\end_inset
+
+SnapsetName:
+ my-first-set
+\begin_inset Newline newline
+\end_inset
+
+Sources:
+ /,
+ /var,
+ /home
+\begin_inset Newline newline
+\end_inset
+
+NrSnapshots:
+ 3
+\begin_inset Newline newline
+\end_inset
+
+Time:
+ 2026-01-13 12:44:12
+\begin_inset Newline newline
+\end_inset
+
+UUID:
+ 0ea16412-8ceb-59d4-af0b-9afa79d306e9
+\begin_inset Newline newline
+\end_inset
+
+Status:
+ Inactive
+\begin_inset Newline newline
+\end_inset
+
+Categories:
+ daily,
+ hourly
+\begin_inset Newline newline
+\end_inset
+
+Autoactivate:
+ no
+\begin_inset Newline newline
+\end_inset
+
+OriginMounted:
+ yes
+\begin_inset Newline newline
+\end_inset
+
+Mounted:
+ no
+\begin_inset Newline newline
+\end_inset
+
+Bootable:
+ no
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That's all there is to it!
+ Before we conclude let's take a brief look at the output the tool produces:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SnapsetName
+\end_layout
+
+\end_inset
+
+ —
+ the name you gave to the snapshot set
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Sources
+\end_layout
+
+\end_inset
+
+ —
+ the list of sources (minus any size policy that was specified on the command line)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+NrSnapshots
+\end_layout
+
+\end_inset
+
+ —
+ the number of snapshots contained in this set
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Time
+\end_layout
+
+\end_inset
+
+ —
+ the time and date the snapshot set was created in your local time zone
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+UUID
+\end_layout
+
+\end_inset
+
+ —
+ a unique identifier for the snapshot set (a Version 5 UUID to be specific
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Universally_unique_identifier#Versions_3_and_5_(namespace_name-based)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Status
+\end_layout
+
+\end_inset
+
+ —
+ the status of this snapshot set:
+ one of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Active
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Inactive
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Invalid
+\end_layout
+
+\end_inset
+
+,
+ or 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Reverting
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Categories
+\end_layout
+
+\end_inset
+
+ —
+ the 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+timeline
+\end_layout
+
+\end_inset
+
+ categories that this snapshot set belongs to:
+ see chapters 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:The-Scheduler"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Garbage-Collection"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ for more information on timelines
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Autoactivate
+\end_layout
+
+\end_inset
+
+ —
+ whether automatic boot time activation is enabled for this snapshot set
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+OriginMounted
+\end_layout
+
+\end_inset
+
+ —
+ the mount status of this snapshot set's origin devices
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Mounted
+\end_layout
+
+\end_inset
+
+ —
+ the mount status of this snapshot set
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Bootable
+\end_layout
+
+\end_inset
+
+ —
+ whether this snapshot set is bootable or not
+\end_layout
+
+\begin_layout Standard
+We will get to most of these properties and their precise meaning in good time,
+ but for now,
+ the Status field deserves a little more explanation.
+ Some snapshot providers (LVM2 thin,
+ Stratis) support optional activation for snapshot devices.
+ This means that you don't have snapshot devices cluttering the system and using resources when they are not required and is more efficient.
+ For LVM2 CoW the snapshot volume must be active at all times that the origin is active.
+ If your snapshot set includes thin snapshots (LVM2 thin or Stratis) then it will begin its life in the 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Inactive
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ state.
+ If it only includes LVM2 CoW snapshots then it will begin in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Active
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ state (and cannot,
+ in fact,
+ become 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Inactive
+\end_layout
+
+\end_inset
+
+ unless the origin volume is also inactive).
+\end_layout
+
+\begin_layout Standard
+If you receive an error message instead of the output shown above study it carefully to try to understand what it is telling you.
+ Most error conditions have a clear error message that explains exactly what is wrong.
+ The most common error is 
+\begin_inset Quotes bld
+\end_inset
+
+not enough space
+\begin_inset Quotes brd
+\end_inset
+
+:
+ if you run into this you will see a message like this rather than the snapshot set summary:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+# snapm snapset create my-first-set / /var /home
+\begin_inset Newline newline
+\end_inset
+
+ERROR - Error creating lvm2-cow snapshot:
+ Volume group fedora has insufficient free space to snapshot / (14.5GiB < 15.1GiB) 
+\begin_inset Newline newline
+\end_inset
+
+ERROR - Command failed:
+ Insufficient free space for snapshot set my-first-set
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If this happens you can resolve the problem in one of these three ways:
+\end_layout
+
+\begin_layout Itemize
+Add more space to the volume group or thin pool
+\end_layout
+
+\begin_layout Itemize
+Delete one or more unneeded volumes to reclaim space
+\end_layout
+
+\begin_layout Itemize
+Change the size policy to create a smaller snapshot
+\end_layout
+
+\begin_layout Standard
+If you receive some other error refer to the troubleshooting chapter (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:When-Brown-Stuff"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) and the FAQ:
+ you may find that your problem already has a straightforward answer.
+ If not then you can reach out to your distribution's support channels or the developers for assistance (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Filing-Issues"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ for advice on filing issues in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ project).
 \end_layout
 
 \begin_layout Section
@@ -5887,7 +6712,82 @@ Care and Feeding of Your Snapshot Set
 \end_layout
 
 \begin_layout Standard
-Monitoring and extending LVM2 CoW Snapshots
+Now that you have a snapshot set that captures the state of your system at some moment in time you need to know how to look after it.
+ This is essentially the same task as you would need to carry out for any other volume managed with your tool of choice.
+ The major point to bear in mind is that both thin and LVM2 CoW snapshots can run out of space.
+ It is important to ensure that this does not happen for the reasons explained in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Storage-Back-ends"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Refer to that chapter for a detailed discussion of the issues and how they apply to the different provider plugins that 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ supports.
+\end_layout
+
+\begin_layout Standard
+We will discuss more comprehensive monitoring and maintenance strategies in later chapters.
+ For now,
+ use your regular storage administration tools (whether that is 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvs(8)
+\end_layout
+
+\end_inset
+
+ for LVM2 volumes,
+ or 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+stratis
+\end_layout
+
+\end_inset
+
+ for Stratis storage) to keep an eye on the space available to your snapshots.
+ You can resize individual snapshots using the corresponding tool (for example,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvresize(8)
+\end_layout
+
+\end_inset
+
+for LVM2),
+ or you can use the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm snapset resize
+\end_layout
+
+\end_inset
+
+ command to apply new size policies to an already created snapshot set.
 \end_layout
 
 \begin_layout Chapter
@@ -15903,6 +16803,12 @@ Root Cause Analysis
 \end_layout
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:When-Brown-Stuff"
+
+\end_inset
+
 When Brown Stuff Meets Twirly Thing
 \begin_inset Foot
 status open
