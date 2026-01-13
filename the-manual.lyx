@@ -5262,7 +5262,7 @@ You need snapshot capable storage:
 
 \begin_layout Itemize
 You need free space for your snapshots to use (either in an LVM2 volume group with regular volumes,
- or in the thin pool containing the volumes with LVM2 thin provisioning or Stratis storage).
+ or in the thin pool containing the volumes with LVM2 Thin provisioning or Stratis storage).
 \end_layout
 
 \begin_layout Itemize
@@ -5991,7 +5991,7 @@ size policies
 \end_inset
 
  that allow the user to request that a certain amount of space be available when creating snapshots.
- For some providers (LVM2 thin,
+ For some providers (LVM2 Thin,
  Stratis) this is simply a check that this space is available at the time the snapshot set is created.
  For LVM2 CoW it determines the actual size of the snapshot exception store that the tool will allocate.
 \end_layout
@@ -6195,7 +6195,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-# snapm snapset create my-first-set / /var /home
+# snapm snapset create my-first-set / /var
 \begin_inset Newline newline
 \end_inset
 
@@ -6206,13 +6206,12 @@ SnapsetName:
 
 Sources:
  /,
- /var,
- /home
+ /var
 \begin_inset Newline newline
 \end_inset
 
 NrSnapshots:
- 3
+ 2
 \begin_inset Newline newline
 \end_inset
 
@@ -6526,18 +6525,45 @@ Bootable
 \end_inset
 
  —
- whether this snapshot set is bootable or not
+ whether this snapshot set has 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom(8)
+\end_layout
+
+\end_inset
+
+ boot entries or not
 \end_layout
 
 \begin_layout Standard
 We will get to most of these properties and their precise meaning in good time,
  but for now,
- the Status field deserves a little more explanation.
- Some snapshot providers (LVM2 thin,
+ the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Status
+\end_layout
+
+\end_inset
+
+ field deserves a little more explanation:
+ some snapshot providers (LVM2 Thin,
  Stratis) support optional activation for snapshot devices.
- This means that you don't have snapshot devices cluttering the system and using resources when they are not required and is more efficient.
+\end_layout
+
+\begin_layout Standard
+This means that you don't have snapshot devices cluttering the system and using resources when they are not required and is more efficient —
+ especially when dealing with large numbers of snapshots.
  For LVM2 CoW the snapshot volume must be active at all times that the origin is active.
- If your snapshot set includes thin snapshots (LVM2 thin or Stratis) then it will begin its life in the 
+\end_layout
+
+\begin_layout Standard
+If your snapshot set includes thin snapshots (LVM2 Thin or Stratis) then it will begin its life in the 
 \begin_inset Flex Emph
 status open
 
@@ -6592,7 +6618,7 @@ Inactive
 \end_layout
 
 \begin_layout Standard
-If you receive an error message instead of the output shown above study it carefully to try to understand what it is telling you.
+If you receive an error message instead of the expected output shown above study it carefully to try to understand what it is telling you.
  Most error conditions have a clear error message that explains exactly what is wrong.
  The most common error is 
 \begin_inset Quotes bld
@@ -6604,6 +6630,14 @@ not enough space
 
 :
  if you run into this you will see a message like this rather than the snapshot set summary:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6630,7 +6664,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-# snapm snapset create my-first-set / /var /home
+# snapm snapset create my-first-set / /var
 \begin_inset Newline newline
 \end_inset
 
@@ -6651,9 +6685,16 @@ ERROR - Command failed:
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
 If this happens you can resolve the problem in one of these three ways:
 \end_layout
 
@@ -6670,7 +6711,7 @@ Change the size policy to create a smaller snapshot
 \end_layout
 
 \begin_layout Standard
-If you receive some other error refer to the troubleshooting chapter (
+If you receive some other error refer to the troubleshooting tips (chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:When-Brown-Stuff"
@@ -6681,7 +6722,18 @@ nolink "false"
 
 \end_inset
 
-) and the FAQ:
+) and the FAQ (chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Frequently-Asked-Questions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+):
  you may find that your problem already has a straightforward answer.
  If not then you can reach out to your distribution's support channels or the developers for assistance (see section 
 \begin_inset CommandInset ref
@@ -6741,6 +6793,823 @@ snapm
 \end_layout
 
 \begin_layout Standard
+For example,
+ using the snapshot set created in the previous step we see the following output when running the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvs(8)
+\end_layout
+
+\end_inset
+
+ program:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+# lvs -o lv_name,lv_size,data_percent
+\begin_inset Newline newline
+\end_inset
+
+LV 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ 
+\begin_inset space ~
+\end_inset
+
+LSize Data% 
+\begin_inset Newline newline
+\end_inset
+
+root 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+10.00g 
+\begin_inset Newline newline
+\end_inset
+
+root-snapset_my-first-set_1768308252_- 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+1.00g
+\begin_inset space ~
+\end_inset
+
+ 0.19 
+\begin_inset Newline newline
+\end_inset
+
+swap 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+512.00m 
+\begin_inset Newline newline
+\end_inset
+
+var 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+12.00g 
+\begin_inset Newline newline
+\end_inset
+
+var-snapset_my-first-set_1768308252_-var 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+1.20g 
+\begin_inset space ~
+\end_inset
+
+0.19 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note the 0.19% value in the 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Data%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ column:
+ this is the percentage of the snapshot exception store that has been used so far.
+ In this case it's a very healthy value.
+ If the value begins to approach 100% you need to take action using 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvresize
+\end_layout
+
+\end_inset
+
+ or 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm snapset resize
+\end_layout
+
+\end_inset
+
+ in order to avoid the snapshot being invalidated.
+\end_layout
+
+\begin_layout Standard
 We will discuss more comprehensive monitoring and maintenance strategies in later chapters.
  For now,
  use your regular storage administration tools (whether that is 
@@ -6776,7 +7645,7 @@ lvresize(8)
 
 \end_inset
 
-for LVM2),
+ for LVM2),
  or you can use the 
 \begin_inset Flex Code
 status open
@@ -7292,7 +8161,7 @@ origin
  In simple terms the origin of a snapshot is the volume from which the snapshot was taken.
  The snapshot is a faithful copy of the origin at the moment in time at which it was taken.
  In some cases (LVM2 CoW) the origin exists and is accessible at all times at which the snapshot exists.
- In other cases (LVM2 thin,
+ In other cases (LVM2 Thin,
  Stratis) it is possible for the origin to be deleted or otherwise cease to exist independently of its snapshots (see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11395,7 +12264,7 @@ LVM2 Thin
 \end_layout
 
 \begin_layout Standard
-The LVM2 thin implementation uses the device-mapper 
+The LVM2 Thin implementation uses the device-mapper 
 \begin_inset Flex Code
 status open
 
@@ -11500,7 +12369,7 @@ thin
 
 \end_inset
 
- targets used by LVM2 thin provisioning but provides a more ZFS or Btrfs like user experience.
+ targets used by LVM2 Thin provisioning but provides a more ZFS or Btrfs like user experience.
  Stratis is an excellent choice for auxiliary storage volumes but is not currently supported for installation by any of the common Linux distribution installer tools (unless you like your root file system held together with candle wax and sticky-tape - in which case,
  check out the author's 
 \begin_inset Flex Code
@@ -11641,7 +12510,7 @@ Timeline
 \end_layout
 
 \begin_layout Standard
-Whether to use LVM2 thin or Stratis is a matter of personal taste,
+Whether to use LVM2 Thin or Stratis is a matter of personal taste,
  organisational policy,
  administrator experience and convenience (subject to the limitations discussed in 
 \begin_inset CommandInset ref
@@ -16748,7 +17617,7 @@ thin ID
 \end_inset
 
  stored in the device metadata.
- This applies to both LVM2 thin volumes and Stratis file systems.
+ This applies to both LVM2 Thin volumes and Stratis file systems.
 \end_layout
 
 \begin_layout Standard
@@ -28466,6 +29335,12 @@ git
 \end_layout
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Frequently-Asked-Questions"
+
+\end_inset
+
 Frequently Asked Questions (FAQs)
 \end_layout
 
@@ -29168,7 +30043,7 @@ merge
 
  operation involves physically moving data:
  this takes time proportional to the amount of data in the snapshot at the time of the merge and the speed of the storage devices involved.
- Thin snapshot reverts (LVM2 thin and Stratis) are instantaneous at the time the pool is activated.
+ Thin snapshot reverts (LVM2 Thin and Stratis) are instantaneous at the time the pool is activated.
 \begin_inset Newline newline
 \end_inset
 
