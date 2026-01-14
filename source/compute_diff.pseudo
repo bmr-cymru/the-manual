@@ -104,10 +104,10 @@
 104       CONTINUE
 105 
 106     /*
-107      * Select first available candidate
-108      * (could be enhanced with heuristics)
+107      * Select best available candidate: uses the previously described
+108      * "sibling proximity heuristic".
 109      */
-110     (dest_path, entry_b) ← candidates[0]
+110     (dest_path, entry_b) ← _best_sibling_proximity(src_path, candidates)
 111 
 112     /*
 113      * Validate: must have corresponding REMOVED/ADDED

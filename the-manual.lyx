@@ -25077,6 +25077,107 @@ Configurability
 \end_layout
 
 \begin_layout Subsection
+The Sibling Proximity Heuristic
+\end_layout
+
+\begin_layout Standard
+Move detection decides among multiple possible candidates for a move destination using a 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+sibling proximity heuristic
+\end_layout
+
+\end_inset
+
+:
+ if more than two files have the same hash,
+ then the move detector should favour the one that stayed in the same subdirectory,
+ resides on the same file system or mount point,
+ or that has a lexically similar name.
+\end_layout
+
+\begin_layout Standard
+We use a simple and approximate string similarity metric to achieve these goals using substring comparisons and the 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Jaccard index
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Jaccard_index
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ This is cheaper and more compact than a formal edit distance algorithm such as the 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Levenshtein distance
+\end_layout
+
+\end_inset
+
+ or even the 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Jaro–Winkler distance
+\end_layout
+
+\end_inset
+
+ and does not introduce external library dependencies.
+\end_layout
+
+\begin_layout Standard
+The similarity score ranges from 0.0 (completely different) to 1.0 (identical or substring match),
+ with the candidate having the highest score selected as the move destination.
+\end_layout
+
+\begin_layout Standard
+The full sibling proximity algorithm is implemented in roughly twenty lines of Python:
+ the docstrings are slightly longer than the code.
+\end_layout
+
+\begin_layout Standard
+The function (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+_best_sibling_proximity()
+\end_layout
+
+\end_inset
+
+) is called at line 110 of the psedo code representation of compute_diff() to tiebreak in the event that multiple candidates exist for a given move source.
+\end_layout
+
+\begin_layout Subsection
 Algorithm in pseudo code
 \end_layout
 
@@ -26280,85 +26381,6 @@ The practical speed-up factor approaches
  —
  for large trees,
  this is the difference between interactive performance and overnight batch jobs.
-\end_layout
-
-\begin_layout Subsection
-The Sibling Proximity Heuristic
-\end_layout
-
-\begin_layout Standard
-Move detection decides among multiple possible candidates for a move destination using a 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-sibling proximity heuristic
-\end_layout
-
-\end_inset
-
-:
- if more than two files have the same hash,
- then the move detector should favour the one that stayed in the same subdirectory,
- resides on the same file system or mount point,
- or that has a lexically similar name.
-\end_layout
-
-\begin_layout Standard
-We use a simple and approximate string similarity metric to achieve these goals using substring comparisons and the 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Jaccard index
-\end_layout
-
-\end_inset
-
-.
- This is cheaper and more compact than a formal edit distance algorithm such as the 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Levenshtein distance
-\end_layout
-
-\end_inset
-
- or even the 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Jaro–Winkler
-\end_layout
-
-\end_inset
-
- distance and does not introduce external library dependencies.
-\end_layout
-
-\begin_layout Standard
-The similarity score ranges from 0.0 (completely different) to 1.0 (identical or substring match),
- with the candidate having the highest score selected as the move destination.
-\end_layout
-
-\begin_layout Standard
-The full sibling proximity algorithm is implemented in roughly fifteen lines of Python:
- the docstrings are slightly longer than the code:
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "source/sibling_proximity.py"
-lstparams "breaklines=true,language=Python,numbers=left,basewidth={5pt}"
-literal "false"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
