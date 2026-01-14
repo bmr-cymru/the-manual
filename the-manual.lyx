@@ -25523,7 +25523,17 @@ _best_sibling_proximity()
 
 \end_inset
 
-) is called at line 110 of the pseudo code representation of compute_diff() to tiebreak in the event that multiple candidates exist for a given move source.
+) is called at line 110 of the pseudo code representation of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+compute_diff()
+\end_layout
+
+\end_inset
+
+ to tiebreak in the event that multiple candidates exist for a given move source.
 \end_layout
 
 \begin_layout Subsection
