@@ -462,6 +462,15 @@ snapm
 \end_layout
 
 \begin_layout Standard
+Snapshot Manager is small,
+ but it fills a gap.
+ Linux has had snapshot capabilities for years - LVM2,
+ Stratis,
+ device-mapper - but they're fragmented and complex.
+ We provide a single interface that makes them actually usable.
+\end_layout
+
+\begin_layout Standard
 A caveat before we begin:
  snapshots are not backups.
  They live on the same storage as your data,
