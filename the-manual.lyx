@@ -440,7 +440,7 @@ snapm
  management,
  and roll back of snapshots of system and data volumes.
  It grew out of earlier work on bootable snapshots for Linux systems and is supported on recent versions of Fedora,
- CentOS,
+ CentOS Stream,
  and Red Hat Enterprise Linux.
 \end_layout
 
@@ -1629,7 +1629,7 @@ https://uapi-group.org/specifications/specs/boot_loader_specification/
 
 \begin_layout Standard
 It facilitates the creation and maintenance of auxiliary boot entries on systems that use a BLS compliant boot loader (currently GNU GRUB2 as patched in Fedora,
- CentOS,
+ CentOS Stream,
  and Red Hat Enterprise Linux,
  and some other distributions,
  IBM zSeries zIPL,
@@ -2653,7 +2653,7 @@ What you'll need:
 
 \begin_layout Itemize
 A Linux system installed with a recent edition of Fedora (F42+),
- CentOS (c9s+),
+ CentOS Stream (c9s+),
  or Red Hat Enterprise Linux (RHEL9.6 onward).
 \end_layout
 
@@ -2741,7 +2741,7 @@ su -
 
 \end_inset
 
-,
+ (if you have a root account password configured),
  or prefix the 
 \begin_inset Flex Code
 status open
@@ -2783,7 +2783,8 @@ dnf
 
 \end_inset
 
- will do its thing and pull the packages down and get them installed:
+ will do its thing,
+ pull the packages down and get them installed:
 \begin_inset VSpace defskip
 \end_inset
 
@@ -3653,7 +3654,7 @@ The URL or PR# of the pull request that you want to install a build from.
 
 \begin_layout Itemize
 A Linux system installed with a recent edition of Fedora (F42+),
- CentOS (c9s+),
+ CentOS Stream (c9s+),
  or Red Hat Enterprise Linux (RHEL9.6 onward).
 \end_layout
 
@@ -3981,7 +3982,7 @@ Installing from PyPi (Bleeding Edge Releases:
 
 \begin_layout Itemize
 A Linux system installed with a recent edition of Fedora (F42+),
- CentOS (c9s+),
+ CentOS Stream (c9s+),
  or Red Hat Enterprise Linux (RHEL9.6 onward).
 \end_layout
 
@@ -4068,7 +4069,7 @@ https://pypi.org/project/snapm/
 \end_inset
 
 .
- Often these will be available before updates to distribution packages are published (particularly for CentOS and Red Hat Enterprise Linux).
+ Often these will be available before updates to distribution packages are published (particularly for CentOS Stream and Red Hat Enterprise Linux).
  These are mostly provided for users wanting to consume bleeding-edge releases in CI environments and are not typically recommended for end-users.
  You can install the latest code from PyPi using the 
 \begin_inset Flex Code
@@ -4344,7 +4345,7 @@ Installing or Running From Source (For Experts & Contributors)
 
 \begin_layout Itemize
 A Linux system installed with a recent edition of Fedora (F42+),
- CentOS (c9s+),
+ CentOS Stream (c9s+),
  or Red Hat Enterprise Linux (RHEL9.6 onward).
 \end_layout
 
@@ -12535,7 +12536,7 @@ Operating System vs.
 There is a possible argument for using conventional (non-thin) LVM2 for the system volumes and thin provisioning for everything else,
  however it is fairly weak:
  modern installers such as Anaconda (used in Fedora,
- CentOS,
+ CentOS Stream,
  and Red Hat Enterprise Linux) can create a thinly provisioned set up automatically and set the system up for success.
  It is true that a 
 \begin_inset Flex Emph
@@ -20483,7 +20484,7 @@ sos
 \end_inset
 
  package and can be installed on many distributions (Fedora,
- CentOS,
+ CentOS Stream,
  Red Hat Enterprise Linux,
  Debian,
  Ubuntu,
@@ -29547,7 +29548,7 @@ systemd-boot(7)
  Distribution packages are currently available for,
  and are tested on,
  Fedora,
- CentOS,
+ CentOS Stream,
  and Red Hat Enterprise Linux.
 \begin_inset Newline newline
 \end_inset
