@@ -286,8 +286,8 @@ roll-back
 \end_layout
 
 \begin_layout Standard
-The Manual exists because we believe everyone deserves a safety net.
- If you can type a command,
+The Manual exists because the author believes everyone deserves a safety net.
+ If you can type a command or deploy automation recipes,
  you can protect your system.
  If something goes wrong,
  you can go back.
@@ -348,19 +348,15 @@ You don't need expensive hardware.
 \end_layout
 
 \begin_layout Standard
-The rest is just details.
- That's what this book is for.
+The rest is just details:
+ that's what this book is for.
 \end_layout
 
 \begin_layout Standard
 Be ready to ride the big dipper of the mixed metaphor.
  Be ready to dip your hands in the lucky bag of block devices,
  gather the storm clouds of entropy,
- and anoint your own 
-\nospellcheck on
-roll-back
-\nospellcheck default
- strategy.
+ and anoint your own recovery strategy.
  Because it is only by following the clear and concise instructions contained in this book that you can realise your long held dream of running system updates without fear,
  thus guaranteeing your place forever in the sacred annals of Uptime History.
 \end_layout
@@ -436,9 +432,9 @@ snapm
 \end_inset
 
  is a snapshot manager for Linux systems.
- It orchestrates storage operations for common storage stacks including LVM2 and Stratis and simplifies the creation,
+ It orchestrates storage operations for common storage stacks including LVM2 and Stratis and simplifies snapshot creation,
  management,
- and roll back of snapshots of system and data volumes.
+ and recovery of system and data volumes.
  It grew out of earlier work on bootable snapshots for Linux systems and is supported on recent versions of Fedora,
  CentOS Stream,
  and Red Hat Enterprise Linux.
@@ -457,6 +453,7 @@ snapm
 
  is the idea of Snapshot Sets —
  named collections of snapshots of different volumes taken at the same moment in time and managed as a single administrative unit.
+ The tool uses a plugin architecture to support different kinds of snapshot capable storage.
  This manual aims to describe the tool and its use,
  as well as common scenarios where readers may find it useful.
 \end_layout
@@ -1447,11 +1444,11 @@ laws are like sausages:
 \end_inset
 
 .
- We believe this is unlike our situation:
+ We think that this is unlike our situation:
  The Manual's source is available,
- the tool chain is documented.
- Documentation isn't like sausages:
- it's better when we can all see it being made and take part in the process.
+ the tool chain is clearly described.
+ Documentation is not like sausages:
+ it is better when we can all see it being made and take part in the process.
 \end_layout
 
 \begin_layout Standard
@@ -1696,8 +1693,7 @@ status open
 \end_inset
 
 ,
- etc.
- mount points) it was limited in its scope due to the lack of system wide support for multi volume snapshot boot and did not address any of the higher level snapshot management needs identified in the white paper.
+ etc.) it was limited in its scope due to the lack of system wide support for multi volume snapshot boot and did not address any of the higher level snapshot management needs identified in the white paper.
 \end_layout
 
 \begin_layout Section
@@ -1917,9 +1913,9 @@ https://github.com/stratis-storage/devicemapper-rs/pull/774
 .
  This is the kind of subsystem that if it is working properly,
  nobody realises it's there,
- but if not,
+ but if it is not,
  all hell breaks loose.
- The author is relieved that to date there has been more of the former than the latter.
+ The author is relieved that to date there has been far more reports of the former than the latter.
 \end_layout
 
 \end_inset
@@ -2071,17 +2067,7 @@ v0.4.0
  followed later in the year with more polished revert handling,
  snapshot resize support,
  block device handling improvements and many small fixes.
- Further bug fixes and packaging improvements followed in the months to come leading finally to 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-v0.4.3
-\end_layout
-
-\end_inset
-
-.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2107,12 +2093,12 @@ While work continued apace to address the next milestone feature set (automatic 
 status open
 
 \begin_layout Plain Layout
-v0.5.0
+v0.4.1
 \end_layout
 
 \end_inset
 
- with hundreds of small fixes and quality of life improvements as well as two new snapshot set verbs:
+,with hundreds of small fixes and quality of life improvements as well as two new snapshot set verbs:
  
 \begin_inset Flex Code
 status open
@@ -2137,6 +2123,17 @@ snapset prune
  These small enhancements help administrators to take control of their data,
  splitting snapshot sets into pieces,
  or discarding unwanted snapshots from a set entirely.
+ Further bug fixes and packaging improvements followed in the months to come leading finally to 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+v0.4.3
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -3729,7 +3726,7 @@ A working internet connection.
 
 \begin_layout Standard
 In this scenario,
- we'll be using the DNF support for 
+ we will be using the DNF support for 
 \begin_inset Flex Emph
 status open
 
@@ -3976,6 +3973,33 @@ y
 \end_inset
 
  to accept if so.
+\end_layout
+
+\begin_layout Standard
+Note that the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+copr
+\end_layout
+
+\end_inset
+
+ builds produced by the Packit build system are transient:
+ they are retained for 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+60 days
+\end_layout
+
+\end_inset
+
+,
+ after which the package repositories are permanently deleted.
+ This should not be a problem in most cases as the builds are intended to be used for short term testing and feedback on active development.
 \end_layout
 
 \begin_layout Section
@@ -4905,7 +4929,9 @@ git
 
 \end_inset
 
- checkout or a tarball) includes all the source and in tree documentation for Snapshot Manager but you are responsible for installing it and making it usable on your system.
+ checkout or a tarball) includes all the source,
+ configuration files,
+ and in tree documentation for Snapshot Manager but you are responsible for installing it and making it usable on your system.
  Refer to the previous chapter for instructions (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5460,7 +5486,9 @@ stratis(8)
 
 \end_inset
 
- command line tool) will help when it comes to planning and finding your way around.
+ command line tool for Stratis storage) will help when it comes to planning,
+ monitoring,
+ and finding your way around.
 \begin_inset Newline newline
 \end_inset
 
@@ -5486,7 +5514,7 @@ findmnt(8)
 \end_inset
 
 ,
- and 
+ 
 \begin_inset Flex Code
 status open
 
@@ -5496,8 +5524,20 @@ lsblk(8)
 
 \end_inset
 
+,
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+blkid(8)
+\end_layout
+
+\end_inset
+
  will also be an advantage —
- refer to the respective manual pages for more details.
+ refer to the respective manual pages for more details,
+ or refer to one of the many great Linux systems administration tutorials available on the internet.
 \end_layout
 
 \begin_layout Section
@@ -5606,7 +5646,7 @@ lvmraid(7)
 \end_layout
 
 \begin_layout Enumerate
-Certain providers enforce a maximum name length,
+Certain providers may enforce a maximum name length,
  for example,
  for LVM2 volumes this is 127 characters.
  Note that this limit includes parts of the internal name generated by 
@@ -5625,6 +5665,22 @@ snapm
 \end_layout
 
 \begin_layout Enumerate
+Any provider that represents the snapshot name as an entry in the file system (which includes all current and planned snapshot providers) is naturally limited by the maximum allowed file name length on Linux (255 characters).
+ Again,
+ this absolute maximum is reduced somewhat by the need for 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ to encode various information into the names it generates.
+\end_layout
+
+\begin_layout Enumerate
 If you include a 
 \begin_inset Quotes bld
 \end_inset
@@ -5633,7 +5689,7 @@ If you include a
 \begin_inset Quotes brd
 \end_inset
 
- followed by a number at the end of your snapshot set name 
+ followed by a non-negative number at the end of your snapshot set name 
 \begin_inset Flex Code
 status open
 
@@ -5690,7 +5746,7 @@ status open
 
 \begin_layout Enumerate
 it is generally best to not include a date or time reference in the name unless you really,
- want to:
+ really want to:
  
 \begin_inset Flex Code
 status open
@@ -5701,7 +5757,7 @@ snapm
 
 \end_inset
 
- already stores the creation time of the snapshot set as a UNIX epoch value and renders it as human readable date/time strings.
+ already stores the creation time of the snapshot set as a UNIX epoch value and renders it as human readable date and time strings in the local time zone.
 \end_layout
 
 \begin_layout Enumerate
@@ -5932,6 +5988,17 @@ something-something-something-snapshot-side
 status open
 
 \begin_layout Plain Layout
+foo
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
 fubar
 \end_layout
 
@@ -5977,6 +6044,17 @@ status open
 
 \begin_layout Plain Layout
 xyzzy
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+qwerty
 \end_layout
 
 \end_inset
@@ -6354,7 +6432,7 @@ UUID
 \end_inset
 
  —
- a unique identifier for the snapshot set (a Version 5 UUID to be specific
+ a unique identifier for the snapshot set (a Version 5 UUID to be exact
 \begin_inset Foot
 status open
 
@@ -6567,8 +6645,8 @@ Status
 \end_layout
 
 \begin_layout Standard
-This means that you don't have snapshot devices cluttering the system and using resources when they are not required and is more efficient —
- especially when dealing with large numbers of snapshots.
+This means that you don't have snapshot devices cluttering the system and using resources when they are not required and is therefore more efficient —
+ especially when dealing with very large numbers of snapshots.
  For LVM2 CoW the snapshot volume must be active at all times that the origin is active.
 \end_layout
 
@@ -6592,7 +6670,41 @@ Inactive
 
 \end_inset
 
+ state
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Unless creating bootable snapshot sets,
+ in which case autoactivate is always enabled and the set will start out in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Active
+\end_layout
+
+\end_inset
+
  state.
+ See chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Bootable-Snapshot-Sets"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ for more information.
+ 
+\end_layout
+
+\end_inset
+
+.
  If it only includes LVM2 CoW snapshots then it will begin in the 
 \begin_inset Flex Code
 status open
@@ -6803,7 +6915,7 @@ snapm
 \end_layout
 
 \begin_layout Standard
-For example,
+As an example,
  using the snapshot set created in the previous step we see the following output when running the 
 \begin_inset Flex Code
 status open
@@ -6814,7 +6926,38 @@ lvs(8)
 
 \end_inset
 
- program:
+ program
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We are using the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvs
+\end_layout
+
+\end_inset
+
+ program's 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-o/--options
+\end_layout
+
+\end_inset
+
+ argument here to make sure the displayed fields fit on the page.
+ By default you will see more columns in the tool output.
+\end_layout
+
+\end_inset
+
+:
 \begin_inset Newline newline
 \end_inset
 
@@ -7767,7 +7910,7 @@ snapm
  and what exactly that means for our systems.
  Trust us:
  while this may seem overly philosophical right now,
- it will help lay the foundations for the operations we later describe in this manual.
+ it will help lay the foundations for the higher level operations we later describe in this manual.
 \end_layout
 
 \begin_layout Section
@@ -7811,23 +7954,11 @@ disk drive
 
 \begin_layout Standard
 A slightly less anachronistic definition would describe a peripheral device containing a small computer that manages a pool of storage media with its own internal algorithms,
- presenting an abstract interface to the host system via fixed size data blocks.
+ presenting an abstract IO interface to the host system via fixed size data blocks.
 \end_layout
 
 \begin_layout Standard
-Both of these statements are 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-true in some sense,
- false in some sense,
- and meaningless in another sense
-\end_layout
-
-\end_inset
-
-.
+While there are elements of truth in both these formulations we advocate a more abstract viewpoint when thinking about snapshots.
  Fundamentally,
  a block device is an abstraction that presents the device to the operating system and the user as an 
 \begin_inset Flex Emph
@@ -7840,7 +7971,7 @@ address space
 \end_inset
 
 :
- an ordered sequence that can be read from or written to in fixed sized blocks.
+ an ordered sequence of locations that can be read from or written to in fixed sized blocks.
  The operating system takes care of buffering data being read or written and provides a uniform interface to the user and especially to file systems that may reside on the device.
  This is similar conceptually to the memory (RAM) of a computer,
  which is an address space that can be read from or written to in units of bytes (or sometimes 
@@ -7931,7 +8062,7 @@ image
 \end_inset
 
  then,
- is the state of the device address space at some specific point in time:
+ is the state of the contents of teh device address space at some specific point in time:
  for example,
  a 
 \begin_inset Flex Emph
@@ -7966,13 +8097,13 @@ Creating an image to be written to backup media (tape,
 \begin_layout Itemize
 Preserving a copy of the system before making potentially risky changes (software updates,
  configuration changes,
- data edits,
- application deployments)
+ data edits)
 \end_layout
 
 \begin_layout Itemize
-Taking a copy of the live data in order to inspect or modify it with tools that would cause damage if run on the real volumes (file system checkers and editors,
- forensic tools)
+Taking a copy of the live data to use with tools that might cause damage (file system editors,
+ file system repair) or that require stable data to function correctly (forensic tools,
+ read-only file system checks)
 \end_layout
 
 \begin_layout Itemize
@@ -7983,7 +8114,8 @@ Forking
 \begin_inset Quotes brd
 \end_inset
 
- the system into multiple parallel versions (creating multiple virtual machine images from a common base image)
+ the system into multiple parallel versions if itself (creating multiple virtual machine images from a common base image,
+ preparing test cases)
 \end_layout
 
 \begin_layout Standard
@@ -8012,6 +8144,12 @@ images
 \end_inset
 
  that we describe here:
+\end_layout
+
+\begin_layout Itemize
+Physical consistency and integrity —
+ is the media intact?
+ Can the address space be read without errors or missing portions?
 \end_layout
 
 \begin_layout Itemize
@@ -8051,7 +8189,7 @@ Application consistency —
  does the data across multiple files (possibly in multiple file systems) represent a coherent and consistent state of the ultimate application or applications running on the system?
  Can it be used to restart operations following a service disruption such as a crash,
  power outage,
- hardware failure etc.
+ or hardware failure.
 \end_layout
 
 \begin_layout Subsection
@@ -8079,7 +8217,17 @@ image
 
 \end_inset
 
- the idea of a block device snapshot flows naturally from that foundation:
+ the idea of a block device 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+snapshot
+\end_layout
+
+\end_inset
+
+ flows naturally from that foundation:
  a block device snapshot is just a means to capture an image of a block device at a particular moment in time.
  As ever,
  there are many roads to Rome:
@@ -8136,10 +8284,20 @@ mounting
 \end_inset
 
  the snapshot volume somewhere.
- In other cases the snapshot may appear similar to a regular directory within the file system (in at least one case,
+ In other cases the snapshot may appear similar to a regular directory within the file system
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In at least one case,
  it is virtually identical and cannot be readily distinguished from an ordinary directory:
  we are not fond of this approach since it makes life difficult for tools that want to manage snapshots automatically,
- and that is after all what we are about).
+ and that is after all what we are about.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -8170,7 +8328,10 @@ origin
  frequently in this manual.
  In simple terms the origin of a snapshot is the volume from which the snapshot was taken.
  The snapshot is a faithful copy of the origin at the moment in time at which it was taken.
- In some cases (LVM2 CoW) the origin exists and is accessible at all times at which the snapshot exists.
+ In some cases (LVM2 CoW) the origin exists and is accessible at all times at which the snapshot exists:
+ the snapshot depends on its original —
+ in a very real,
+ and physical way.
  In other cases (LVM2 Thin,
  Stratis) it is possible for the origin to be deleted or otherwise cease to exist independently of its snapshots (see chapter 
 \begin_inset CommandInset ref
@@ -8291,7 +8452,12 @@ the
 
  system.
  The software that runs will be the version present in the snapshot image and changes that are written while the snapshot is in use will modify the snapshot rather than the origin devices that represent the system's normal environment.
- 
+\end_layout
+
+\begin_layout Standard
+All that being said,
+ it is still important to remember where you are at any given moment and to act accordingly:
+ this is no different than the ordinary situational awareness that the administrator must maintain.
 \end_layout
 
 \begin_layout Standard
@@ -8309,6 +8475,7 @@ nolink "false"
 \end_inset
 
  for a more complete discussion of these concerns.
+ Don't get lost in your snapshots.
 \end_layout
 
 \begin_layout Section
@@ -8723,7 +8890,7 @@ status open
 status open
 
 \begin_layout Plain Layout
---debug
+-d/--debug
 \end_layout
 
 \end_inset
@@ -8846,7 +9013,7 @@ nolink "false"
 status open
 
 \begin_layout Plain Layout
---verbose
+-v/--verbose
 \end_layout
 
 \end_inset
@@ -8882,7 +9049,7 @@ DEBUG
 status open
 
 \begin_layout Plain Layout
---help
+-h/--help
 \end_layout
 
 \end_inset
@@ -8941,7 +9108,7 @@ snapm snapset list –-help
 status open
 
 \begin_layout Plain Layout
---version
+-V/--version
 \end_layout
 
 \end_inset
@@ -9156,6 +9323,40 @@ status open
 \end_inset
 
  to append a unique index to the name for recurring snapshots.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+create-scheduled -c schedule_name [-j]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Create a new snapshot set using the named schedule.
+ The schedule is read to obtain the name,
+ list of sources,
+ and other attributes for the new snapshot set.
+ This command is executed automatically from schedule timers.
 \begin_inset Newline newline
 \end_inset
 
@@ -9855,7 +10056,7 @@ diffreport
 \end_layout
 
 \begin_layout Itemize
-Key filters:
+Change filters:
  
 \begin_inset Flex Code
 status open
@@ -9878,7 +10079,10 @@ status open
 \end_inset
 
 ,
- 
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset Flex Code
 status open
 
@@ -9895,17 +10099,6 @@ status open
 
 \begin_layout Plain Layout
 -c/--content-only
-\end_layout
-
-\end_inset
-
-,
- 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
--C/--no-content-diff
 \end_layout
 
 \end_inset
@@ -10036,6 +10229,20 @@ libmagic
 status open
 
 \begin_layout Plain Layout
+-C/--no-content-diff
+\end_layout
+
+\end_inset
+
+ (disable computation of content diffs)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
 -M/--cache-mode={auto,never,always}
 \end_layout
 
@@ -10079,7 +10286,7 @@ status open
 
 \end_inset
 
- specify a path (in the 
+ (specify a path in the 
 \begin_inset Flex Code
 status open
 
@@ -10099,7 +10306,7 @@ from
 
 \end_inset
 
- argument) from which tree traversal should begin.
+ argument from which tree traversal should begin).
 \end_layout
 
 \begin_layout Subsection
@@ -10636,6 +10843,9 @@ Enable or disable automatic activation at boot time for individual snapshots (lv
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Flex Strong
 status open
 
@@ -11544,6 +11754,10 @@ status open
 \end_inset
 
  output.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -11599,6 +11813,9 @@ Commands for displaying information about available storage provider plugins.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Flex Strong
 status open
 
@@ -11858,7 +12075,7 @@ nolink "false"
 \begin_layout Standard
 These numbers are a little old,
  but still illustrative.
- The following performance data was captured on a system with the following characteristics:
+ The performance data shown here was captured on a system with the following characteristics:
 \end_layout
 
 \begin_layout Itemize
@@ -11902,6 +12119,21 @@ LVM2 CoW and thin snapshots created with LVM defaults
 \end_layout
 
 \begin_layout Standard
+Performance data was collected using the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+fio(1)
+\end_layout
+
+\end_inset
+
+ program with a workload consisting of random reads and writes.
+ Each test was repeated several times (with the cache dropped between runs) and the figures shown are the mean values of the recorded data.
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Graphics
 	filename images/io-throughput.svg
@@ -11912,10 +12144,10 @@ LVM2 CoW and thin snapshots created with LVM defaults
 \end_layout
 
 \begin_layout Standard
-As the chart clearly shows this performance drop is quite spectacular,
+As the chart clearly shows this performance drop is quite spectacular:
  even for relatively small numbers of snapshots (less then ten).
  You should think carefully about whether to go into production with a plan based on LVM2 CoW if you ever anticipate needing more than a very few snapshots of the same volume.
- The thin provisioning target by contrast shows much more moderate performance impact even when a thousand snapshots coexist with the origin volume.
+ The thin provisioning target by contrast shows much more modest performance impact even when a thousand snapshots coexist with the origin volume.
 \end_layout
 
 \begin_layout Standard
@@ -11927,9 +12159,8 @@ CoW Exception Store Invalidation
 \end_layout
 
 \begin_layout Standard
-The major downside of CoW,
- beyond the performance concern,
- is the fixed-sized backing store (the 
+Beyond performance concerns,
+ the major downside of CoW is the fixed-sized backing store (the 
 \begin_inset Flex Emph
 status open
 
@@ -11984,7 +12215,27 @@ dm-thin
 \end_inset
 
  target is implemented as a device-mapper module that provides a thin provisioning and snapshot solution using a shared pool of storage.
- Its core mechanism relies on a redirect-on-write approach managed by metadata stored in a hierarchical B-tree structure.
+ Its core mechanism relies on a redirect-on-write approach managed by metadata stored in a hierarchical copy-on-write B-tree
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/B-tree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ data structure.
  
 \end_layout
 
@@ -12009,9 +12260,9 @@ dm-thin-pool
 \end_inset
 
 ):
- This is the central repository that ties together two underlying physical volumes:
+ This is the central repository that ties together two underlying volumes:
  a data volume and a metadata volume.
- It manages the allocation of physical storage blocks to multiple virtual thin devices and handles the metadata updates.
+ It manages the allocation of physical storage blocks to multiple virtual thin devices and handles metadata updates.
 \end_layout
 
 \begin_layout Itemize
@@ -12035,7 +12286,7 @@ Mechanism of Operation
 \end_layout
 
 \begin_layout Standard
-The implementation details involve several key mechanisms:
+The operation of the thin targets involve several key mechanisms:
 \end_layout
 
 \begin_layout Paragraph
@@ -12056,7 +12307,7 @@ dm-thin
 \end_inset
 
  target intercepts the IO request.
- It requests a new physical data block from the shared pool.
+ It requests a new physical data block from the shared pool and updates the device mapping.
 \end_layout
 
 \begin_layout Enumerate
@@ -12083,7 +12334,7 @@ Metadata Management:
 
 \begin_layout Enumerate
 Mapping:
- A hierarchical B-tree data structure is used to map a virtual block address on a thin device to a physical block address in the data pool.
+ A hierarchical B-tree data structure is used to map a virtual block address space on a thin device to physical block addresses in the data pool.
  The B-tree metadata uses copy-on-write techniques to ensure atomic updates and consistent behaviour in the event of a crash or abrupt shut-down.
 \end_layout
 
@@ -12127,7 +12378,7 @@ dmeventd(8)
 
 \end_inset
 
- (a part of LVM),
+ (a part of LVM2),
  monitors the pool's free space (using a 
 \begin_inset Quotes bld
 \end_inset
@@ -12190,8 +12441,26 @@ dm-thin
 \end_inset
 
  target uses redirect-on-write:
- when breaking sharing,
- the origin is redirected to a newly allocated block while snapshots continue pointing to the original.
+ initially,
+ when a snapshot is first created,
+ it shares its complete address space mapping with the origin.
+ As writes occur to the origin or snapshot volume this sharing is 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+broken
+\end_layout
+
+\end_inset
+
+,
+ allowing the two address spaces to diverge.
+\end_layout
+
+\begin_layout Standard
+When breaking sharing,
+ the origin is redirected to a newly allocated block while snapshots continue pointing to the unmodified original block.
  For partial block writes,
  the original data is first copied to the new location before modification.
  Writes to snapshot volumes follow the same mechanism:
@@ -12228,7 +12497,7 @@ drivers/md/dm-thin.c
 
 \end_inset
 
-).
+ in the Linux kernel sources).
 \begin_inset Newline newline
 \end_inset
 
@@ -12262,7 +12531,7 @@ IO Redirection:
 
 \begin_layout Standard
 The device mapper intercepts IO requests at the block layer.
- Based on the mapping table,
+ Based on the mapping table and metadata trees,
  it redirects the IO to the correct physical sector on the underlying data device.
  If a block is unmapped,
  it triggers the allocation process.
@@ -12329,8 +12598,18 @@ dm-snapshot
  can tolerate and still deliver usable performance) it is much more scalable,
  flexible,
  and,
- well,
- modern,
+ well:
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+modern
+\end_layout
+
+\end_inset
+
+,
  than its predecessor.
  In addition,
  thin snapshots take their backing store space from the common space available to the thin pool that contains them:
@@ -12379,8 +12658,11 @@ thin
 
 \end_inset
 
- targets used by LVM2 Thin provisioning but provides a more ZFS or Btrfs like user experience.
- Stratis is an excellent choice for auxiliary storage volumes but is not currently supported for installation by any of the common Linux distribution installer tools (unless you like your root file system held together with candle wax and sticky-tape - in which case,
+ targets used by LVM2 thin provisioning but provides a more Btrfs or ZFS like user experience out of the box.
+\end_layout
+
+\begin_layout Standard
+Stratis is an excellent choice for auxiliary storage volumes but is not currently supported for system installation by any of the common Linux distribution installer tools (unless you like your root file system held together with candle wax and sticky-tape - in which case,
  check out the author's 
 \begin_inset Flex Code
 status open
@@ -12407,7 +12689,7 @@ https://stratis-storage.github.io/stratify/
 \end_layout
 
 \begin_layout Standard
-Stratis provides almost all the benefits of LVM2 thin provisioning and more with a simplified and modern CLI and powerful DBus interface.
+Stratis provides almost all the benefits of LVM2 thin provisioning and more with a simplified and modern CLI and a powerful DBus interface.
  See the Stratis Storage website for further information:
  
 \begin_inset Flex URL
@@ -12449,8 +12731,8 @@ snapm
 \nospellcheck on
 's
 \nospellcheck default
- feature set with the least amount of set up and storage knowledge.
- The installer will put it all together for you (just remember to leave some free space in your volume group,
+ feature set with the least amount of set up and storage knowledge:
+ your distribution installer can put it all together for you (just remember to leave some free space in your volume group,
  either when configuring it at installation time,
  or by provisioning additional storage post install and using the 
 \begin_inset Flex Code
@@ -12463,7 +12745,10 @@ vgextend(8)
 \end_inset
 
  command).
- Just note that you will by default be limited to no more than seven snapshots per origin volume as noted in 
+\end_layout
+
+\begin_layout Standard
+Note however that you will by default be limited to no more than seven snapshots per origin volume as noted in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:LVM2-CoW"
@@ -12625,6 +12910,46 @@ Salt from my Attic
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The general topic of storage planning is vast and encompasses the full gamut of tasks from capacity planning and usage estimation,
+ through physical layer and fabric concerns,
+ to file system creation microoptimisations and mount options.
+ It is not our objective in this chapter to try to describe all these disparate activities in detail:
+ rather,
+ our aim is to spell out the practical considerations that arise when including 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ deployment and use in the planning scope.
+\end_layout
+
+\begin_layout Standard
+Consult the many fine online resources available on the topic for a broader view of the subject matter,
+ or raise the matter with your storage or operating system vendor's team of consultants,
+ who will be happy to help inform you of the state of the art (for a modest fee,
+ of course).
+\end_layout
+
+\begin_layout Standard
+These are some things to consider before your ship sets sail:
+ some flexibility remains after initial deployment (dependent on circumstances and constraints),
+ but most storage stack decisions are best made 
+\begin_inset Quotes bld
+\end_inset
+
+right first time
+\begin_inset Quotes brd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
