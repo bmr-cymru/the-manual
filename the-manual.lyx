@@ -1508,7 +1508,7 @@ In 2017 the author was asked to lead a small team looking into the possibility o
 \begin_inset Quotes bld
 \end_inset
 
-roll-back
+rollback
 \begin_inset Quotes brd
 \end_inset
 
@@ -1921,7 +1921,7 @@ https://github.com/stratis-storage/devicemapper-rs/pull/774
 \end_inset
 
 .
- A rough roadmap was pulled together that has served as the project's guiding document ever since (the full roadmap is reproduced in appendix 
+ A rough road map was pulled together that has served as the project's guiding document ever since (the full road map is reproduced in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:The-Roadmap"
@@ -2412,7 +2412,11 @@ proc_pid_mounts(5)
 
 \end_inset
 
- and friends) and provides a simple one-shot mount/unmount interface to users and the rest of the code base.
+ and friends) and provides a simple 
+\nospellcheck on
+one-shot
+\nospellcheck default
+ mount/unmount interface to users and the rest of the code base.
 \end_layout
 
 \begin_layout Standard
@@ -2506,7 +2510,7 @@ v0.6.0
 
 \end_inset
 
- in mid-December of that year.
+ in mid December of that year.
 \end_layout
 
 \begin_layout Standard
@@ -5410,7 +5414,7 @@ status open
  A block device source is a block device that is not mounted and that need not contain a mountable file system image (for example,
  databases,
  virtual machine images,
- and other non-file system content).
+ and other non file system content).
 \end_layout
 
 \begin_layout Standard
@@ -5689,7 +5693,7 @@ If you include a
 \begin_inset Quotes brd
 \end_inset
 
- followed by a non-negative number at the end of your snapshot set name 
+ followed by a nonnegative number at the end of your snapshot set name 
 \begin_inset Flex Code
 status open
 
@@ -8062,7 +8066,7 @@ image
 \end_inset
 
  then,
- is the state of the contents of teh device address space at some specific point in time:
+ is the state of the contents of the device address space at some specific point in time:
  for example,
  a 
 \begin_inset Flex Emph
@@ -8103,7 +8107,7 @@ Preserving a copy of the system before making potentially risky changes (softwar
 \begin_layout Itemize
 Taking a copy of the live data to use with tools that might cause damage (file system editors,
  file system repair) or that require stable data to function correctly (forensic tools,
- read-only file system checks)
+ read only file system checks)
 \end_layout
 
 \begin_layout Itemize
@@ -12294,7 +12298,7 @@ Block Allocation:
 \end_layout
 
 \begin_layout Enumerate
-On-Demand Provisioning:
+On Demand Provisioning:
  When a user writes to a block on a thin device for the first time,
  the 
 \begin_inset Flex Code
@@ -12335,7 +12339,7 @@ Metadata Management:
 \begin_layout Enumerate
 Mapping:
  A hierarchical B-tree data structure is used to map a virtual block address space on a thin device to physical block addresses in the data pool.
- The B-tree metadata uses copy-on-write techniques to ensure atomic updates and consistent behaviour in the event of a crash or abrupt shut-down.
+ The B-tree metadata uses copy-on-write techniques to ensure atomic updates and consistent behaviour in the event of a crash or abrupt shutdown.
 \end_layout
 
 \begin_layout Enumerate
@@ -12915,7 +12919,7 @@ Salt from my Attic
 \begin_layout Standard
 The general topic of storage planning is vast and encompasses the full gamut of tasks from capacity planning and usage estimation,
  through physical layer and fabric concerns,
- to file system creation microoptimisations and mount options.
+ to file system creation micro-optimisations and mount options.
  It is not our objective in this chapter to try to describe all these disparate activities in detail:
  rather,
  our aim is to spell out the practical considerations that arise when including 
@@ -15680,7 +15684,11 @@ The All policy:
 \end_layout
 
 \begin_layout Standard
-Manual clean-up only.
+Manual 
+\nospellcheck on
+clean-up
+\nospellcheck default
+ only.
 \end_layout
 
 \begin_layout Section
@@ -16939,7 +16947,11 @@ The primary limitation of shred is its reliance on the assumption that data is o
 \begin_layout Itemize
 Solid-State Drives (SSDs):
  shred is generally not recommended for SSDs.
- SSDs use wear-levelling algorithms and over-provisioning,
+ SSDs use 
+\nospellcheck on
+wear-levelling
+\nospellcheck default
+ algorithms and over-provisioning,
  which means the data may be written to a different physical location each time,
  leaving the original data intact on unallocated blocks that shred cannot access.
  Repeatedly using shred on an SSD can also reduce its lifespan due to excessive write cycles.
@@ -18416,7 +18428,11 @@ status open
 
 \end_inset
 
- disables the normal catch-all exception handler in the top level 
+ disables the normal 
+\nospellcheck on
+catch-all
+\nospellcheck default
+ exception handler in the top level 
 \begin_inset Flex Code
 status open
 
@@ -19303,7 +19319,15 @@ xxd(1)
 
 \begin_layout Chapter
 Trust but Verify:
- Pre- and Post- Revert Checks
+ 
+\nospellcheck on
+Pre-
+\nospellcheck default
+ and 
+\nospellcheck on
+Post-
+\nospellcheck default
+ Revert Checks
 \end_layout
 
 \begin_layout Quotation
@@ -19351,7 +19375,7 @@ snapm
  in fact,
  the intended state.
  This can be accomplished using standard commands provided by your distribution and its package manager.
- Further insight (and more robust verification using off-system databases) can be achieved with third party open source tools such as 
+ Further insight (and more robust verification using off system databases) can be achieved with third party open source tools such as 
 \begin_inset Flex Emph
 status open
 
@@ -24728,7 +24752,7 @@ Whole root file system diffs in situations where large volumes of changes are pr
 
 \end_inset
 
- on low-memory systems (2-4GiB) with slow or absent swap devices.
+ on low memory systems (2-4GiB) with slow or absent swap devices.
 \end_layout
 
 \begin_layout Standard
@@ -25335,7 +25359,7 @@ Correctness over speed
 
  —
  Every genuine change must be detected.
- A missed change could mean silent data loss during a roll-back.
+ A missed change could mean silent data loss during a revert.
 \end_layout
 
 \begin_layout Enumerate
@@ -25499,7 +25523,7 @@ _best_sibling_proximity()
 
 \end_inset
 
-) is called at line 110 of the psedo code representation of compute_diff() to tiebreak in the event that multiple candidates exist for a given move source.
+) is called at line 110 of the pseudo code representation of compute_diff() to tiebreak in the event that multiple candidates exist for a given move source.
 \end_layout
 
 \begin_layout Subsection
@@ -26699,7 +26723,7 @@ tree_a
 \end_layout
 
 \begin_layout Standard
-The practical speed-up factor approaches 
+The practical speedup factor approaches 
 \begin_inset Formula $n/3$
 \end_inset
 
@@ -29948,7 +29972,7 @@ A:
 \end_inset
 
  Snapshot Manager supports LVM2 (CoW and thin) snapshots as well as Stratis snapshots.
- Other storage back-ends (for example,
+ Other storage back ends (for example,
  Btrfs) may be supported in future versions.
 \end_layout
 
@@ -30717,7 +30741,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-fail-safe revert
+fail safe revert
 \end_layout
 
 \end_inset
@@ -30782,7 +30806,7 @@ A:
  Select the appropriate Snapshot boot entry from your system's boot menu to boot into the corresponding snapshot set.
  Subsequently,
  when you reboot,
- the system will by default boot into the normal (non-snapshot) environment.
+ the system will by default boot into the normal (non snapshot) environment.
 \begin_inset Newline newline
 \end_inset
 
@@ -31405,7 +31429,7 @@ fsck(8)
 
  program for your file system (preferably,
  to start,
- in check/read only/dry-run mode if supported).
+ in check/read only/dry run mode if supported).
 \end_layout
 
 \begin_layout Standard
@@ -32810,7 +32834,7 @@ name "chap:The-Roadmap"
 
 \end_inset
 
-The Snapshot Manager Roadmap (Milestones I-IV)
+The Snapshot Manager Road Map (Milestones I-IV)
 \end_layout
 
 \begin_layout Quotation
@@ -32860,16 +32884,16 @@ Problem Statement
 Managing storage snapshots in Linux is fragmented and lacks a unified solution,
  leading to complexities in capturing,
  managing,
- and utilizing snapshots across different implementations.
- Users face challenges in creating multi-volume snapshot sets,
- performing lifecycle management,
+ and utilising snapshots across different implementations.
+ Users face challenges in creating multi volume snapshot sets,
+ performing life cycle management,
  inspecting snapshot data,
  and coordinating applications during snapshot operations.
  This fragmentation hinders system administration,
  backup strategies,
  troubleshooting,
- and efficient utilization of snapshots.
- There is a need for a comprehensive snapshot management system for Linux that provides a higher-level interface,
+ and efficient utilisation of snapshots.
+ There is a need for a comprehensive snapshot management system for Linux that provides a higher level interface,
  simplifies snapshot operations,
  supports various mechanisms,
  and enhances overall usability and administration of storage snapshots.
@@ -32880,13 +32904,13 @@ Goal
 \end_layout
 
 \begin_layout Standard
-The goal of this project is to develop a robust and user-friendly snapshot management system for Linux that addresses the existing challenges and provides a unified and efficient solution for
+The goal of this project is to develop a robust and user friendly snapshot management system for Linux that addresses the existing challenges and provides a unified and efficient solution for
 \end_layout
 
 \begin_layout Standard
 capturing,
  managing,
- and utilizing storage snapshots.
+ and utilising storage snapshots.
 \end_layout
 
 \begin_layout Section
@@ -32900,11 +32924,11 @@ User Story:
 
 \begin_layout Standard
 As a system administrator,
- I want to capture snapshots on-demand for a user-specified list of volumes.
+ I want to capture snapshots on demand for a user specified list of volumes.
 \end_layout
 
 \begin_layout Itemize
-Implement an intuitive command-line interface (CLI) for snapshot creation.
+Implement an intuitive command line interface (CLI) for snapshot creation.
 \end_layout
 
 \begin_layout Itemize
@@ -32951,7 +32975,7 @@ As a system administrator,
 \end_layout
 
 \begin_layout Itemize
-Utilize boom to manage auxiliary boot entries for seamless booting from snapshot sets.
+Utilise boom to manage auxiliary boot entries for seamless booting from snapshot sets.
 \end_layout
 
 \begin_layout Itemize
@@ -32985,7 +33009,7 @@ Add the ability to schedule regular or recurring snapshot creation for specified
 \end_layout
 
 \begin_layout Itemize
-Provide options for customizable scheduling parameters,
+Provide options for customisable scheduling parameters,
  such as frequency and retention policies.
 \end_layout
 
@@ -32996,7 +33020,7 @@ User Story:
 
 \begin_layout Standard
 As a system administrator,
- I want to perform lifecycle management of snapshot sets.
+ I want to perform life cycle management of snapshot sets.
 \end_layout
 
 \begin_layout Itemize
@@ -33006,7 +33030,7 @@ Implement automatic garbage collection of snapshot sets based on defined policie
 \begin_layout Itemize
 Allow users to set retention periods,
  maximum snapshot counts,
- or space-based policies.
+ or space based policies.
 \end_layout
 
 \begin_layout Subsection
@@ -33054,7 +33078,7 @@ As a system administrator,
 \end_layout
 
 \begin_layout Itemize
-Implement a comparison tool to visualize the differences between two snapshots.
+Implement a comparison tool to visualise the differences between two snapshots.
 \end_layout
 
 \begin_layout Itemize
@@ -33112,7 +33136,7 @@ User Story:
 
 \begin_layout Standard
 As a system administrator,
- I want fine-grained and automatic application coordination during snapshot operations.
+ I want fine grained and automatic application coordination during snapshot operations.
 \end_layout
 
 \begin_layout Itemize
@@ -33121,7 +33145,11 @@ Develop an API for seamless integration with applications,
 \end_layout
 
 \begin_layout Itemize
-Allow applications to opt-in to snapshot coordination by consuming the API.
+Allow applications to 
+\nospellcheck on
+opt-in
+\nospellcheck default
+ to snapshot coordination by consuming the API.
 \end_layout
 
 \begin_layout Subsection
