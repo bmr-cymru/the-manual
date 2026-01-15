@@ -1241,6 +1241,40 @@ snapm(8)
 \end_layout
 
 \begin_layout Standard
+Where we use units to describe quantities that commonly occur as powers-of-two —
+ such as block,
+ extent,
+ and device sizes —
+ we use IEC 60027-2 Standard (Amendment 2) binary prefix notation
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Binary_prefix
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+:
+ KiB,
+ MiB,
+ GiB,
+ etc.
+ meaning multiples of 1,024,
+ 1,048,576 and so on.
+\end_layout
+
+\begin_layout Standard
 URLs and cross-references are hyperlinked and should be clickable in any modern PDF reader.
 \end_layout
 
@@ -6204,7 +6238,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-/100%SIZE /home:50%SIZE
+/:100%SIZE /home:50%SIZE
 \end_layout
 
 \end_inset
@@ -6352,6 +6386,10 @@ Bootable:
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newline newline
 \end_inset
 
 
@@ -6631,9 +6669,8 @@ boom(8)
 \end_layout
 
 \begin_layout Standard
-We will get to most of these properties and their precise meaning in good time,
- but for now,
- the 
+We will get to all of these properties and their precise meaning in good time,
+ but for now the 
 \begin_inset Flex Code
 status open
 
@@ -7964,7 +8001,7 @@ A slightly less anachronistic definition would describe a peripheral device cont
 \begin_layout Standard
 While there are elements of truth in both these formulations we advocate a more abstract viewpoint when thinking about snapshots.
  Fundamentally,
- a block device is an abstraction that presents the device to the operating system and the user as an 
+ a block device is a construct that presents the device to the operating system and the user as an 
 \begin_inset Flex Emph
 status open
 
@@ -8090,7 +8127,7 @@ image
 \end_inset
 
  of the device as it existed at the moment the snapshot was created.
- This is very useful for a number of purposes:
+ This is very useful for a number of tasks:
 \end_layout
 
 \begin_layout Itemize
@@ -8118,7 +8155,7 @@ Forking
 \begin_inset Quotes brd
 \end_inset
 
- the system into multiple parallel versions if itself (creating multiple virtual machine images from a common base image,
+ the system into multiple parallel versions of itself (creating multiple virtual machine images from a common base image,
  preparing test cases)
 \end_layout
 
@@ -8193,7 +8230,7 @@ Application consistency —
  does the data across multiple files (possibly in multiple file systems) represent a coherent and consistent state of the ultimate application or applications running on the system?
  Can it be used to restart operations following a service disruption such as a crash,
  power outage,
- or hardware failure.
+ or hardware failure?
 \end_layout
 
 \begin_layout Subsection
@@ -8231,7 +8268,7 @@ snapshot
 
 \end_inset
 
- flows naturally from that foundation:
+ flows naturally from those definitions:
  a block device snapshot is just a means to capture an image of a block device at a particular moment in time.
  As ever,
  there are many roads to Rome:
@@ -8273,7 +8310,7 @@ block device
  snapshot.
  Rather,
  the image is notional or abstract and maintained internally by the file system within its metadata:
- different file systems adopt different approaches to maintaining this illusion but they share the common property that they present the resulting file system state to the user in ways that allow the content to be accessed in the state it was in at the moment the snapshot was created.
+ different file systems adopt different approaches to maintaining this illusion but they share the common property that they present the resulting file system state to the user in ways that allow the content to be accessed in the condition it was in at the moment the snapshot was created.
 \end_layout
 
 \begin_layout Standard
