@@ -28007,7 +28007,15 @@ status open
 \end_inset
 
 A comma-separated list of subsystem names to enable debugging output for,
- or 'all' to enable all debugging.
+ or 
+\begin_inset Quotes bld
+\end_inset
+
+all
+\begin_inset Quotes brd
+\end_inset
+
+ to enable all debugging.
  The available debug classes are:
  manager,
  command,
@@ -28184,7 +28192,7 @@ snapm
 
 \end_inset
 
- with the same great idea.
+ with the same bright idea.
  It turns out that when you have 
 \begin_inset Flex Emph
 status open
@@ -28652,7 +28660,7 @@ snapm(8)
 
 \end_inset
 
- like I did in that commit!
+ like your author did in that commit!
 \end_layout
 
 \begin_layout Section
@@ -29021,6 +29029,10 @@ Future
 \end_inset
 
  project to find areas that aren't being actively worked on by the team:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -29032,6 +29044,49 @@ status open
 https://github.com/orgs/snapshotmanager/projects/13
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+We also maintain a 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Good First Issue
+\end_layout
+
+\end_inset
+
+ label in our GitHub issues - these range from trivial docstring fixes and clean-ups to more in-depth and challenging problems but they are all fairly self-contained and do not require deep expertise or knowledge of the entire code base.
+ We are happy to offer assistance and advice to anyone interested in picking any of these up —
+ comment on the issue itself,
+ or send us an email to get the conversation started.
+ You can find the list of issues with this label here:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/snapshotmanager/snapm/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
 \end_inset
 
 
@@ -29089,6 +29144,9 @@ The snapm tool is currently single language.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Flex URL
 status open
 
@@ -29100,7 +29158,7 @@ https://github.com/snapshotmanager/snapm/issues/901
 \end_inset
 
 
-\begin_inset Newline newline
+\begin_inset VSpace defskip
 \end_inset
 
 
