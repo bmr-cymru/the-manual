@@ -28995,7 +28995,8 @@ No.
 
 \begin_layout Standard
 As an open source project we welcome contributions of any shape or size,
- so long as they meet the project's standards for quality and align with our feature road map.
+ so long as they meet the project's standards for code licensing and quality,
+ and align with our feature road map.
  There are lots of ways to contribute besides writing code:
  we welcome documenters,
  packagers,
@@ -29004,8 +29005,8 @@ As an open source project we welcome contributions of any shape or size,
 \end_layout
 
 \begin_layout Standard
-If you are planning to make substantial changes it is always a good idea to open an issue first and discuss your ideas with the maintainers.
- We can help to focus and refine your ideas and validate that they fit in with our existing plans for the projects.
+If you are planning to make substantial changes it is always a good idea to open an issue first and discuss your ideas with the team.
+ We can help to focus and refine your plans and validate that they fit in with our existing direction for the projects.
 \end_layout
 
 \begin_layout Section
@@ -29028,7 +29029,7 @@ Future
 
 \end_inset
 
- project to find areas that aren't being actively worked on by the team:
+ project to find areas that aren't being actively worked on right now:
 \begin_inset Newline newline
 \end_inset
 
@@ -29047,13 +29048,17 @@ https://github.com/orgs/snapshotmanager/projects/13
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset VSpace defskip
 \end_inset
 
-We also maintain a 
+We also use a 
 \begin_inset Flex Emph
 status open
 
@@ -29063,8 +29068,8 @@ Good First Issue
 
 \end_inset
 
- label in our GitHub issues - these range from trivial docstring fixes and clean-ups to more in-depth and challenging problems but they are all fairly self-contained and do not require deep expertise or knowledge of the entire code base.
- We are happy to offer assistance and advice to anyone interested in picking any of these up —
+ label in our GitHub repositories - issues with this label range from trivial docstring fixes and clean-ups to more in-depth and challenging problems but they are all fairly self-contained and do not require deep expertise or knowledge of the entire code base.
+ We are happy to offer assistance and advice to anyone interested in picking these up —
  comment on the issue itself,
  or send us an email to get the conversation started.
  You can find the list of issues with this label here:
@@ -29083,6 +29088,10 @@ status open
 https://github.com/snapshotmanager/snapm/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newline newline
 \end_inset
 
 
@@ -29121,11 +29130,11 @@ HTML documentation built with Sphinx,
 
 \begin_deeper
 \begin_layout Itemize
-API documentation generated from Sphinx docstring formats
+API documentation generated from Sphinx docstring comments
 \end_layout
 
 \begin_layout Itemize
-A user guide written in RST
+A user guide written in Sphinx RST
 \end_layout
 
 \end_deeper
@@ -29158,6 +29167,10 @@ https://github.com/snapshotmanager/snapm/issues/901
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset VSpace defskip
 \end_inset
 
@@ -29186,7 +29199,7 @@ Testing
 Testing is as important as writing code,
  if not more so.
  We love to hear from creative testers who find new ways to break our software,
- or who like to contribute new test cases to our existing tests suites.
+ or who want to contribute new test cases to our existing tests suites.
 \end_layout
 
 \begin_layout Standard
@@ -29457,12 +29470,12 @@ python-basic-tests
 \begin_inset Quotes brd
 \end_inset
 
- GitHub workflow will fail if these conditions are not met.
+ GitHub Actions workflow will fail if these conditions are not met.
 \end_layout
 
 \begin_layout Standard
-It is acceptable for new code to include additional disable annotations for cases where the linter output is not helpful,
- or where the refactoring it implies would actually make things worse.
+It is acceptable for new code to include additional disable annotations for cases where the linter warnings do not improve code quality,
+ or where the refactoring implied would actually make things worse.
 \end_layout
 
 \begin_layout Subsection
@@ -29528,6 +29541,12 @@ pyright
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Commit-Messages,-Keywords"
+
+\end_inset
+
 Commit Messages,
  Keywords and The DCO
 \end_layout
@@ -29535,7 +29554,394 @@ Commit Messages,
 \begin_layout Standard
 Commit messages should be clear,
  concise and helpful to readers five years or more in the future.
- All commits should include appropriate GitHub 
+ We use a specific format for commit subjects:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+thing:
+ what has changed
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+thing
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ is the part of the code base that is being modified —
+ normally this should be the name of the module or package that is being changed,
+ minus any leading package components and underscores (so 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+manager
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ rather than 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.manager._manager
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ which is a bit of a mouthful,
+ and 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+fsdiff
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ rather than 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.fsdiff
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+).
+ We have a handful of special 
+\begin_inset Quotes bld
+\end_inset
+
+things
+\begin_inset Quotes brd
+\end_inset
+
+ that are used for specific areas of the source tree:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+doc
+\end_layout
+
+\end_inset
+
+ —
+ anything in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+doc/
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+man/
+\end_layout
+
+\end_inset
+
+,
+ or the top level 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AI_POLICY.md
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+CONTRIBUTING.md
+\end_layout
+
+\end_inset
+
+,
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+README.md
+\end_layout
+
+\end_inset
+
+ files
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+test
+\end_layout
+
+\end_inset
+
+ —
+ anything in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+container_tests/
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+tests/
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+virt_tests/
+\end_layout
+
+\end_inset
+
+,
+ or 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+.github/workflows
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+dist
+\end_layout
+
+\end_inset
+
+ —
+ distribution artefacts:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+pyproject.toml
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+requirements.txt
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+setup.{cfg,py}
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm.spec
+\end_layout
+
+\end_inset
+
+,
+ and anything in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+etc/
+\end_layout
+
+\end_inset
+
+,
+ or 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+systemd/
+\end_layout
+
+\end_inset
+
+ if you are 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+just
+\end_layout
+
+\end_inset
+
+ changing a file in that directory —
+ otherwise commit the change to these paths along with the code change that motivated it.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+scripts
+\end_layout
+
+\end_inset
+
+ —
+ example and helper scripts in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+scripts/
+\end_layout
+
+\end_inset
+
+ directory
+\end_layout
+
+\begin_layout Standard
+Often the commit subject can be the same as the GitHub issue that it closes - we encourage this and it's perfectly fine to use the same (or similar) text for the issue description and commit message body.
+ Equally,
+ if the initial issue report was uncertain,
+ hazy,
+ or if the scope expanded or changed while it was being worked on it's completely fine to diverge from the issue text in the commit message (although it can be helpful in these cases to update the issue and its description,
+ making use of the 
+\strikeout on
+strikethrough
+\strikeout default
+ markup where appropriate).
+\end_layout
+
+\begin_layout Standard
+All commits should include appropriate GitHub 
 \begin_inset Quotes bld
 \end_inset
 
@@ -29547,11 +29953,19 @@ closing keywords
 \begin_inset Quotes bld
 \end_inset
 
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
 Resolves:
  #
 \nospellcheck on
 NNN
-\nospellcheck default
+\end_layout
+
+\end_inset
+
 
 \begin_inset Quotes brd
 \end_inset
@@ -29570,7 +29984,14 @@ Signed-off-by
 \end_inset
 
  is required for all commits.
- See 
+ If you are not familiar with this practice refer to:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Flex URL
 status open
 
@@ -29581,7 +30002,22 @@ https://developercertificate.org/
 
 \end_inset
 
- and 
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Flex URL
 status open
 
@@ -29592,8 +30028,15 @@ https://en.wikipedia.org/wiki/Developer_Certificate_of_Origin
 
 \end_inset
 
- for more information if you are not familiar with this practice.
- Essentially it is a declaration that you are allowed to make the contribution and that the project has the right to distribute it under its license (currently the Apache License version 2.0).
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essentially it is a declaration that you are allowed to make the contribution and that the project has the right to distribute it under its license (currently the Apache License version 2.0).
 \end_layout
 
 \begin_layout Subsection
@@ -29609,6 +30052,10 @@ All new modules,
  return values,
  and return types.
  See the Sphinx tutorial for further information:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -29650,10 +30097,17 @@ Policy on AI Coding Tools
 \end_layout
 
 \begin_layout Standard
-The project welcomes contributions made with the assistance of AI coding assistants and agents as long as they meet all the normal criteria for correctness,
+The project welcomes contributions made with the assistance of AI coding assistants,
+ agents,
+ and other generative AI tools,
+ as long as they meet all the normal criteria for correctness,
  clarity,
  formatting and so on.
  If you do use AI assistants to write meaningful volumes of code we prefer that you make this clear by including text like the following in your commit message:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -29665,6 +30119,10 @@ Assisted-by:
  Some AI Tool https://someai.example.com
 \end_layout
 
+\end_inset
+
+
+\begin_inset VSpace defskip
 \end_inset
 
 
@@ -29681,7 +30139,10 @@ Some AI Tool
 
  and the address with the name and URL of whatever tool you used.
  The Assisted-by tag should immediately precede your DCO on a separate line.
- This helps the maintainers to understand where the changes came from and to track them over time.
+\end_layout
+
+\begin_layout Standard
+This helps the maintainers to understand where the changes came from and to track them over time.
  Inspect the current 
 \begin_inset Flex Code
 status open
@@ -29705,6 +30166,10 @@ Opening a Pull Request
 
 \begin_layout Standard
 Pull requests should be opened in the main Snapshot Manager GitHub repository at:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -29719,6 +30184,28 @@ https://github.com/snapshotmanager/snapm/pulls
 \end_inset
 
 
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We use the same structure and tagging approach for pull request descriptions as we do for commit messages:
+ we find this helps to keep everything uniform,
+ and makes tracking things down easier in the future.
+ Refer to subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Commit-Messages,-Keywords"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ for more details and a list of special tag values we encourage you to use.
 \end_layout
 
 \begin_layout Standard
@@ -29777,7 +30264,7 @@ https://coderabbit.ai/
  Much of what it suggests is helpful.
  If it is talking nonsense:
  tell it.
- We find that the tool responds well to clear feedback and learns from its mistakes.
+ We find that the tool responds well to clear feedback and learns from its mistakes (most of the time).
 \end_layout
 
 \begin_layout Itemize
