@@ -12097,7 +12097,7 @@ snapm
 
 \end_inset
 
- defaults to a maximum of seven snapshots per LVM2 CoW origin device.
+ defaults to a maximum of five snapshots per LVM2 CoW origin device.
  Even that is pushing it a little.
  To find out how to raise or lower this limit refer to section 
 \begin_inset CommandInset ref
@@ -12789,7 +12789,7 @@ vgextend(8)
 \end_layout
 
 \begin_layout Standard
-Note however that you will by default be limited to no more than seven snapshots per origin volume as noted in 
+Note however that you will by default be limited to no more than five snapshots per origin volume as noted in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:LVM2-CoW"
@@ -20396,7 +20396,7 @@ status open
 \begin_inset Newline newline
 \end_inset
 
-MaxSnapshotsPerOrigin = 7
+MaxSnapshotsPerOrigin = 5
 \begin_inset Newline newline
 \end_inset
 
@@ -20739,7 +20739,7 @@ diff a/etc/snapm/plugins.d/lvm2-cow.conf b/etc/snapm/plugins.d/lvm2-cow.conf
 \begin_inset space ~
 \end_inset
 
-MaxSnapshotsPerOrigin = 7
+MaxSnapshotsPerOrigin = 5
 \begin_inset Newline newline
 \end_inset
 
