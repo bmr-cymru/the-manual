@@ -16528,6 +16528,12 @@ Post Processing With Other Tools
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:The-diffcache"
+
+\end_inset
+
 The 
 \begin_inset Flex Code
 status open
@@ -19468,7 +19474,11 @@ rpm(8)
  or deliberate tampering by malicious actors).
  Stronger results can be obtained by the use of external databases on read only media,
  but,
- for every day state check-ups and confirmation it is still a useful and powerful tool.
+ for every day state 
+\nospellcheck on
+check-ups
+\nospellcheck default
+ and confirmation it is still a useful and powerful tool.
 \end_layout
 
 \begin_layout Standard
@@ -22614,7 +22624,11 @@ status open
 
 \begin_layout Plain Layout
 Design Patterns:
- Elements of Reusable Object-Oriented Software,
+ Elements of Reusable 
+\nospellcheck on
+Object-Oriented
+\nospellcheck default
+ Software,
  Gamma,
  Helm,
  Johnson,
@@ -22629,6 +22643,13 @@ Design Patterns:
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Manager"
+
+\end_inset
+
+
 \begin_inset Flex Code
 status open
 
@@ -29068,7 +29089,15 @@ Good First Issue
 
 \end_inset
 
- label in our GitHub repositories - issues with this label range from trivial docstring fixes and clean-ups to more in-depth and challenging problems but they are all fairly self-contained and do not require deep expertise or knowledge of the entire code base.
+ label in our GitHub repositories - issues with this label range from trivial docstring fixes and 
+\nospellcheck on
+clean-ups
+\nospellcheck default
+ to more 
+\nospellcheck on
+in-depth
+\nospellcheck default
+ and challenging problems but they are all fairly self-contained and do not require deep expertise or knowledge of the entire code base.
  We are happy to offer assistance and advice to anyone interested in picking these up —
  comment on the issue itself,
  or send us an email to get the conversation started.
@@ -29934,8 +29963,10 @@ Often the commit subject can be the same as the GitHub issue that it closes - we
  hazy,
  or if the scope expanded or changed while it was being worked on it's completely fine to diverge from the issue text in the commit message (although it can be helpful in these cases to update the issue and its description,
  making use of the 
+\nospellcheck on
 \strikeout on
 strikethrough
+\nospellcheck default
 \strikeout default
  markup where appropriate).
 \end_layout
@@ -30906,7 +30937,11 @@ cp(1)
 
 \end_inset
 
-) but these snapshot-like file system objects are not managed by 
+) but these 
+\nospellcheck on
+snapshot-like
+\nospellcheck default
+ file system objects are not managed by 
 \begin_inset Flex Code
 status open
 
@@ -30949,7 +30984,11 @@ A:
 \end_inset
 
  Yes.
- Snapshot sets are by default created in read-write mode and can be modified when mounted subject to normal file system permission checks.
+ Snapshot sets are by default created in 
+\nospellcheck on
+read-write
+\nospellcheck default
+ mode and can be modified when mounted subject to normal file system permission checks.
 \begin_inset Newline newline
 \end_inset
 
@@ -31028,7 +31067,9 @@ merge
 \end_layout
 
 \begin_layout Section
-Scheduling & Clean-up
+Scheduling & 
+\nospellcheck on
+Clean-up
 \end_layout
 
 \begin_layout Standard
@@ -32237,7 +32278,11 @@ major
 
 plans:
  we have plenty more fixes,
- minor enhancements and clean-ups in the pipeline.
+ minor enhancements and 
+\nospellcheck on
+clean-ups
+\nospellcheck default
+ in the pipeline.
  Browse our issue tracker with the 
 \begin_inset Quotes bld
 \end_inset
@@ -32954,7 +32999,7 @@ All statements are in some sense true,
 \end_layout
 
 \begin_layout Section
-Files and Directories in
+Files and Directories in 
 \begin_inset Flex Code
 status open
 
@@ -32981,6 +33026,362 @@ snapm.conf
  global configuration options and syntax
 \end_layout
 
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/etc/snapm/snapm.conf
+\end_layout
+
+\end_inset
+
+ file is the main configuration file for Snapshot Manager.
+ It uses a structure similar to Microsoft Windows INI files,
+ XDG Desktop Entry Specification files,
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+systemd
+\end_layout
+
+\end_inset
+
+ configuration syntax.
+ It is parsed by the Python 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ConfigParser
+\end_layout
+
+\end_inset
+
+ module and currently supports two sections each with one key.
+\end_layout
+
+\begin_layout Subsubsection
+Global
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Global 
+\end_layout
+
+\end_inset
+
+ section contains keys that affect the entire 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Manager
+\end_layout
+
+\end_inset
+
+ context used by Snapshot Manager (the central orchestrator responsible for discovering and managing plugins,
+ schedules,
+ and snapshot sets —
+ see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Manager"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ for a detailed description).
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The section currently supports a single configuration key:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DisablePlugins
+\end_layout
+
+\end_inset
+
+ —
+ a string containing a comma separated list of plugins that Snapshot Manager should ignore.
+ Snapshots managed by disabled plugins will not be visible to the program and will not be operated upon when issuing snapshot set commands.
+ For example:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+[Global]
+\begin_inset Newline newline
+\end_inset
+
+DisablePlugins = lvm2-cow,
+ stratis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Would disable both the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvm2-cow
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+stratis
+\end_layout
+
+\end_inset
+
+ plugins.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Boot
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Boot
+\end_layout
+
+\end_inset
+
+ section contains keys that affect Snapshot Manager's integration with the Boom Boot Manager.
+ The section currently supports a single configuration key:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DefaultProfileOptions
+\end_layout
+
+\end_inset
+
+—
+ a string containing a Boom Boot Manager 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+OsProfile
+\end_layout
+
+\end_inset
+
+ options template used to generate kernel command line strings for snapshot and revert boot entries.
+ Refer to the section 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+OS Profiles and Boot Entries
+\end_layout
+
+\end_inset
+
+ and the description of the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+--os-options
+\end_layout
+
+\end_inset
+
+ command line argument in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom(8)
+\end_layout
+
+\end_inset
+
+ for a more complete description.
+ Snapshot Manager passes this value to 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ if it needs to create an 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+OsProfile
+\end_layout
+
+\end_inset
+
+ because no matching profile exists on the machine where 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ is running.
+ For example:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+[Boot]
+\begin_inset Newline newline
+\end_inset
+
+DefaultProfileOptions = root=%{root_device} ro %{root_opts}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that by default 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boom
+\end_layout
+
+\end_inset
+
+ automatically detects the necessary kernel command line from the running system:
+ only use this configuration key if you have special requirements that are not met by the default auto detection.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 \begin_inset Flex Code
 status open
@@ -32992,9 +33393,450 @@ plugins.d/
 \end_inset
 
 :
- per-plugin configuration files,
- naming convention,
- available options
+ Per-plugin Configuration Files
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/etc/snapm/plugins.d
+\end_layout
+
+\end_inset
+
+ directory contains per-plugin configuration files.
+ Each file is named for the plugin it configures (as output by the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm plugin list
+\end_layout
+
+\end_inset
+
+ command),
+ with the extension 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+.conf
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ appended.
+ The file contains two possible sections:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Limits
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Priority
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Plugin Limits
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Limits
+\end_layout
+
+\end_inset
+
+ section can contain two possible keys that direct plugins to apply limits when creating snapshots.
+ If a limit is exceeded when creating a new snapshot set the plugin will refuse the operation and snapshot set creation will fail with an appropriate error message.
+ Limits that are not relevant to a particular plugin are ignored (for example,
+ the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MaxSnapshotsPerPool
+\end_layout
+
+\end_inset
+
+ limit when applied to the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvm2-cow
+\end_layout
+
+\end_inset
+
+ plugin that does not support thin provisioning pools).
+ The plugins supporting each limit are listed in parentheses after the corresponding limit description.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MaxSnapshotsPerOrigin
+\end_layout
+
+\end_inset
+
+ —
+ the maximum number of snapshots to allow per 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+dm-snapshot
+\end_layout
+
+\end_inset
+
+ origin device (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvm2-cow
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+MaxSnapshotsPerPool
+\end_layout
+
+\end_inset
+
+ —
+ the maximum number of snapshots to allow per 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+dm-thin-pool
+\end_layout
+
+\end_inset
+
+ thin provisioning pool (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvm2-thin
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+stratis
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+For example:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+[Limits]
+\begin_inset Newline newline
+\end_inset
+
+MaxSnapshotsPerOrigin = 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Plugin Priority
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Priority
+\end_layout
+
+\end_inset
+
+ section allows the administrator to adjust the builtin priority values for Snapshot Manager provider plugins.
+ The section currently accepts a single key:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+PluginPriority
+\end_layout
+
+\end_inset
+
+ —
+ a nonnegative integer priority level for this plugin
+\end_layout
+
+\begin_layout Standard
+Each plugin has a static priority assigned by the plugin developers.
+ In the case that more than one plugin is capable of taking a snapshot of a given source the plugin with the greatest numerical priority is chosen.
+ The default priorities are:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvm2-cow
+\end_layout
+
+\end_inset
+
+:
+ 10
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lvm2-thin
+\end_layout
+
+\end_inset
+
+:
+ 15
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+stratis
+\end_layout
+
+\end_inset
+
+:
+ 20
+\end_layout
+
+\begin_layout Standard
+To override the priority for a plugin edit the corresponding file in `
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/etc/plugins.d
+\end_layout
+
+\end_inset
+
+` and set the value of the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+PluginPriority
+\end_layout
+
+\end_inset
+
+ key to the required value.
+ For example:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+[Priority]
+\begin_inset Newline newline
+\end_inset
+
+PluginPriority = 23
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that it is an error to assign the same priority level to two or more plugins that are capable of taking snapshots of the same source.
+ If this happens Snapshot Manager will refuse to create a snaphot set and will display an error message in the form:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ERROR - Command failed:
+ Multiple providers with priority NN:
+ plugin-one,plugin-two
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -33008,9 +33850,1542 @@ schedule.d/
 \end_inset
 
 :
- schedule definition files,
- schema reference,
- required and optional fields
+ Schedule Definition Files
+\end_layout
+
+\begin_layout Standard
+The directory 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/etc/snapm/schedule.d
+\end_layout
+
+\end_inset
+
+ contains definitions for snapshot set schedules that have been configured on the local machine.
+ The files in the directory are named for the schedule they represent,
+ with the extension 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+.json
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ appended.
+ The presence of a file in this path does not mean that a given schedule is active - see chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:The-Scheduler"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ for detailed information on creating,
+ deleting,
+ enabling,
+ and disabling schedules.
+\end_layout
+
+\begin_layout Standard
+The files in this directory are in JSON notation and include the parameters to be used when creating and garbage collecting scheduled snapshot sets.
+ Each file contains a single JSON object describing the schedule and its garbage collection policy.
+\end_layout
+
+\begin_layout Standard
+The top level keys are as follows:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+name
+\end_layout
+
+\end_inset
+
+ —
+ A string representing the name of the schedule
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+sources
+\end_layout
+
+\end_inset
+
+ —
+ A JSON list containing strings describing the sources to include in snapshot sets created by this schedule
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+default_size_policy
+\end_layout
+
+\end_inset
+
+ —
+ A string containing the default size policy to use for sources that do not include an explicit size policy
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+autoindex
+\end_layout
+
+\end_inset
+
+ —
+ A boolean that determines whether to enable auto index names for this schedule.
+ This value is always 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+true
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ in the schedules that Snapshot Manager creates.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+calendarspec
+\end_layout
+
+\end_inset
+
+ —
+ A string calendar specification in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+systemd.time(5)
+\end_layout
+
+\end_inset
+
+ calendar event notation
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+boot
+\end_layout
+
+\end_inset
+
+ —
+ A boolean indicating whether to create snapshot boot entries for snapshot sets created by this schedule
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+revert
+\end_layout
+
+\end_inset
+
+ —
+ A boolean indicating whether to create fail safe revert boot entries for snapshot sets created by this schedule
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+gc_policy
+\end_layout
+
+\end_inset
+
+ —
+ A JSON object describing the configured garbage collection policy and its parameters:
+ see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Garbage-Collection-Policies-JSON"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Garbage-Collection-Policies-JSON"
+
+\end_inset
+
+Garbage Collection Policies
+\end_layout
+
+\begin_layout Standard
+Schedule garbage collection policies are specified in a separate JSON object under the top level 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+gc_policy
+\end_layout
+
+\end_inset
+
+ key.
+ The structure of the policy object is specific to the type of garbage collection policy in effect (All,
+ Count,
+ Age,
+ Timeline) but they all share a similar format:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+policy_name
+\end_layout
+
+\end_inset
+
+ —
+ A string giving the name of the garbage collection policy.
+ Normally this has the same value as the 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+name
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ key in the containing schedule
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+policy_type
+\end_layout
+
+\end_inset
+
+ —
+ A upper case string naming the garbage collection policy type.
+ One of:
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ALL
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+COUNT
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AGE
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TIMELINE
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_*
+\end_layout
+
+\end_inset
+
+ —
+ 
+\nospellcheck on
+Policy-specific
+\nospellcheck default
+ retention parameters
+\end_layout
+
+\begin_layout Standard
+For details on the behaviour of the different garbage collection policy types refer to chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Garbage-Collection"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Quotes bld
+\end_inset
+
+All
+\begin_inset Quotes brd
+\end_inset
+
+ Garbage Collection Policy Parameters
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Quotes bld
+\end_inset
+
+All
+\begin_inset Quotes brd
+\end_inset
+
+ garbage collection policy does not automatically remove snapshot sets and accepts no parameters.
+ The JSON object for the 
+\begin_inset Quotes bld
+\end_inset
+
+All
+\begin_inset Quotes brd
+\end_inset
+
+ policy is always:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+{
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"policy_name":
+ "sched-name",
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"policy_type":
+ "ALL"
+\begin_inset Newline newline
+\end_inset
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+Where 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+sched-name
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ is replaced with the name of the containing schedule.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Quotes bld
+\end_inset
+
+Count
+\begin_inset Quotes brd
+\end_inset
+
+ Garbage Collection Policy Parameters
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Quotes bld
+\end_inset
+
+Count
+\begin_inset Quotes brd
+\end_inset
+
+ garbage collection policy accepts a single retention parameter:
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_count
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+.
+ The value is a positive integer encoded as a JSON number.
+ For example:
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+{
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"policy_name":
+ "sched-name",
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"policy_type":
+ "COUNT",
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_count":
+ 7
+\begin_inset Newline newline
+\end_inset
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Quotes bld
+\end_inset
+
+Age
+\begin_inset Quotes brd
+\end_inset
+
+ Garbage Collection Policy Parameters
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Quotes bld
+\end_inset
+
+Age
+\begin_inset Quotes brd
+\end_inset
+
+ garbage collection policy accepts four parameters:
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_years
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_months
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_weeks
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ and 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_days
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+.
+ The value for each parameter is a nonnegative integer encoded as a JSON number.
+ For example:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+{
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"policy_name":
+ "sched-name",
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"policy_type":
+ "AGE",
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_years":
+ 0,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_months":
+ 0,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_weeks":
+ 0,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_days":
+ 14
+\begin_inset Newline newline
+\end_inset
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Quotes bld
+\end_inset
+
+Timeline
+\begin_inset Quotes brd
+\end_inset
+
+ Garbage Collection Policy Parameters
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Quotes bld
+\end_inset
+
+Timeline
+\begin_inset Quotes brd
+\end_inset
+
+ garbage collection policy accepts six parameters:
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_yearly
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_quarterly
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_monthly
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_weekly
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_daily
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+,
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+keep_hourly
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+.
+ The value for each parameter is a nonnegative integer encoded as a JSON number.
+ For example:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+{
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"policy_name":
+ "hourly",
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"policy_type":
+ "TIMELINE",
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_yearly":
+ 1,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_quarterly":
+ 0,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_monthly":
+ 3,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_weekly":
+ 2,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_daily":
+ 7,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom HPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+"keep_hourly":
+ 6
+\begin_inset Newline newline
+\end_inset
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -33027,6 +35402,21 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+Snapshot Manager stores runtime state files in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/run
+\end_layout
+
+\end_inset
+
+ directory hierarchy.
+ It is also the location under which snapshot set mount points are created.
+\end_layout
+
 \begin_layout Subsection
 \begin_inset Flex Code
 status open
@@ -33039,6 +35429,79 @@ snapm/lock
 
 :
  Lock Files
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ orchestrator serialises operations by obtaining locks on files in the 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/run/snapm/lock
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ directory.
+ These files are managed internally and the manager checks for stale files during start up and cleans them up automatically.
+\end_layout
+
+\begin_layout Standard
+There should be no need for the administrator to modify or remove files in this directory (and doing so while an instance of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ is running may introduce the possibility of race conditions if another instance is started concurrently).
+\end_layout
+
+\begin_layout Standard
+This path is maintained via a 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+systemd-tmpfiles
+\end_layout
+
+\end_inset
+
+ drop-in configuration file.
+ Its mode should be 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+0700
+\end_layout
+
+\end_inset
+
+ and it should be owned by the root user and group.
+ The orchestrator will refuse to start if these conditions cannot be met for any reason.
 \end_layout
 
 \begin_layout Subsection
@@ -33055,6 +35518,65 @@ snapm/mounts/
  Snapset Mount Points
 \end_layout
 
+\begin_layout Standard
+Mount points for snapshot sets mounted with the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapset mount
+\end_layout
+
+\end_inset
+
+ subcommand appear under the directory 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/run/snapm/mounts
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+.
+ The mount point for a given snapshot set takes the snapshot set name as its path name.
+\end_layout
+
+\begin_layout Standard
+This path is maintained via a 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+systemd-tmpfiles
+\end_layout
+
+\end_inset
+
+ drop-in configuration file.
+ Its mode should be 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+0700
+\end_layout
+
+\end_inset
+
+ and it should be owned by the root user and group.
+ The orchestrator will refuse to start if these conditions cannot be met for any reason.
+\end_layout
+
 \begin_layout Section
 Files and Directories in 
 \begin_inset Flex Code
@@ -33067,6 +35589,70 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Snapshot Manager stores persistent state files in the 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/var
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ directory hierarchy.
+ Currently this is limited to the Difference Engine 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+diffcache
+\end_layout
+
+\end_inset
+
+ (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:The-diffcache"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ for further information on the cached and its use with the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapset diff
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapset diffreport
+\end_layout
+
+\end_inset
+
+ commands).
 \end_layout
 
 \begin_layout Subsection
@@ -33083,8 +35669,230 @@ cache/snapm/diffcache
  Difference Engine Cache
 \end_layout
 
+\begin_layout Standard
+Files in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/var/cache/snapm/diffcache
+\end_layout
+
+\end_inset
+
+ contain serialised diff results generated by the difference engine.
+ The data is compressed with either the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lzma
+\end_layout
+
+\end_inset
+
+ module from the Python standard library (file extension 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+*.xz
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+),
+ or the Python 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+zstandard
+\end_layout
+
+\end_inset
+
+ library if it is available (file extension 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+*.zst
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The path name for files in the diffcache is structured in the following format:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+{UUID_A}.{UUID_B}.{OPTIONS_HASH}.{TIMESTAMP}.cache.{xz,zst}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+UUID_A
+\end_layout
+
+\end_inset
+
+ —
+ The UUID of the first snapshot set in the comparison in hexadecimal encoded textual 8-4-4-4-12 format
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+UUID_B
+\end_layout
+
+\end_inset
+
+ —
+ The UUID of the second snapshot set in the comparison in hexadecimal encoded textual 8-4-4-4-12 format
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+OPTIONS_HASH
+\end_layout
+
+\end_inset
+
+ —
+ An opaque integer hash of the options used to generate the difference records in the cache file
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TIMESTAMP
+\end_layout
+
+\end_inset
+
+ —
+ A UNIX epoch timestamp value indicating the creation time of the cache file
+\end_layout
+
+\begin_layout Itemize
+{
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xz
+\end_layout
+
+\end_inset
+
+,
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+zst
+\end_layout
+
+\end_inset
+
+} —
+ The extension indicating the compression type for the cache file
+\end_layout
+
 \begin_layout Subsubsection
-Location and Format
+Format
+\end_layout
+
+\begin_layout Standard
+Internally the cache is structured as an array of Python 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+pickle
+\end_layout
+
+\end_inset
+
+ records representing the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffResults
+\end_layout
+
+\end_inset
+
+ contained in the cache:
+ an initial,
+ empty,
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffResults
+\end_layout
+
+\end_inset
+
+ instance as a header that describes the number of records in the remainder of the cache file,
+ followed by zero or more 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+FsDiffRecord
+\end_layout
+
+\end_inset
+
+ instances (including their associated internal object instances).
 \end_layout
 
 \begin_layout Chapter
