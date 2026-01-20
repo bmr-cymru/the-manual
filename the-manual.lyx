@@ -24380,7 +24380,7 @@ filetypes
 \end_inset
 
  —
- Static (path name and file extension based) and dynamic (using 
+ extrinsic (path name and file extension based) and intrinsic (using 
 \begin_inset Flex Code
 status open
 
