@@ -5482,7 +5482,9 @@ snapm
 \end_layout
 
 \begin_layout Standard
-Some familiarity with your storage stack's management tools (whether that's 
+Some familiarity with your storage stack's management tools will help when it comes to planning,
+ monitoring,
+ and finding your way around (whether that's 
 \begin_inset Flex Code
 status open
 
@@ -5524,9 +5526,7 @@ stratis(8)
 
 \end_inset
 
- command line tool for Stratis storage) will help when it comes to planning,
- monitoring,
- and finding your way around.
+ command line tool for Stratis storage).
 \begin_inset Newline newline
 \end_inset
 
@@ -5795,7 +5795,7 @@ snapm
 
 \end_inset
 
- already stores the creation time of the snapshot set as a UNIX epoch value and renders it as human readable date and time strings in the local time zone.
+ already stores the creation time of the snapshot set as a UNIX epoch timestamp value and renders it as human readable date and time strings in the local time zone.
 \end_layout
 
 \begin_layout Enumerate
