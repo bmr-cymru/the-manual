@@ -5321,7 +5321,7 @@ block devices
 
 \begin_layout Section
 Choosing Sources:
- First Things to know.
+ First Things to know
 \end_layout
 
 \begin_layout Standard
@@ -5575,7 +5575,7 @@ blkid(8)
 
  will also be an advantage —
  refer to the respective manual pages for more details,
- or refer to one of the many great Linux systems administration tutorials available on the internet.
+ or check out one of the many great Linux systems administration tutorials available on the internet.
 \end_layout
 
 \begin_layout Section
@@ -5827,9 +5827,17 @@ Aim for memorable and meaningful names:
 \end_inset
 
 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+
 \nospellcheck on
 quux-foo-backup
-\nospellcheck default
+\end_layout
+
+\end_inset
+
 
 \begin_inset Quotes brd
 \end_inset
@@ -6613,7 +6621,44 @@ Autoactivate
 \end_inset
 
  —
- whether automatic boot time activation is enabled for this snapshot set
+ whether automatic boot time activation is enabled for this snapshot set:
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ or 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -6627,7 +6672,44 @@ OriginMounted
 \end_inset
 
  —
- the mount status of this snapshot set's origin devices
+ the mount status of this snapshot set's origin devices:
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ or 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -6641,7 +6723,44 @@ Mounted
 \end_inset
 
  —
- the mount status of this snapshot set
+ the mount status of this snapshot set:
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ or 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -6665,7 +6784,44 @@ boom(8)
 
 \end_inset
 
- boot entries or not
+ boot entries or not:
+ 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ or 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7851,6 +8007,408 @@ snapm snapset resize
 \end_inset
 
  command to apply new size policies to an already created snapshot set.
+\end_layout
+
+\begin_layout Section
+Visualizing Changes
+\end_layout
+
+\begin_layout Standard
+Before we conclude let's take a look at some of the advanced features in recent versions of 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+.
+ For this part of the exercise,
+ it helps if you can make some small change to the system.
+ We will assume that your snapshot set included the root file system in this example but if that isn't the case you can adjust the paths used accordingly.
+ We suggest creating a single new file —
+ something simple made with the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+echo
+\end_layout
+
+\end_inset
+
+ command is perfectly fine for our purposes:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+# echo "Something changed!" > /etc/my-new-file.conf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now that you have a definitive change in the file system state,
+ use the `snapm snapset diff` command to view it:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+# snapm snapset diff my-first-set .
+ -s /etc -i /etc/my-new-file.conf
+\begin_inset Newline newline
+\end_inset
+
+Gathering paths from my-first-set /etc:
+ found 1879 paths
+\begin_inset Newline newline
+\end_inset
+
+Scanned 1879 paths in 0:00:00.784354 (excluded 0)
+\begin_inset Newline newline
+\end_inset
+
+Gathering paths from System Root /etc:
+ found 1880 paths
+\begin_inset Newline newline
+\end_inset
+
+Scanned 1880 paths in 0:00:00.539372 (excluded 0)
+\begin_inset Newline newline
+\end_inset
+
+Found 7 differences in 0:00:00.012717
+\begin_inset Newline newline
+\end_inset
+
+Found 0 moves in 0:00:00.004574
+\begin_inset Newline newline
+\end_inset
+
+Saved 7 records to diffcache in 0:00:00.014500
+\begin_inset Newline newline
+\end_inset
+
+Built tree with 7 nodes
+\begin_inset Newline newline
+\end_inset
+
+/
+\begin_inset Newline newline
+\end_inset
+
+└── [*] etc
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Phantom Phantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+└── [+] my-new-file.conf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+my-new-file.conf
+\end_layout
+
+\end_inset
+
+` appears with the 
+\color red
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+
+\color red
+[+]
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ annotation (in red if your terminal supports color output) indicating that it is a new file system entry added since 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+my-first-set
+\end_layout
+
+\end_inset
+
+ was created.
+\end_layout
+
+\begin_layout Standard
+To see the exact change in the file content you can use the `-o/--output-format diff` option of the `snapm snapset diff` command:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+# snapm snapset diff my-first-set .
+ -o diff -s /etc -i /etc/my-new-file.conf
+\begin_inset Newline newline
+\end_inset
+
+Loaded 1 records from diffcache in 0:00:00.000226
+\begin_inset Newline newline
+\end_inset
+
+Found 1 content differences
+\begin_inset Newline newline
+\end_inset
+
+diff a/etc/my-new-file.conf b/etc/my-new-file.conf
+\begin_inset Newline newline
+\end_inset
+
+new file mode 0o100644
+\begin_inset Newline newline
+\end_inset
+
+--- /dev/null 
+\begin_inset Newline newline
+\end_inset
+
++++ b/etc/my-new-file.conf 2026-01-20 16:59:42.257636
+\begin_inset Newline newline
+\end_inset
+
+@@ -0,0 +1 @@
+\begin_inset Newline newline
+\end_inset
+
++Something changed!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are two key details to notice here:
+\end_layout
+
+\begin_layout Standard
+* The 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-o diff
+\end_layout
+
+\end_inset
+
+ output is displayed in 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+unified diff
+\end_layout
+
+\end_inset
+
+ format (again with color coding if your terminal supports that)
+\end_layout
+
+\begin_layout Standard
+* The results appear quickly when the second command is run.
+ This is because the differences from the first run are cached and reused.
+\end_layout
+
+\begin_layout Standard
+If you would like to clean up the snapshot set on your system,
+ use the `snapm snapset delete` command:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+# snapm snapset delete my-first-set
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
