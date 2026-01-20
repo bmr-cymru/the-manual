@@ -31406,7 +31406,7 @@ how long is a piece of string?
  question:
  the precise answer depends on the amount of change that occurs to the origin volume or the snapshot during its lifespan.
  Snapshot Manager defaults to allocating twice the space currently used on a mounted file system,
- or half the size of block devices when creating snapshot sets,
+ or one quarter the size of block devices when creating snapshot sets,
  but if you have a better estimate then these values should be adjusted for your particular circumstances.
 \begin_inset Newline newline
 \end_inset
@@ -31564,7 +31564,17 @@ Q:
 
 \end_inset
 
- Why does my snapshot set show as "Reverting" and how long will it take?
+ Why does my snapshot set show as "
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Reverting
+\end_layout
+
+\end_inset
+
+" and how long will it take?
 \begin_inset Newline newline
 \end_inset
 
@@ -32585,7 +32595,7 @@ A:
 
 \end_inset
 
- First check the snapshot is not 
+ First check the snapshot set is not 
 \begin_inset Flex Emph
 status open
 
@@ -32680,7 +32690,27 @@ Q:
 
 \end_inset
 
- My diff command is taking forever —
+ My 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diff
+\end_layout
+
+\end_inset
+
+ or 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+diffreport
+\end_layout
+
+\end_inset
+
+ command is taking forever —
  is this normal?
 \begin_inset Newline newline
 \end_inset
