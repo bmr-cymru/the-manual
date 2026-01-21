@@ -25819,7 +25819,7 @@ Where:
 \end_layout
 
 \begin_layout Paragraph
-\begin_inset Formula $e_{old}∈E∪\left\{ ∅\right\} $
+\begin_inset Formula $e_{old}∈E∪\left\{ \mathit{{null}}\right\} $
 \end_inset
 
  Entry from 
@@ -25830,7 +25830,7 @@ Where:
 \end_layout
 
 \begin_layout Paragraph
-\begin_inset Formula $e_{new}∈E∪\left\{ ∅\right\} $
+\begin_inset Formula $e_{new}∈E∪\left\{ \mathit{{null}}\right\} $
 \end_inset
 
  Entry from 
@@ -25956,11 +25956,23 @@ FsEntry
 \end_inset
 
  encapsulates the metadata and (optionally) content hash of a file system object:
- its type (file,
+ its file system object type
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Regular file,
  directory,
  symbolic link,
- block device,
- etc.),
+ named pipe,
+ socket,
+ character special,
+ or block special
+\end_layout
+
+\end_inset
+
+,
  size,
  mode,
  ownership,
@@ -26202,8 +26214,9 @@ TYPE_CHANGED
 \begin_inset Text
 
 \begin_layout Plain Layout
-The file system object type changed (e.g.,
- file → directory)
+The file system object type changed (file → directory,
+ symlink → file,
+ etc.)
 \end_layout
 
 \end_inset
@@ -26236,7 +26249,37 @@ Correctness over speed
 
  —
  Every genuine change must be detected.
- A missed change could mean silent data loss during a revert.
+ A missed change could mean silent data loss during a revert
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Consider that we fail to notify the user that 
+\begin_inset Quotes bld
+\end_inset
+
+
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/an/important/path
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes brd
+\end_inset
+
+ was modified in the system vs.
+ the snapshot set to which they later revert - the modification would be permanently lost,
+ and they would rightfully blame us for that.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -26340,6 +26383,14 @@ Jaccard index
 status open
 
 \begin_layout Plain Layout
+Jaccard,
+ Paul (February 1912).
+ "The Distribution of the Flora in the Alpine Zone.1".
+ New Phytologist.
+ 11 (2):
+ 37–50.
+ See also:
+ 
 \begin_inset Flex URL
 status open
 
@@ -26381,7 +26432,7 @@ Jaro–Winkler distance
 
 \begin_layout Standard
 The similarity score ranges from 0.0 (completely different) to 1.0 (identical or substring match),
- with the candidate having the highest score selected as the move destination.
+ with a candidate having the highest score selected as the move destination.
 \end_layout
 
 \begin_layout Standard
