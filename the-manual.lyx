@@ -8162,7 +8162,17 @@ status open
 
 \begin_layout Standard
 Now that you have a definitive change in the file system state,
- use the `snapm snapset diff` command to view it:
+ use the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm snapset diff
+\end_layout
+
+\end_inset
+
+ command to view it:
 \begin_inset Newline newline
 \end_inset
 
@@ -8324,7 +8334,27 @@ my-first-set
 \end_layout
 
 \begin_layout Standard
-To see the exact change in the file content you can use the `-o/--output-format diff` option of the `snapm snapset diff` command:
+To see the exact change in the file content you can use the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-o/--output-format diff
+\end_layout
+
+\end_inset
+
+ option of the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm snapset diff
+\end_layout
+
+\end_inset
+
+ command:
 \begin_inset Newline newline
 \end_inset
 
@@ -8439,8 +8469,166 @@ unified diff
 \end_layout
 
 \begin_layout Standard
+To see all the differences found between the snapshot set and the live system,
+ remove the `-i /etc/my-new-file.conf` argument and run the command again:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+# snapm snapset diff my-first-set .
+ -s /etc
+\begin_inset Newline newline
+\end_inset
+
+Gathering paths from my-first-set /etc:
+ found 1879 paths
+\begin_inset Newline newline
+\end_inset
+
+Scanned 1879 paths in 0:00:00.662213 (excluded 0)
+\begin_inset Newline newline
+\end_inset
+
+Gathering paths from System Root /etc:
+ found 1880 paths
+\begin_inset Newline newline
+\end_inset
+
+Scanned 1880 paths in 0:00:00.527266 (excluded 0)
+\begin_inset Newline newline
+\end_inset
+
+Found 7 differences in 0:00:00.012590
+\begin_inset Newline newline
+\end_inset
+
+Found 0 moves in 0:00:00.004542
+\begin_inset Newline newline
+\end_inset
+
+Saved 7 records to diffcache in 0:00:00.014054
+\begin_inset Newline newline
+\end_inset
+
+Built tree with 7 nodes
+\begin_inset Newline newline
+\end_inset
+
+/
+\begin_inset Newline newline
+\end_inset
+
+└── [*] etc
+\begin_inset Newline newline
+\end_inset
+
+├── lvm
+\begin_inset Newline newline
+\end_inset
+
+│ ├── [*] archive
+\begin_inset Newline newline
+\end_inset
+
+│ │ ├── [-] fedora_00018-1908271671.vg
+\begin_inset Newline newline
+\end_inset
+
+│ │ └── [+] fedora_00028-486902226.vg
+\begin_inset Newline newline
+\end_inset
+
+│ └── [*] backup
+\begin_inset Newline newline
+\end_inset
+
+│ └── [*] fedora
+\begin_inset Newline newline
+\end_inset
+
+└── [+] my-new-file.conf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that in this example we see changes in the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/etc/lvm
+\end_layout
+
+\end_inset
+
+ directory:
+ we are using LVM2 on this system and this is a natural consequence of LVM2's default metadata archival and backup settings.
+ Do not be concerned if you see similar changes on your system when trying this out.
+ In this example we also see that the cache is not used - this is because the new 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapset diff
+\end_layout
+
+\end_inset
+
+ command is using different options.
+\end_layout
+
+\begin_layout Standard
 If you would like to clean up the snapshot set on your system,
- use the `snapm snapset delete` command:
+ use the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm snapset delete
+\end_layout
+
+\end_inset
+
+ command:
 \begin_inset Newline newline
 \end_inset
 
