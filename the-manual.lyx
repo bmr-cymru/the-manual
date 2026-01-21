@@ -6938,7 +6938,7 @@ Inactive
 
 \begin_layout Standard
 If you receive an error message instead of the expected output shown above study it carefully to try to understand what it is telling you.
- Most error conditions have a clear error message that explains exactly what is wrong.
+ Most error conditions have a clear message that explains exactly what is wrong.
  The most common error is 
 \begin_inset Quotes bld
 \end_inset
@@ -7962,7 +7962,7 @@ snapm snapset resize
 \begin_layout Standard
 We will discuss more comprehensive monitoring and maintenance strategies in later chapters.
  For now,
- use your regular storage administration tools (whether that is 
+ you can use your regular storage administration tools (whether that is 
 \begin_inset Flex Code
 status open
 
@@ -7983,7 +7983,18 @@ stratis
 
 \end_inset
 
- for Stratis storage) to keep an eye on the space available to your snapshots.
+ for Stratis storage),
+ or the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm snapshot list
+\end_layout
+
+\end_inset
+
+ command to keep an eye on the space available to your snapshots.
  You can resize individual snapshots using the corresponding tool (for example,
  
 \begin_inset Flex Code
