@@ -1275,7 +1275,118 @@ https://en.wikipedia.org/wiki/Binary_prefix
 \end_layout
 
 \begin_layout Standard
+File system permissions (file modes) are specified in octal notation with a leading zero and human readable values in the conventional 
+\begin_inset Quotes bld
+\end_inset
+
+UGO
+\begin_inset Quotes brd
+\end_inset
+
+ style
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+As used by the 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+stat(1)
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+chmod(1)
+\end_layout
+
+\end_inset
+
+ commands.
+\end_layout
+
+\end_inset
+
+ appear in parentheses.
+ For example:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+0644
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+rw-r--r--
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
 URLs and cross-references are hyperlinked and should be clickable in any modern PDF reader.
+\end_layout
+
+\begin_layout Standard
+We will use the terms Snapshot Manager and 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ somewhat interchangeably in this manual.
+ Formally,
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Snapshot Manager
+\end_layout
+
+\end_inset
+
+ refers to the project and its collection of repositories,
+ while 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ (or 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm(8)
+\end_layout
+
+\end_inset
+
+) refers to the command line tool.
 \end_layout
 
 \begin_layout Standard
@@ -1343,55 +1454,6 @@ zee
 \end_inset
 
 ).
- Deal with it.
-\end_layout
-
-\begin_layout Standard
-We will use the terms Snapshot Manager and 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-snapm
-\end_layout
-
-\end_inset
-
- somewhat interchangeably in this manual.
- Formally,
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Snapshot Manager
-\end_layout
-
-\end_inset
-
- refers to the project and its collection of repositories,
- while 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-snapm
-\end_layout
-
-\end_inset
-
- (or 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-snapm(8)
-\end_layout
-
-\end_inset
-
-) refers to the command line tool.
- 
 \end_layout
 
 \begin_layout Chapter
@@ -8021,7 +8083,7 @@ snapm snapset resize
 \end_layout
 
 \begin_layout Section
-Visualizing Changes
+Visualising Changes
 \end_layout
 
 \begin_layout Standard
@@ -33611,6 +33673,52 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+Snapshot Manager configuration files live in 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+/etc/snapm
+\end_layout
+
+\end_inset
+
+.
+ The mode for the directory is 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+0755
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+rwxr-xr-x
+\end_layout
+
+\end_inset
+
+) and files under this directory are world readable by default:
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm
+\end_layout
+
+\end_inset
+
+ does not store any confidential of privileged information in this directory tree.
+\end_layout
+
 \begin_layout Subsection
 \begin_inset Flex Code
 status open
@@ -34484,6 +34592,20 @@ status open
 \end_inset
 
  appended.
+\end_layout
+
+\begin_layout Standard
+Schedule files are normally created and edited using 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+snapm schedule
+\end_layout
+
+\end_inset
+
+ commands.
  The presence of a file in this path does not mean that a given schedule is active - see chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -34539,7 +34661,8 @@ sources
 \end_inset
 
  —
- A JSON list containing strings describing the sources to include in snapshot sets created by this schedule
+ A JSON list containing strings describing the sources to include in snapshot sets created by this schedule:
+ may contain size policy strings
 \end_layout
 
 \begin_layout Itemize
@@ -34600,7 +34723,7 @@ calendarspec
 \end_inset
 
  —
- A string calendar specification in 
+ A string containing a calendar specification in 
 \begin_inset Flex Code
 status open
 
@@ -34743,7 +34866,7 @@ policy_type
 \end_inset
 
  —
- A upper case string naming the garbage collection policy type.
+ An upper case string naming the garbage collection policy type.
  One of:
  
 \begin_inset Quotes bld
@@ -34802,7 +34925,7 @@ AGE
 \end_inset
 
 ,
- 
+ or 
 \begin_inset Quotes bld
 \end_inset
 
@@ -34820,7 +34943,7 @@ TIMELINE
 \begin_inset Quotes brd
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -36060,11 +36183,7 @@ status open
 \end_inset
 
  directory.
- These files are managed internally and the manager checks for stale files during start up and cleans them up automatically.
-\end_layout
-
-\begin_layout Standard
-There should be no need for the administrator to modify or remove files in this directory (and doing so while an instance of 
+ These files are managed internally and there should be no need for the administrator to modify or remove files in this directory (and doing so while an instance of 
 \begin_inset Flex Code
 status open
 
@@ -36099,7 +36218,17 @@ status open
 
 \end_inset
 
- and it should be owned by the root user and group.
+ (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+rwx------
+\end_layout
+
+\end_inset
+
+) and it should be owned by the root user and group.
  The orchestrator will refuse to start if these conditions cannot be met for any reason.
 \end_layout
 
@@ -36172,7 +36301,17 @@ status open
 
 \end_inset
 
- and it should be owned by the root user and group.
+ (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+rwx------
+\end_layout
+
+\end_inset
+
+) and it should be owned by the root user and group.
  The orchestrator will refuse to start if these conditions cannot be met for any reason.
 \end_layout
 
@@ -36279,7 +36418,7 @@ status open
 
 \end_inset
 
- contain serialised diff results generated by the difference engine.
+ contain serialised diff results generated by the Difference Engine.
  The data is compressed with either the 
 \begin_inset Flex Code
 status open
