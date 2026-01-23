@@ -26451,7 +26451,7 @@ _best_sibling_proximity()
 
 \end_inset
 
-) is called at line 110 of the pseudo code representation of 
+) is called at line 119 of the pseudo code representation of 
 \begin_inset Flex Code
 status open
 
@@ -26462,6 +26462,7 @@ compute_diff()
 \end_inset
 
  to tiebreak in the event that multiple candidates exist for a given move source.
+ If after applying the heuristic there are multiple candidates with the same sibling proximity score we arbitrarily choose the first member of the list of winning candidates.
 \end_layout
 
 \begin_layout Subsection
