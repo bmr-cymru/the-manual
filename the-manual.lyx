@@ -4421,7 +4421,7 @@ $ sudo cp systemd/tmpfiles.d/snapm.conf /usr/lib/tmpfiles.d
 \begin_inset Newline newline
 \end_inset
 
-$ sudo systemd-tmpfiles –create /usr/lib/tmpfiles.d/snapm.conf
+$ sudo systemd-tmpfiles -–create /usr/lib/tmpfiles.d/snapm.conf
 \begin_inset Newline newline
 \end_inset
 
