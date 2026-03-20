@@ -8673,7 +8673,25 @@ status open
 \end_layout
 
 \begin_layout Chapter
-Ontology of Snapshots
+Ontology
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Noun:
+ countable,
+ plural ontologies.
+ The branch of metaphysics concerned with the nature of being and of things that exist.
+ In computer science:
+ a structured representation of concepts within a domain,
+ connected by defined relationships —
+ a formal map of what a system knows and is —
+ and how those things relate.
+\end_layout
+
+\end_inset
+
+ of Snapshots
 \end_layout
 
 \begin_layout Quotation
